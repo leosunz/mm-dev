@@ -1,0 +1,21 @@
+<!--<button mat-button (click)="resetPolygons()" color="primary">RESET</button>-->
+<agm-map
+  [latitude]="center.lat"
+  [longitude]="center.lng"
+  (mapReady)="onMapReady($event)"
+  [zoom]="11"
+>
+</agm-map>
+
+<!--<pre>-->
+<!--  userMadePolygonPoints-->
+<!--  {{ userMadePolygonPoints | async | json }}-->
+<!--</pre>-->
+<!--<pre>-->
+<!--  hexagonSets:-->
+<!--  {{ hexagonSets | async | json }}-->
+<!--</pre>-->
+<!--<pre>-->
+<!--  selectedHexagons:-->
+<!--  {{ selectedHexagons | async | json }}-->
+<!--</pre>-->

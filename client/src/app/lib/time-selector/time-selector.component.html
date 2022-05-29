@@ -1,0 +1,29 @@
+<button
+  (click)="notAvailable()"
+  mat-raised-button
+  [color]="
+    selectedHour.value === null && selectedMinutes.value === null
+      ? 'primary'
+      : null
+  "
+>
+  EJ TILLGÄNGLIG
+</button>
+<br />
+<button
+  *ngFor="let h of hours"
+  (click)="selectedHour.next(h)"
+  mat-raised-button
+  [color]="h === selectedHour.value ? 'primary' : null"
+>
+  {{ h.desc }}</button
+><br />
+<button
+  *ngFor="let m of minutes"
+  (click)="selectedMinutes.next(m)"
+  mat-raised-button
+  [disabled]="minuteButtonDisabled(m)"
+  [color]="m === selectedMinutes.value ? 'primary' : null"
+>
+  {{ m.desc }}
+</button>

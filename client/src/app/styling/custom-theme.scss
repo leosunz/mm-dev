@@ -1,0 +1,64 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+@import './colors-car-phone';
+@include mat-core();
+
+
+
+
+
+$mm-primary: mat-palette($primary);
+$mm-accent: mat-palette($accent, A400, A200, A700);
+
+$mm-warn: mat-palette($mat-red);
+$mm-theme: mat-light-theme($mm-primary, $mm-accent, $mm-warn);
+
+@include angular-material-theme($mm-theme);
+
+
+
+// DARK THEME
+//$dark-primary: mat-palette($primary);
+//$dark-accent:  mat-palette($accent);
+//$dark-warn:    mat-palette($mat-deep-orange);
+$dark-theme:   mat-dark-theme($mm-primary, $mm-accent, $mm-warn);
+.mm-dark-theme {
+  @include angular-material-theme($dark-theme);
+}
+
+
+
+$raleway: mat-typography-config(
+  $font-family: 'Raleway, Roboto, monospace',
+  $headline: mat-typography-level(2rem, 3rem, 700),
+  $display-1: mat-typography-level(3.5rem, 4rem, 700),
+  $body-1: mat-typography-level(1rem, 1.5rem, 500)
+);
+@include mat-core($raleway);
+
+$primary: map-get($mm-theme, primary);
+$accent: map-get($mm-theme, accent);
+
+.text-primary {
+  color: mat-color($primary);
+}
+
+.text-accent {
+  color: mat-color($accent, A400);
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+html {
+  font-size: 17px;
+  @media (max-width: 400px) {
+    font-size: 14px;
+  }
+}

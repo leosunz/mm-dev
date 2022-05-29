@@ -1,0 +1,33 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "timeSlots",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "jobs.oil",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "timeSlot",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "timeSlots",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "jobs.tires",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "timeSlot",
+          "order": "ASCENDING"
+        }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}

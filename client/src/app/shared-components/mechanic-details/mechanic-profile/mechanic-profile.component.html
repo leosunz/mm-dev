@@ -1,0 +1,9 @@
+<ng-container *ngIf="profile$ | async; let profile">
+  <ng-container *ngIf="allJobs$ | async; let allJobs">
+    <mm-mechanic-profile-form
+      [initialProfile]="profile"
+      [allJobs]="allJobs"
+      (formSubmit)="onSubmit($event)"
+    ></mm-mechanic-profile-form>
+  </ng-container>
+</ng-container>

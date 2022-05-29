@@ -1,0 +1,52 @@
+<form [formGroup]="fg" (ngSubmit)="onFormSubmit()">
+  <mat-form-field appearance="standard" class="full-width">
+    <mat-label class="placeholder">Namn</mat-label>
+    <input matInput lang="sv-SE" name="name" required formControlName="fullName"
+  /></mat-form-field>
+  <br />
+  <mat-form-field appearance="standard" class="full-width">
+    <mat-label class="placeholder">E-post</mat-label>
+    <input matInput lang="sv-SE" name="email" formControlName="email"
+  /></mat-form-field>
+  <br />
+  <mat-form-field appearance="standard" class="full-width">
+    <mat-label class="placeholder">Telefon</mat-label>
+    <input matInput lang="sv-SE" name="phone" formControlName="phone"
+  /></mat-form-field>
+  <br />
+  <mat-form-field appearance="standard" class="full-width">
+    <mat-label class="placeholder">Adress</mat-label>
+    <input matInput lang="sv-SE" name="address" formControlName="address"
+  /></mat-form-field>
+  <br />
+  <mat-form-field appearance="standard">
+    <mat-label class="placeholder"
+      >Restid till uppdrag (standard 15 min)</mat-label
+    >
+    <input
+      matInput
+      lang="sv-SE"
+      name="travelTime"
+      required
+      formControlName="travelTimeMinutes"
+      type="number"/></mat-form-field
+  ><br />
+
+  <mat-selection-list
+    *ngIf="allJobs"
+    #jobsSelectionList
+    (selectionChange)="
+      onSelectionChange($event, jobsSelectionList.selectedOptions.selected)
+    "
+  >
+    <mat-list-option
+      *ngFor="let job of allJobs"
+      [value]="job.id"
+      [selected]="(selectedJobIds$ | async)?.includes(job.id)"
+    >
+      <div>{{ job.description }}<br /></div>
+    </mat-list-option>
+  </mat-selection-list>
+
+  <button mat-raised-button color="primary" type="submit">SPARA</button>
+</form>

@@ -1,0 +1,23 @@
+<!--<div class="content">-->
+<h2>Alla mekaniker:</h2>
+<button mat-button>
+  <mat-icon color="accent">add</mat-icon>
+  Lägg till mekaniker
+</button>
+
+<br /><br />
+<mat-list>
+  <mat-list-item *ngFor="let mechanic of mechanics">
+    <a
+      [routerLink]="PATHS.adminMechanicDetails.routerLink"
+      [queryParams]="{ mechId: mechanic.id }"
+      mat-button
+      routerLinkActive
+      #rla="routerLinkActive"
+      [color]="rla.isActive ? 'primary' : null"
+      [ngClass]="{ active: rla.isActive }"
+      >{{ mechanic.fullName }}</a
+    >
+  </mat-list-item>
+</mat-list>
+<!--</div>-->

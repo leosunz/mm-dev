@@ -1,0 +1,67 @@
+@import './variables';
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: $font-header;
+  color: $brown;
+  //text-align: center;
+}
+
+h1,
+h2,
+h3 {
+  //text-transform: uppercase;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 2.8rem;
+  line-height: 4rem;
+
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 3rem;
+}
+
+.container {
+  padding: 0 $padding-container;
+
+  @media #{$small-and-down} {
+    padding: 0 $padding-container-sm;
+  }
+}
+
+.bgr-1 {
+  background-color: $bgr-1;
+}
+.bgr-1-pale {
+  background-color: $bgr-1-pale;
+}
+.bgr-2 {
+  background-color: $bgr-2;
+}
+.bgr-2-pale {
+  background-color: $bgr-2-pale;
+}
+.bgr-3 {
+  background-color: $bgr-3;
+}
+.bgr-3-pale {
+  background-color: $bgr-3-pale;
+}

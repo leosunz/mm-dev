@@ -1,0 +1,54 @@
+@import './variables';
+
+.padding-x {
+  padding-left: $horizontal-spacing;
+  padding-right: $horizontal-spacing;
+}
+
+.padding-top {
+  padding-top: $vertical-spacing;
+}
+
+.margin-x {
+  margin-left: $horizontal-spacing;
+  margin-right: $horizontal-spacing;
+}
+
+
+.margin-top {
+  margin-top: $vertical-spacing;
+}
+
+.margin-top-2 {
+  margin-top: $vertical-spacing * 2 !important;
+}
+
+.margin-top-4 {
+  margin-top: $vertical-spacing * 4 !important;
+}
+
+
+.margin-top-8 {
+  margin-top: $vertical-spacing * 8;
+}
+
+
+.margin-top-10 {
+  margin-top: $vertical-spacing * 10;
+}
+
+.main-button {
+  min-width: 250px;
+  @media #{$small-and-down} {
+    width: 100%;
+  }
+}
+
+.center-text {
+  text-align: center;
+}
+
+
+.full-width {
+  width: 100%;
+}

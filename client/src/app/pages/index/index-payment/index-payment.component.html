@@ -1,0 +1,148 @@
+<h2 style="display: flex; align-items: center">
+  Betalninguppgifter
+</h2>
+
+<div class="mat-body-2 payment-container">
+  <div class="payment-form">
+    <mat-card>
+      <!--      <h3>Kortuppgifter</h3>-->
+
+      <div>
+        <img src="/assets/images/payment-methods/visa.png" />&nbsp;
+        <img src="/assets/images/payment-methods/mastercard.png" />&nbsp;
+        <img src="/assets/images/payment-methods/american-express.png" />&nbsp;
+        <!--<img src="/assets/payment-methods/paypal.png">-->
+      </div>
+
+      <mat-form-field
+        appearance="outline"
+        class="full-width margin-top-2"
+        color="primary"
+      >
+        <mat-label>Namn på kortet</mat-label>
+        <input
+          autocomplete="creditCardNumber"
+          disabled
+          id="nameOnCard"
+          matInput
+          name="nameOnCard"
+          required
+          type="nameOnCard"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width" color="primary">
+        <mat-label>Kortnummer</mat-label>
+        <input
+          autocomplete="creditCardNumber"
+          disabled
+          id="creditCardNumber"
+          matInput
+          name="creditCardNumber"
+          required
+          type="creditCardNumber"
+        />
+      </mat-form-field>
+
+      <div style="display: flex; justify-content: space-between">
+        <mat-form-field appearance="outline" color="primary" style="width: 50%">
+          <mat-label>Utgångsdatum</mat-label>
+          <input
+            autocomplete="expirationDate"
+            disabled
+            id="expirationDate"
+            matInput
+            name="expirationDate"
+            placeholder="MM/YY"
+            required
+            type="expirationDate"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline" color="primary" style="width: 40%">
+          <mat-label>Säkerhetskod</mat-label>
+          <input
+            autocomplete="securityCode"
+            disabled
+            id="securityCode"
+            matInput
+            name="securityCode"
+            required
+            type="securityCode"
+          />
+        </mat-form-field>
+      </div>
+
+      <p>
+        Betalningen dras när uppdraget är utfört.
+      </p>
+
+      <!--      <button-->
+      <!--        type="button"-->
+      <!--        (click)="onSubmit()"-->
+      <!--        class="full-width"-->
+      <!--        color="primary"-->
+      <!--        mat-raised-button-->
+      <!--      >-->
+      <!--        Complete purchase-->
+      <!--      </button>-->
+    </mat-card>
+  </div>
+
+  <div class="payment-summary">
+    <!--    <h2>-->
+    <!--      Accepted payment types-->
+    <!--    </h2>-->
+
+    <!--    <p>-->
+    <!--      If you require an invoice to make a payment, please-->
+    <!--      <a href="mailto:info@minmekaniker.se">contact our sales team</a>.-->
+    <!--    </p>-->
+    <!--    <div style="height: 17px"></div>-->
+    <mat-card>
+      <h3>Översikt</h3>
+
+      <table class="grey">
+        <thead>
+          <tr>
+            <th>Tjänst</th>
+            <th>Pris</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Oljebyte</td>
+            <td>995 kr</td>
+          </tr>
+          <tr>
+            <td>Hjulskifte</td>
+            <td>995 kr</td>
+          </tr>
+          <tr class="green-text">
+            <td>Rabatter</td>
+            <td>- 200 kr</td>
+          </tr>
+          <tr>
+            <td>Varav moms (25%)</td>
+            <td>358 kr</td>
+          </tr>
+          <tr class="total-row">
+            <td>Totalt</td>
+            <td>
+              1 790 kr
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </mat-card>
+  </div>
+</div>
+<div class="margin-top-2"></div>
+<button
+  type="submit"
+  class="main-button"
+  mat-raised-button
+  color="accent"
+  (click)="indexService.nextPage()"
+>
+  Bekräfta bokning
+</button>

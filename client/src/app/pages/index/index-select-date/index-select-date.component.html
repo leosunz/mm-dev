@@ -1,0 +1,54 @@
+<div style="max-width: 425px">
+  <h2 style="display: flex; align-items: center">
+    När ska mekanikern komma?
+  </h2>
+  <div style="display:flex; flex-direction: column; font-size: 1rem; ">
+    <mm-select-time-slot
+      [fromTime]="fromTime"
+      [toTime]="toTime"
+      [selectableMechanicTimeSlots]="selectableTimeSlots"
+      (selectedTimeSlotMechanicChange)="onSelectedTimeSlotChange($event)"
+    ></mm-select-time-slot>
+    <div style="display:flex; justify-content: center" class="margin-top">
+      <button
+        mat-flat-button
+        [color]="'primary'"
+        [disabled]="(page | async) <= 0"
+        (click)="previousPage()"
+      >
+        <mat-icon>chevron_left</mat-icon>
+      </button>
+      &nbsp;
+      <button
+        mat-flat-button
+        [color]="'primary'"
+        [disabled]="(page | async) > 12"
+        (click)="nextPage()"
+      >
+        <mat-icon>chevron_right</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <!--  <div style="display: flex; justify-content: end">-->
+  <!--    <div>-->
+  <h3 class="margin-top">
+    <span *ngIf="this.indexService.selectedTimeSlotMechanic | async">
+      Vald tid:
+      {{
+        (this.indexService.selectedTimeSlotMechanic | async).startTime
+          | date: 'yyyy-MM-dd HH:mm'
+      }}
+    </span>
+    &nbsp;
+  </h3>
+  <button
+    class="main-button"
+    mat-flat-button
+    [color]="'accent'"
+    [disabled]="!(this.indexService.selectedTimeSlotMechanic | async)"
+    (click)="confirmTime()"
+  >
+    Bekräfta tid
+  </button>
+</div>

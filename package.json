@@ -1,0 +1,52 @@
+{
+  "name": "mm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "node": "14.x"
+  },
+  "scripts": {
+    "postinstall": "(cd client && yarn) && (cd server && yarn)",
+    "start": "concurrently --kill-others \"npm run dev:build:client\" \"npm run dev:build:server\" \"node scripts/start.template.js\" \"npm run generate-graphql-type-definitions\" \"npm run graphql-types-custom-queries\" ",
+    "dev:build:client": "(cd client && ng build --output-path ../server/dist/dev/client --watch)",
+    "dev:build:server": "(cd server && tsc --outDir ./dist/dev --watch --pretty)",
+    "dev:flyway": "flyway -c conf/local-flyway.conf.js migrate",
+    "dev:flyway:repair": "flyway -c conf/local-flyway.conf.js repair",
+    "pre:start": "node ./server/dist/pre/index.js",
+    "build": "npm run flyway:migrate && npm run build:2",
+    "build:2": "(cd client && ng build --configuration=\"production\" --output-path ../server/dist/pre/client) && (cd server && tsc --outDir ../server/dist/pre)",
+    "flyway:migrate": "flyway  -c conf/flyway-pre.conf.js migrate",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "generate-graphql-type-definitions": "nodemon --watch 'schema.json' --exec \"npx gql2ts schema.json -o ./client/src/app/core/graphql.d.ts --ignore-type-name-declaration\"",
+    "graphql-types-custom-queries": "node scripts/generate_graphql_typescript_definitions.js"
+  },
+  "dependencies": {
+    "@angular/cli": "^8.3.20",
+    "concurrently": "^5.0.0",
+    "json5": "^2.2.1",
+    "node-flywaydb": "^2.1.1",
+    "nodemon": "^1.19.4",
+    "postgraphile": "^4.12.9",
+    "prettier": "^1.19.1",
+    "shelljs": "^0.8.3",
+    "typescript": "^3.7.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dmattsson/mm.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dmattsson/mm/issues"
+  },
+  "homepage": "https://github.com/dmattsson/mm#readme",
+  "devDependencies": {
+    "apollo": "2.33.4",
+    "apollo-codegen-core": "0.40.3",
+    "apollo-language-server": "1.26.3",
+    "gql2ts": "^1.10.1",
+    "graphql": "^14.5.0"
+  }
+}

@@ -1,0 +1,26 @@
+<div class="flex-container">
+  <div class="col-menu">
+    <h2>
+      {{ (mechanicDetailsService.mech | async)?.fullName }}
+    </h2>
+    <mat-list>
+      <mat-list-item routerLinkActive *ngFor="let menuItem of menu">
+        <a
+          [routerLink]="menuItem.routerLink"
+          queryParamsHandling="preserve"
+          mat-button
+          routerLinkActive
+          #rla1="routerLinkActive"
+          [color]="rla1.isActive ? 'primary' : null"
+          [ngClass]="{ active: rla1.isActive }"
+          >{{ menuItem.text }}</a
+        >
+      </mat-list-item>
+    </mat-list>
+  </div>
+
+  <div class="container margin-top-2" style="min-width: 400px;">
+    <h1>{{ (mechanicDetailsService.mech | async)?.fullName }}</h1>
+    <router-outlet></router-outlet>
+  </div>
+</div>

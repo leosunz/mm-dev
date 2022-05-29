@@ -1,0 +1,1 @@
+CREATE INDEX ON "app_public"."working_time"("time_slot_id");

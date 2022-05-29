@@ -1,0 +1,42 @@
+<ng-container *ngIf="!isSubmitted">
+  <h1 mat-dialog-title>Tjänsten inte tillgänglig i ditt område</h1>
+
+  <!-- TODO fixa UX-text -->
+  <form (ngSubmit)="onSubmit()">
+    <div mat-dialog-content>
+      <p>
+        Vi jobbar stenhårt för att finnas tillgängliga i hela Sverige, men är
+        tyvärr inte riktigt där än.
+      </p>
+      <p>
+        Om du vill kan vi skicka ett mejl när mekaniker i ditt område har
+        anslutit sig. Genom att spara mejl och områden får vi då också veta
+        vilka områden vi bör fokusera på när vi rekryterar fler mekaniker.
+      </p>
+      <p>Tack!</p>
+      <p>/Min Mekaniker-teamet</p>
+
+      <mat-form-field appearance="standard" class="full-width">
+        <mat-label class="placeholder">E-post</mat-label>
+        <input matInput lang="sv-SE" name="email" required [(ngModel)]="email"
+      /></mat-form-field>
+    </div>
+
+    <div mat-dialog-actions style="display: flex; justify-content: flex-end">
+      <button mat-button type="button" (click)="onNoClick()">STÄNG</button>
+      <button mat-button type="submit" cdkFocusInitial color="primary">
+        SPARA
+      </button>
+    </div>
+  </form>
+</ng-container>
+
+<ng-container *ngIf="isSubmitted">
+  <h1 mat-dialog-title>Tack!</h1>
+  <p>
+    Vi återkommer så fort vi har mekaniker i ditt område.
+  </p>
+  <div mat-dialog-actions>
+    <button mat-button type="button" mat-dialog-close>STÄNG</button>
+  </div>
+</ng-container>

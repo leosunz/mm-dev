@@ -1,0 +1,65 @@
+<h2>Välj tillgänglig tid</h2>
+
+<div style="display:flex">
+  <div style="min-width: 550px;">
+    <ng-container
+      *ngFor="
+        let timeSlot of (allTimeSlots | async)?.data.mechanic.timeSlots.nodes;
+        let i = index
+      "
+    >
+      <button
+        mat-stroked-button
+        (click)="selectedTimeSlot.next(timeSlot)"
+        [color]="selectedTimeSlot.value === timeSlot ? 'primary' : null"
+      >
+        {{ timeSlotIdToDesc(timeSlot.timeSlotId) }}<br />
+        &nbsp;
+        <ng-container
+          *ngIf="timeSlot.timeBooked + timeSlot.workingTimeMinutes > 0"
+          >{{ timeSlot.timeBooked || 0 }} /
+          {{ timeSlot.workingTimeMinutes }}</ng-container
+        >
+      </button>
+      <br *ngIf="i % 3 === 2" />
+    </ng-container>
+    <!--    <br /><br />-->
+  </div>
+  <div *ngIf="selectedTimeSlot.value" style="min-width: 300px">
+    <h2>{{ timeSlotIdToDesc(selectedTimeSlot.value.timeSlotId) }}</h2>
+    <mm-time-selector
+      [valueMinutes]="(selectedTimeSlot | async).workingTimeMinutes"
+      (selectedTimeChange)="onSelectedTimeChange($event)"
+      [minMinutes]="
+        MINIMUM_TIME_AVAILABLE > selectedTimeSlot.value.timeBooked
+          ? MINIMUM_TIME_AVAILABLE
+          : selectedTimeSlot.value.timeBooked
+      "
+      [maxMinutes]="MAXIMUM_TIME_AVAILABLE"
+    ></mm-time-selector>
+
+    <br />
+    <button
+      mat-raised-button
+      color="accent"
+      (click)="setTimeAvailable()"
+      [disabled]="
+        (selectedTimeSlot | async).workingTimeMinutes ===
+        (selectedMinutes | async)
+      "
+    >
+      SPARA
+    </button>
+  </div>
+</div>
+<!--<ngx-json-viewer-->
+<!--  *ngIf="!!(allTimeSlots | async)"-->
+<!--  [json]="allTimeSlots | async"-->
+<!--  [expanded]="false"-->
+<!--&gt;</ngx-json-viewer>-->
+
+<!--<br />-->
+<!--&nbsp;{{ selectedMinutes | async }} min<br />-->
+<!--DB: {{ timeAvailableInDb | async }}-->
+
+<!--<br />-->

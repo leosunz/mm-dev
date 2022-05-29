@@ -1,0 +1,52 @@
+
+  .grid {
+    width: 100%;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+     li {
+      padding: 2rem;
+       max-width: 400px;
+      flex-basis: 30%;
+      text-align: center;
+      list-style-type: none;
+
+       .icon {
+         min-height: 4rem;
+         .mat-icon {
+           transform: scale(4);
+         }
+       }
+
+
+      @media screen and (max-width: 800px) {
+        flex-basis: 100%;
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+    }
+  //}
+}
+
+
+
+
+/* Packages Section */
+
+//.info-box .grid li {
+//  padding: 50px;
+//  flex-basis: 50%;
+//  text-align: center;
+//}
+
+//.info-box .grid li
+//
+//.info-box .grid li h4 {
+//  font-size: 30px;
+//  margin: 25px 0;
+//}
+
+

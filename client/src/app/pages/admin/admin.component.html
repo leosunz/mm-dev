@@ -1,0 +1,19 @@
+<div class="admin-container">
+  <div>
+    <nav mat-tab-nav-bar backgroundColor="primary">
+      <a
+        mat-tab-link
+        *ngFor="let link of navLinks"
+        [routerLink]="link.path"
+        routerLinkActive
+        #rla="routerLinkActive"
+        [active]="rla.isActive"
+      >
+        {{ link.label }}
+      </a>
+    </nav>
+  </div>
+  <div class="flex-container" style="flex-grow: 1">
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,70 @@
+<h2 style="display: flex; align-items: center">
+  Fyll i dina uppgifter
+</h2>
+
+<form
+  [formGroup]="fg"
+  (ngSubmit)="onSubmit()"
+  style="display:flex; flex-direction: column; width: 350px"
+>
+  <mat-form-field appearance="fill">
+    <mat-label class="placeholder">Ditt namn</mat-label>
+
+    <input matInput lang="sv-SE" name="name" required formControlName="fullName"
+  /></mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label class="placeholder">Bilens plats</mat-label>
+    <input
+      matInput
+      lang="sv-SE"
+      name="address"
+      required
+      formControlName="address"
+  /></mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label class="placeholder">Bilens registreringsnummer</mat-label>
+
+    <input
+      matInput
+      [maxLength]="7"
+      lang="sv-SE"
+      name="name"
+      required
+      formControlName="carRegistrationNumber"/></mat-form-field
+  ><mat-form-field appearance="fill">
+    <mat-label class="placeholder">E-post</mat-label>
+    <input
+      matInput
+      lang="sv-SE"
+      name="email"
+      required
+      formControlName="email"/></mat-form-field
+  ><mat-form-field appearance="fill">
+    <mat-label class="placeholder">Telefon</mat-label>
+    <input
+      matInput
+      lang="sv-SE"
+      name="phone"
+      formControlName="phone"/></mat-form-field
+  ><mat-form-field appearance="fill">
+    <mat-label class="placeholder">Instruktioner till mekaniker</mat-label>
+
+    <textarea
+      matInput
+      lang="sv-SE"
+      name="comment"
+      formControlName="comment"
+    ></textarea
+  ></mat-form-field>
+
+  <button
+    type="submit"
+    class="main-button"
+    mat-raised-button
+    color="accent"
+    (click)="indexService.nextPage()"
+  >
+    Till betalningsuppgifter
+  </button>
+</form>

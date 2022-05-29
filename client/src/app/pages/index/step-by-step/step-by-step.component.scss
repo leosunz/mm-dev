@@ -1,0 +1,30 @@
+@import '../../../styling/variables';
+
+
+.step-container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  display: flex;
+  align-items: center;
+  //.img-container {
+  img{
+    height: 30vh;
+    max-width: 300px;
+    @media #{$small-and-down} {
+      max-width: 100%;
+    }
+  }
+  //}
+
+  .text {
+    margin-left: 4rem;
+    @media #{$small-and-down} {
+      text-align: center;
+      margin-left: 0;
+    }
+  }
+
+  @media #{$small-and-down} {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,1 @@
+alter table app_public.booking add column if not EXISTS duration_minutes int not null;

@@ -1,0 +1,13 @@
+<mat-form-field appearance="fill" style="width: 100%" [color]="'accent'">
+  <mat-label class="placeholder">Adress</mat-label>
+  <input
+    matInput
+    matGoogleMapsAutocomplete
+    placeholder=""
+    [value]="value"
+    [country]="['se']"
+    [types]="[]"
+    (onAutocompleteSelected)="onAutocompleteSelected($event)"
+    (onLocationSelected)="onLocationSelected($event)"
+  />
+</mat-form-field>

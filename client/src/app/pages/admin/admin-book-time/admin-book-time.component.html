@@ -1,0 +1,29 @@
+<div class="content">
+  <section>
+    <h1>Boka tid</h1>
+
+    <!--    <button mat-button [disabled]="!location"></button>-->
+
+    <br />
+
+    <ng-container *ngIf="location | async">
+      <h3>{{ this.address }}:</h3>
+      <mm-select-jobs
+        (changed)="selectedJobsChanged($event)"
+        [allJobs]="allJobs$ | async"
+      ></mm-select-jobs>
+
+      <br /><br /><br />
+
+      <ng-container *ngIf="selectedJobs | async">
+        <h2>Tillgängliga tider:</h2>
+        <mm-select-time-slot
+          [fromTime]="fromTime"
+          [toTime]="toTime"
+          [selectableMechanicTimeSlots]="selectableTimeSlots"
+          (selectedTimeSlotMechanicChange)="onSelectedTimeSlotChange($event)"
+        ></mm-select-time-slot>
+      </ng-container>
+    </ng-container>
+  </section>
+</div>

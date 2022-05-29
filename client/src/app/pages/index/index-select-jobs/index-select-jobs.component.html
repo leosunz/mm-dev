@@ -1,0 +1,22 @@
+<h2 style="display: flex; align-items: center">
+  Välj tjänster
+</h2>
+
+<mm-select-jobs
+  (changed)="selectedJobsChanged($event)"
+  [value]="indexService.selectedJobs.value"
+  [allJobs]="allJobs | async"
+></mm-select-jobs>
+
+<h3 *ngIf="(indexService.selectedJobs | async)?.length > 0">
+  Du får 200 kr rabatt för varje tilläggstjänst
+</h3>
+<button
+  class="main-button"
+  mat-flat-button
+  [color]="'accent'"
+  *ngIf="(indexService.selectedJobs | async)?.length > 0"
+  (click)="indexService.nextPage()"
+>
+  Vidare till datum
+</button>

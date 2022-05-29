@@ -1,0 +1,50 @@
+<mm-hero [dimmed]="(indexService.page | async) > 0">
+  <mm-hero-top-bar>
+    <a routerLink="/" (click)="indexService.page.next(0)">
+      <img src="/assets/images/logo-on-dark.svg" width="150px" />
+    </a>
+  </mm-hero-top-bar>
+  <mm-hero-center-content style="flex-grow: 1">
+    <div
+      style="display: flex; flex-direction: column; height: 100%; width: 100%;"
+    >
+      <div>
+        <button
+          mat-button
+          *ngIf="indexService.page.value > 0 && indexService.page.value < 6"
+          (click)="indexService.previousPage()"
+        >
+          <mat-icon> arrow_back</mat-icon>
+          Tillbaka
+        </button>
+      </div>
+      <div
+        style="flex-grow: 1; width: 100%; display:flex; flex-direction: column; align-items: center;"
+      >
+        <ng-container [ngSwitch]="indexService.page | async">
+          <mm-index-hero-start
+            *ngSwitchCase="0"
+            style="width: 100%;"
+          ></mm-index-hero-start>
+          <mm-index-select-address *ngSwitchCase="1"></mm-index-select-address>
+          <mm-index-select-jobs *ngSwitchCase="2"></mm-index-select-jobs>
+          <mm-index-select-date *ngSwitchCase="3"></mm-index-select-date>
+          <mm-index-booking-details
+            *ngSwitchCase="4"
+          ></mm-index-booking-details>
+          <mm-index-payment *ngSwitchCase="5"></mm-index-payment>
+          <mm-index-thank-you *ngSwitchCase="6"></mm-index-thank-you>
+        </ng-container>
+      </div>
+    </div>
+  </mm-hero-center-content>
+</mm-hero>
+
+<div class="margin-top-4">
+  <mm-info-boxes></mm-info-boxes>
+</div>
+
+<div class="margin-top-4 container">
+  <h1 class="center-text">Fixa bilen på 3 steg!</h1>
+  <mm-step-by-step></mm-step-by-step>
+</div>

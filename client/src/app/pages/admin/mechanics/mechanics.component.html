@@ -1,0 +1,9 @@
+<div class="flex-container">
+  <div class="col-menu">
+    <mm-mechanic-list [mechanics]="mechanics | async"></mm-mechanic-list>
+  </div>
+
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

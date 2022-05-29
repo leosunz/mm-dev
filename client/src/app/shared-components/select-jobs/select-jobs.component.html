@@ -1,0 +1,47 @@
+<div style="display: flex; flex-direction: column; min-width: 355px">
+  <mat-selection-list
+    #jobsSelectionList
+    (selectionChange)="
+      onSelectionChange($event, jobsSelectionList.selectedOptions.selected)
+    "
+  >
+    <mat-list-option
+      *ngFor="let job of allJobs"
+      [value]="job"
+      [selected]="selectedJobs.value.includes(job)"
+    >
+      <div>
+        {{ job.description }}
+        <!--      &nbsp; &nbsp; {{ job.minutesToComplete }} min &nbsp; &nbsp;-->
+        <ng-container
+          *ngIf="
+            (selectedJobs | async).length > 0 &&
+              (selectedJobs | async)[0] !== job;
+            else normalPrice
+          "
+        >
+          <span style="text-decoration: line-through;"> {{ job.price }}kr </span
+          >&nbsp;
+
+          <mat-chip color="accent" selected
+            >{{ job.price - DISCOUNT_MULTIPLE_JOBS }} kr</mat-chip
+          >
+
+          <!--          <span style="color: red">-->
+          <!--            {{ job.price - DISCOUNT_MULTIPLE_JOBS }}kr-->
+          <!--          </span>-->
+        </ng-container>
+
+        <ng-template #normalPrice> {{ job.price }}kr </ng-template>
+      </div>
+    </mat-list-option>
+  </mat-selection-list>
+  <br /><br />
+  <p>
+    <ng-container *ngIf="(selectedJobs | async)?.length > 0"
+      >Totalt pris:
+      {{ calculateTotalPrice(selectedJobs | async) }} kr</ng-container
+    >
+  </p>
+</div>
+<mat-chip-list></mat-chip-list>

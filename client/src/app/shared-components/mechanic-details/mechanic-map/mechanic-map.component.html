@@ -1,0 +1,11 @@
+<mm-map-select-areas
+  [prefilledHexagons$]="geohashes$"
+  [reset$]="reset$"
+  (hexagonsChanged)="onHexagonsChanged($event)"
+></mm-map-select-areas>
+
+<br /><br />
+<button (click)="save()" mat-raised-button color="primary">
+  SAVE
+</button>
+<button (click)="reset$.next(true)" mat-button>RESET</button>

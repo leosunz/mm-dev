@@ -1,0 +1,22 @@
+<div
+  style="display:flex; align-items: center; justify-content: space-between"
+  *ngFor="let timeSlotDay of timeSlotMechanicGroupedByDay | async"
+>
+  <div style="width: 4rem">
+    {{ getTimeSlotDay(timeSlotDay.day) }}
+  </div>
+  <div *ngFor="let timeSlotMechanic of timeSlotDay.timeSlotMechanic">
+    <button
+      mat-raised-button
+      (click)="selectTimeSlot(timeSlotMechanic)"
+      [disabled]="!timeSlotMechanic.mechanicId"
+      [color]="
+        (selectedTimeSlotMechanic | async) === timeSlotMechanic
+          ? 'accent'
+          : null
+      "
+    >
+      {{ getTimeSlotTime(timeSlotMechanic.startTime) }}
+    </button>
+  </div>
+</div>

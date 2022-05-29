@@ -1,0 +1,13 @@
+<div class="container ">
+  <ul class="grid">
+    <li *ngFor="let infoBox of infoBoxes">
+      <div class="icon">
+        <mat-icon class="text-accent">{{ infoBox.icon }}</mat-icon>
+      </div>
+      <h2>{{ infoBox.header }}</h2>
+      <p>
+        {{ infoBox.text }}
+      </p>
+    </li>
+  </ul>
+</div>

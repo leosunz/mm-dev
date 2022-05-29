@@ -1,0 +1,38 @@
+$font-header: Raleway, Roboto, 'Helvetica Neue', sans-serif;
+$breakpoint-sm: 400px;
+
+$horizontal-spacing: 1rem;
+$vertical-spacing: 1rem;
+
+$padding-container: $horizontal-spacing * 4;
+$padding-container-sm: $horizontal-spacing;
+
+$brown: #593a27;
+$orange: #bf7e45;
+$beige: #debd88;
+$sky: #dae9f2;
+
+$bgr-1: rgba($sky, 0.84);
+$bgr-1-pale: rgba($sky, 0.1);
+$bgr-2: rgba($beige, 0.84);
+$bgr-2-pale: rgba($beige, 0.4);
+$bgr-3: rgba($orange, 0.84);
+$bgr-3-pale: rgba($orange, 0.07);
+
+
+$small-screen-up: 601px !default;
+//$medium-screen-up: 993px !default;
+$large-screen-up: 1201px !default;
+$small-screen: 600px !default;
+//$medium-screen: 992px !default;
+$medium-screen-up: 1090px !default;
+$medium-screen: 1089px !default;
+$large-screen: 1200px !default;
+$medium-and-up: "only screen and (min-width : #{$small-screen-up})" !default;
+$large-and-up: "only screen and (min-width : #{$medium-screen-up})" !default;
+$extra-large-and-up: "only screen and (min-width : #{$large-screen-up})" !default;
+$small-and-down: "only screen and (max-width : #{$small-screen})" !default;
+$medium-and-down: "only screen and (max-width : #{$medium-screen})" !default;
+$medium-only: "only screen and (min-width : #{$small-screen-up}) and (max-width : #{$medium-screen})" !default;
+
+//$medium-and-down-height: "only screen and (max-height : #{$medium-screen})" !default;

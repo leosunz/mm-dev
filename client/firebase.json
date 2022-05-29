@@ -1,0 +1,24 @@
+{
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "functions": {
+    "xxxpredeploy": "npm --prefix \"$RESOURCE_DIR\" run build"
+  },
+  "hosting": {
+    "public": "dist/mm",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  },
+  "emulators": {
+    "firestore": {
+      "port": "5007"
+    }
+  }
+}

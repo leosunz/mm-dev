@@ -1,0 +1,29 @@
+<div
+  style="max-width: 425px; display: flex; flex-direction: column; align-items: center;"
+>
+  <h2 style=" text-align: center">
+    Var står bilen?
+  </h2>
+
+  <div
+    class="spacing-header-and-input"
+    style="max-width: 400px; min-width: 350px"
+  >
+    <mm-select-address
+      [value]="indexService.address.value"
+      (locationChange)="onLocationChange($event)"
+      (addressChange)="onAddressChange($event)"
+    ></mm-select-address>
+  </div>
+
+  <button
+    class="main-button margin-top-4"
+    mat-flat-button
+    [color]="'accent'"
+    [disabled]="!(addressIsValid | async) && !(isLoadingAvailability | async)"
+    (click)="confirmAddress()"
+  >
+    <mat-spinner *ngIf="isLoadingAvailability | async"></mat-spinner>
+    Vidare till tjänster
+  </button>
+</div>

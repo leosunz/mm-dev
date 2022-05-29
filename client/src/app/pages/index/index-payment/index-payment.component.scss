@@ -1,0 +1,42 @@
+@import '../../../styling/variables';
+
+
+.payment-container {
+  display: flex;
+  flex-direction: row;
+  @media #{$small-and-down} {
+    flex-direction: column-reverse;
+  }
+
+  .payment-form {
+    flex: 1 1 440px;
+    @media #{$small-and-down} {
+      flex: 100%;
+    }
+  }
+  .payment-summary {
+    margin-left: 4rem;
+    flex: 375px;
+    @media #{$small-and-down} {
+      margin-left: 0;
+      flex: 100%;
+    }
+
+
+    tr.total-row {
+      td {
+        font-weight: 600;
+      }
+    }
+
+
+    tr.green-text {
+      td {
+        color: #0f9d58;
+      }
+    }
+
+  }
+}
+
+

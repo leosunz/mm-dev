@@ -13,6 +13,7 @@ export class MechanicsComponent extends BaseComponent implements OnInit {
   mechanics: Observable<Partial<Mechanic>[]>;
   constructor(private dbService: DbService) {
     super();
+    console.log('worloing');
     this.mechanics = dbService.allMechanics();
   }
 

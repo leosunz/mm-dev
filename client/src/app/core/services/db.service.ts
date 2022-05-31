@@ -62,17 +62,19 @@ export class DbService {
   }
 
   allMechanics(): Observable<Partial<Mechanic>[]> {
+    console.log('inside::::');
     return this.apollo
       .watchQuery<AllMechanics>({
         query: ALL_MECHANICS,
       })
       .valueChanges.pipe(
         map(mqs =>
-          mqs.data.mechanics.nodes.map(mq => {
+          mqs.data.allMechanics.nodes.map(mq => {
             const m: Partial<Mechanic> = {
               fullName: mq.fullName,
               id: mq.id,
             };
+            console.log('m', m);
             return m;
           }),
         ),

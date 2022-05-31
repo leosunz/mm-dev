@@ -22,5 +22,5 @@ export interface AllMechanics {
   /**
    * Reads and enables pagination through a set of `Mechanic`.
    */
-  mechanics: AllMechanics_mechanics | null;
+  allMechanics: AllMechanics_mechanics | null;
 }

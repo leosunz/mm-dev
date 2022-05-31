@@ -70,7 +70,7 @@ export const AVAILABLE_MECHANICS = gql`
 
 export const ALL_MECHANICS = gql`
   query AllMechanics {
-    mechanics {
+    allMechanics {
       nodes {
         id
         fullName

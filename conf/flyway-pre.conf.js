@@ -2,7 +2,7 @@ module.exports = {
   flywayArgs: {
     // url: 'jdbc:postgresql://starlingvalue.cpopt0azy0yu.us-east-2.rds.amazonaws.com/mm_pre',
     // url: 'jdbc:postgresql://mm-pre.ckgz3swfgcbm.eu-central-1.rds.amazonaws.com/mm-pre',
-    url: 'jdbc:postgresql://ec2-52-30-67-143.eu-west-1.compute.amazonaws.com/d7jbstt4jqjh8m',
+    url: 'jdbc:postgresql://ec2-52-30-67-143.eu-west-1.compute.amazonaws.com:5432/d7jbstt4jqjh8m?sslmode=require',
     schemas: 'app_public',
     locations: 'filesystem:mm-sql-migrations/',
     user: 'ansctiyfxsvwbh',

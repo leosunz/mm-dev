@@ -63,7 +63,7 @@ if (process.env.NODE_ENV === "production") {
 const { exec } = require("child_process");
 exec(
   "postgraphile  \
-  --connection postgres://postgres:postgres@localhost:5432/mm-dev --schema app_public --watch --cors",
+  --connection postgres://postgres:del1996@localhost:5432/mm-dev --schema app_public --watch --cors",
   (err, stdout, stderr) => {
     if (err) {
       // node couldn't execute the command

@@ -35,21 +35,23 @@ export class MechanicProfileComponent implements OnInit {
         email,
         address,
         travelTimeMinutes,
-        mechanicJobs,
+        mechanicJobsByMechanicId,
+        // mechanicJobs,
       }) => ({
         fullName,
         phone,
         email,
         address,
         travelTimeMinutes,
-        selectedJobIds: mechanicJobs.nodes.map(job => job.jobId),
+        selectedJobIds: mechanicJobsByMechanicId.nodes.map(job => job.jobId),
+        // selectedJobIds: mechanicJobs.nodes.map(job => job.jobId),
       }),
     ),
     filter(x => !!x),
   );
   allJobs$ = this.dbService
     .allJobs()
-    .pipe(map(allJobsResult => allJobsResult.data.jobs.nodes));
+    .pipe(map(allJobsResult => allJobsResult.data.allJobs.nodes));
 
   constructor(
     public mechanicDetailsService: MechanicDetailsService,

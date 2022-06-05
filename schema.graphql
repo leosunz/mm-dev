@@ -4,9 +4,13 @@ type AvailableMechanic {
   startTime: Datetime
 }
 
-"""A connection to a list of `AvailableMechanic` values."""
+"""
+A connection to a list of `AvailableMechanic` values.
+"""
 type AvailableMechanicsConnection {
-  """A list of `AvailableMechanic` objects."""
+  """
+  A list of `AvailableMechanic` objects.
+  """
   nodes: [AvailableMechanic!]!
 
   """
@@ -14,7 +18,9 @@ type AvailableMechanicsConnection {
   """
   edges: [AvailableMechanicsEdge!]!
 
-  """Information to aid in pagination."""
+  """
+  Information to aid in pagination.
+  """
   pageInfo: PageInfo!
 
   """
@@ -23,12 +29,18 @@ type AvailableMechanicsConnection {
   totalCount: Int!
 }
 
-"""A `AvailableMechanic` edge in the connection."""
+"""
+A `AvailableMechanic` edge in the connection.
+"""
 type AvailableMechanicsEdge {
-  """A cursor for use in pagination."""
+  """
+  A cursor for use in pagination.
+  """
   cursor: Cursor
 
-  """The `AvailableMechanic` at the end of the edge."""
+  """
+  The `AvailableMechanic` at the end of the edge.
+  """
   node: AvailableMechanic!
 }
 
@@ -56,18 +68,28 @@ type Booking {
   carRegistrationNumber: String
   durationMinutes: Int!
 
-  """Reads a single `Mechanic` that is related to this `Booking`."""
+  """
+  Reads a single `Mechanic` that is related to this `Booking`.
+  """
   mechanic: Mechanic
 
-  """Reads a single `TimeSlot` that is related to this `Booking`."""
+  """
+  Reads a single `TimeSlot` that is related to this `Booking`.
+  """
   timeSlot: TimeSlot
 
-  """Reads and enables pagination through a set of `BookingJob`."""
+  """
+  Reads and enables pagination through a set of `BookingJob`.
+  """
   bookingJobs(
-    """Only read the first `n` values of the set."""
+    """
+    Only read the first `n` values of the set.
+    """
     first: Int
 
-    """Only read the last `n` values of the set."""
+    """
+    Only read the last `n` values of the set.
+    """
     last: Int
 
     """
@@ -76,13 +98,19 @@ type Booking {
     """
     offset: Int
 
-    """Read all values in the set before (above) this cursor."""
+    """
+    Read all values in the set before (above) this cursor.
+    """
     before: Cursor
 
-    """Read all values in the set after (below) this cursor."""
+    """
+    Read all values in the set after (below) this cursor.
+    """
     after: Cursor
 
-    """The method to use when ordering `BookingJob`."""
+    """
+    The method to use when ordering `BookingJob`.
+    """
     orderBy: [BookingJobsOrderBy!] = [PRIMARY_KEY_ASC]
 
     """
@@ -101,19 +129,29 @@ type Booking {
 A condition to be used against `Booking` object types. All fields are tested for equality and combined with a logical ‘and.’
 """
 input BookingCondition {
-  """Checks for equality with the object’s `id` field."""
+  """
+  Checks for equality with the object’s `id` field.
+  """
   id: UUID
 
-  """Checks for equality with the object’s `mechanicId` field."""
+  """
+  Checks for equality with the object’s `mechanicId` field.
+  """
   mechanicId: UUID
 
-  """Checks for equality with the object’s `timeSlotId` field."""
+  """
+  Checks for equality with the object’s `timeSlotId` field.
+  """
   timeSlotId: String
 
-  """Checks for equality with the object’s `status` field."""
+  """
+  Checks for equality with the object’s `status` field.
+  """
   status: BookingStatus
 
-  """Checks for equality with the object’s `createdAt` field."""
+  """
+  Checks for equality with the object’s `createdAt` field.
+  """
   createdAt: Datetime
 }
 
@@ -121,32 +159,50 @@ input BookingCondition {
 A filter to be used against `Booking` object types. All fields are combined with a logical ‘and.’
 """
 input BookingFilter {
-  """Filter by the object’s `id` field."""
+  """
+  Filter by the object’s `id` field.
+  """
   id: UUIDFilter
 
-  """Filter by the object’s `mechanicId` field."""
+  """
+  Filter by the object’s `mechanicId` field.
+  """
   mechanicId: UUIDFilter
 
-  """Filter by the object’s `timeSlotId` field."""
+  """
+  Filter by the object’s `timeSlotId` field.
+  """
   timeSlotId: StringFilter
 
-  """Filter by the object’s `status` field."""
+  """
+  Filter by the object’s `status` field.
+  """
   status: BookingStatusFilter
 
-  """Filter by the object’s `createdAt` field."""
+  """
+  Filter by the object’s `createdAt` field.
+  """
   createdAt: DatetimeFilter
 
-  """Checks for all expressions in this list."""
+  """
+  Checks for all expressions in this list.
+  """
   and: [BookingFilter!]
 
-  """Checks for any expressions in this list."""
+  """
+  Checks for any expressions in this list.
+  """
   or: [BookingFilter!]
 
-  """Negates the expression."""
+  """
+  Negates the expression.
+  """
   not: BookingFilter
 }
 
-"""An input for mutations affecting `Booking`"""
+"""
+An input for mutations affecting `Booking`
+"""
 input BookingInput {
   id: UUID
   mechanicId: UUID
@@ -170,10 +226,14 @@ type BookingJob {
   bookingId: UUID
   jobId: UUID
 
-  """Reads a single `Booking` that is related to this `BookingJob`."""
+  """
+  Reads a single `Booking` that is related to this `BookingJob`.
+  """
   booking: Booking
 
-  """Reads a single `Job` that is related to this `BookingJob`."""
+  """
+  Reads a single `Job` that is related to this `BookingJob`.
+  """
   job: Job
 }
 
@@ -182,13 +242,19 @@ A condition to be used against `BookingJob` object types. All fields are tested
 for equality and combined with a logical ‘and.’
 """
 input BookingJobCondition {
-  """Checks for equality with the object’s `id` field."""
+  """
+  Checks for equality with the object’s `id` field.
+  """
   id: UUID
 
-  """Checks for equality with the object’s `bookingId` field."""
+  """
+  Checks for equality with the object’s `bookingId` field.
+  """
   bookingId: UUID
 
-  """Checks for equality with the object’s `jobId` field."""
+  """
+  Checks for equality with the object’s `jobId` field.
+  """
   jobId: UUID
 }
 
@@ -196,26 +262,40 @@ input BookingJobCondition {
 A filter to be used against `BookingJob` object types. All fields are combined with a logical ‘and.’
 """
 input BookingJobFilter {
-  """Filter by the object’s `id` field."""
+  """
+  Filter by the object’s `id` field.
+  """
   id: UUIDFilter
 
-  """Filter by the object’s `bookingId` field."""
+  """
+  Filter by the object’s `bookingId` field.
+  """
   bookingId: UUIDFilter
 
-  """Filter by the object’s `jobId` field."""
+  """
+  Filter by the object’s `jobId` field.
+  """
   jobId: UUIDFilter
 
-  """Checks for all expressions in this list."""
+  """
+  Checks for all expressions in this list.
+  """
   and: [BookingJobFilter!]
 
-  """Checks for any expressions in this list."""
+  """
+  Checks for any expressions in this list.
+  """
   or: [BookingJobFilter!]
 
-  """Negates the expression."""
+  """
+  Negates the expression.
+  """
   not: BookingJobFilter
 }
 
-"""An input for mutations affecting `BookingJob`"""
+"""
+An input for mutations affecting `BookingJob`
+"""
 input BookingJobInput {
   id: UUID
   bookingId: UUID
@@ -231,9 +311,13 @@ input BookingJobPatch {
   jobId: UUID
 }
 
-"""A connection to a list of `BookingJob` values."""
+"""
+A connection to a list of `BookingJob` values.
+"""
 type BookingJobsConnection {
-  """A list of `BookingJob` objects."""
+  """
+  A list of `BookingJob` objects.
+  """
   nodes: [BookingJob!]!
 
   """
@@ -241,23 +325,35 @@ type BookingJobsConnection {
   """
   edges: [BookingJobsEdge!]!
 
-  """Information to aid in pagination."""
+  """
+  Information to aid in pagination.
+  """
   pageInfo: PageInfo!
 
-  """The count of *all* `BookingJob` you could get from the connection."""
+  """
+  The count of *all* `BookingJob` you could get from the connection.
+  """
   totalCount: Int!
 }
 
-"""A `BookingJob` edge in the connection."""
+"""
+A `BookingJob` edge in the connection.
+"""
 type BookingJobsEdge {
-  """A cursor for use in pagination."""
+  """
+  A cursor for use in pagination.
+  """
   cursor: Cursor
 
-  """The `BookingJob` at the end of the edge."""
+  """
+  The `BookingJob` at the end of the edge.
+  """
   node: BookingJob!
 }
 
-"""Methods to use when ordering `BookingJob`."""
+"""
+Methods to use when ordering `BookingJob`.
+"""
 enum BookingJobsOrderBy {
   NATURAL
   ID_ASC
@@ -291,9 +387,13 @@ input BookingPatch {
   durationMinutes: Int
 }
 
-"""A connection to a list of `Booking` values."""
+"""
+A connection to a list of `Booking` values.
+"""
 type BookingsConnection {
-  """A list of `Booking` objects."""
+  """
+  A list of `Booking` objects.
+  """
   nodes: [Booking!]!
 
   """
@@ -301,23 +401,35 @@ type BookingsConnection {
   """
   edges: [BookingsEdge!]!
 
-  """Information to aid in pagination."""
+  """
+  Information to aid in pagination.
+  """
   pageInfo: PageInfo!
 
-  """The count of *all* `Booking` you could get from the connection."""
+  """
+  The count of *all* `Booking` you could get from the connection.
+  """
   totalCount: Int!
 }
 
-"""A `Booking` edge in the connection."""
+"""
+A `Booking` edge in the connection.
+"""
 type BookingsEdge {
-  """A cursor for use in pagination."""
+  """
+  A cursor for use in pagination.
+  """
   cursor: Cursor
 
-  """The `Booking` at the end of the edge."""
+  """
+  The `Booking` at the end of the edge.
+  """
   node: Booking!
 }
 
-"""Methods to use when ordering `Booking`."""
+"""
+Methods to use when ordering `Booking`.
+"""
 enum BookingsOrderBy {
   NATURAL
   ID_ASC
@@ -348,10 +460,14 @@ input BookingStatusFilter {
   """
   isNull: Boolean
 
-  """Equal to the specified value."""
+  """
+  Equal to the specified value.
+  """
   equalTo: BookingStatus
 
-  """Not equal to the specified value."""
+  """
+  Not equal to the specified value.
+  """
   notEqualTo: BookingStatus
 
   """
@@ -359,25 +475,39 @@ input BookingStatusFilter {
   """
   distinctFrom: BookingStatus
 
-  """Equal to the specified value, treating null like an ordinary value."""
+  """
+  Equal to the specified value, treating null like an ordinary value.
+  """
   notDistinctFrom: BookingStatus
 
-  """Included in the specified list."""
+  """
+  Included in the specified list.
+  """
   in: [BookingStatus!]
 
-  """Not included in the specified list."""
+  """
+  Not included in the specified list.
+  """
   notIn: [BookingStatus!]
 
-  """Less than the specified value."""
+  """
+  Less than the specified value.
+  """
   lessThan: BookingStatus
 
-  """Less than or equal to the specified value."""
+  """
+  Less than or equal to the specified value.
+  """
   lessThanOrEqualTo: BookingStatus
 
-  """Greater than the specified value."""
+  """
+  Greater than the specified value.
+  """
   greaterThan: BookingStatus
 
-  """Greater than or equal to the specified value."""
+  """
+  Greater than or equal to the specified value.
+  """
   greaterThanOrEqualTo: BookingStatus
 }
 
@@ -390,10 +520,14 @@ input BooleanFilter {
   """
   isNull: Boolean
 
-  """Equal to the specified value."""
+  """
+  Equal to the specified value.
+  """
   equalTo: Boolean
 
-  """Not equal to the specified value."""
+  """
+  Not equal to the specified value.
+  """
   notEqualTo: Boolean
 
   """
@@ -401,25 +535,39 @@ input BooleanFilter {
   """
   distinctFrom: Boolean
 
-  """Equal to the specified value, treating null like an ordinary value."""
+  """
+  Equal to the specified value, treating null like an ordinary value.
+  """
   notDistinctFrom: Boolean
 
-  """Included in the specified list."""
+  """
+  Included in the specified list.
+  """
   in: [Boolean!]
 
-  """Not included in the specified list."""
+  """
+  Not included in the specified list.
+  """
   notIn: [Boolean!]
 
-  """Less than the specified value."""
+  """
+  Less than the specified value.
+  """
   lessThan: Boolean
 
-  """Less than or equal to the specified value."""
+  """
+  Less than or equal to the specified value.
+  """
   lessThanOrEqualTo: Boolean
 
-  """Greater than the specified value."""
+  """
+  Greater than the specified value.
+  """
   greaterThan: Boolean
 
-  """Greater than or equal to the specified value."""
+  """
+  Greater than or equal to the specified value.
+  """
   greaterThanOrEqualTo: Boolean
 }
 
@@ -460,10 +608,14 @@ A condition to be used against `Calendar` object types. All fields are tested
 for equality and combined with a logical ‘and.’
 """
 input CalendarCondition {
-  """Checks for equality with the object’s `dateDimId` field."""
+  """
+  Checks for equality with the object’s `dateDimId` field.
+  """
   dateDimId: Int
 
-  """Checks for equality with the object’s `dateActual` field."""
+  """
+  Checks for equality with the object’s `dateActual` field.
+  """
   dateActual: Date
 }
 
@@ -471,23 +623,35 @@ input CalendarCondition {
 A filter to be used against `Calendar` object types. All fields are combined with a logical ‘and.’
 """
 input CalendarFilter {
-  """Filter by the object’s `dateDimId` field."""
+  """
+  Filter by the object’s `dateDimId` field.
+  """
   dateDimId: IntFilter
 
-  """Filter by the object’s `dateActual` field."""
+  """
+  Filter by the object’s `dateActual` field.
+  """
   dateActual: DateFilter
 
-  """Checks for all expressions in this list."""
+  """
+  Checks for all expressions in this list.
+  """
   and: [CalendarFilter!]
 
-  """Checks for any expressions in this list."""
+  """
+  Checks for any expressions in this list.
+  """
   or: [CalendarFilter!]
 
-  """Negates the expression."""
+  """
+  Negates the expression.
+  """
   not: CalendarFilter
 }
 
-"""An input for mutations affecting `Calendar`"""
+"""
+An input for mutations affecting `Calendar`
+"""
 input CalendarInput {
   dateDimId: Int!
   dateActual: Date!
@@ -555,9 +719,13 @@ input CalendarPatch {
   weekendIndr: Boolean
 }
 
-"""A connection to a list of `Calendar` values."""
+"""
+A connection to a list of `Calendar` values.
+"""
 type CalendarsConnection {
-  """A list of `Calendar` objects."""
+  """
+  A list of `Calendar` objects.
+  """
   nodes: [Calendar!]!
 
   """
@@ -565,23 +733,35 @@ type CalendarsConnection {
   """
   edges: [CalendarsEdge!]!
 
-  """Information to aid in pagination."""
+  """
+  Information to aid in pagination.
+  """
   pageInfo: PageInfo!
 
-  """The count of *all* `Calendar` you could get from the connection."""
+  """
+  The count of *all* `Calendar` you could get from the connection.
+  """
   totalCount: Int!
 }
 
-"""A `Calendar` edge in the connection."""
+"""
+A `Calendar` edge in the connection.
+"""
 type CalendarsEdge {
-  """A cursor for use in pagination."""
+  """
+  A cursor for use in pagination.
+  """
   cursor: Cursor
 
-  """The `Calendar` at the end of the edge."""
+  """
+  The `Calendar` at the end of the edge.
+  """
   node: Calendar!
 }
 
-"""Methods to use when ordering `Calendar`."""
+"""
+Methods to use when ordering `Calendar`.
+"""
 enum CalendarsOrderBy {
   NATURAL
   DATE_DIM_ID_ASC
@@ -604,7 +784,9 @@ A condition to be used against `ContactWhenGeohashAvailable` object types. All
 fields are tested for equality and combined with a logical ‘and.’
 """
 input ContactWhenGeohashAvailableCondition {
-  """Checks for equality with the object’s `id` field."""
+  """
+  Checks for equality with the object’s `id` field.
+  """
   id: UUID
 }
 
@@ -612,20 +794,30 @@ input ContactWhenGeohashAvailableCondition {
 A filter to be used against `ContactWhenGeohashAvailable` object types. All fields are combined with a logical ‘and.’
 """
 input ContactWhenGeohashAvailableFilter {
-  """Filter by the object’s `id` field."""
+  """
+  Filter by the object’s `id` field.
+  """
   id: UUIDFilter
 
-  """Checks for all expressions in this list."""
+  """
+  Checks for all expressions in this list.
+  """
   and: [ContactWhenGeohashAvailableFilter!]
 
-  """Checks for any expressions in this list."""
+  """
+  Checks for any expressions in this list.
+  """
   or: [ContactWhenGeohashAvailableFilter!]
 
-  """Negates the expression."""
+  """
+  Negates the expression.
+  """
   not: ContactWhenGeohashAvailableFilter
 }
 
-"""An input for mutations affecting `ContactWhenGeohashAvailable`"""
+"""
+An input for mutations affecting `ContactWhenGeohashAvailable`
+"""
 input ContactWhenGeohashAvailableInput {
   id: UUID
   geohash: String!
@@ -643,9 +835,13 @@ input ContactWhenGeohashAvailablePatch {
   createdAt: Datetime
 }
 
-"""A connection to a list of `ContactWhenGeohashAvailable` values."""
+"""
+A connection to a list of `ContactWhenGeohashAvailable` values.
+"""
 type ContactWhenGeohashAvailablesConnection {
-  """A list of `ContactWhenGeohashAvailable` objects."""
+  """
+  A list of `ContactWhenGeohashAvailable` objects.
+  """
   nodes: [ContactWhenGeohashAvailable!]!
 
   """
@@ -653,7 +849,9 @@ type ContactWhenGeohashAvailablesConnection {
   """
   edges: [ContactWhenGeohashAvailablesEdge!]!
 
-  """Information to aid in pagination."""
+  """
+  Information to aid in pagination.
+  """
   pageInfo: PageInfo!
 
   """
@@ -662,16 +860,24 @@ type ContactWhenGeohashAvailablesConnection {
   totalCount: Int!
 }
 
-"""A `ContactWhenGeohashAvailable` edge in the connection."""
+"""
+A `ContactWhenGeohashAvailable` edge in the connection.
+"""
 type ContactWhenGeohashAvailablesEdge {
-  """A cursor for use in pagination."""
+  """
+  A cursor for use in pagination.
+  """
   cursor: Cursor
 
-  """The `ContactWhenGeohashAvailable` at the end of the edge."""
+  """
+  The `ContactWhenGeohashAvailable` at the end of the edge.
+  """
   node: ContactWhenGeohashAvailable!
 }
 
-"""Methods to use when ordering `ContactWhenGeohashAvailable`."""
+"""
+Methods to use when ordering `ContactWhenGeohashAvailable`.
+"""
 enum ContactWhenGeohashAvailablesOrderBy {
   NATURAL
   ID_ASC
@@ -680,7 +886,9 @@ enum ContactWhenGeohashAvailablesOrderBy {
   PRIMARY_KEY_DESC
 }
 
-"""All input for the create `Booking` mutation."""
+"""
+All input for the create `Booking` mutation.
+"""
 input CreateBookingInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
@@ -688,11 +896,15 @@ input CreateBookingInput {
   """
   clientMutationId: String
 
-  """The `Booking` to be created by this mutation."""
+  """
+  The `Booking` to be created by this mutation.
+  """
   booking: BookingInput!
 }
 
-"""All input for the create `BookingJob` mutation."""
+"""
+All input for the create `BookingJob` mutation.
+"""
 input CreateBookingJobInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
@@ -700,11 +912,15 @@ input CreateBookingJobInput {
   """
   clientMutationId: String
 
-  """The `BookingJob` to be created by this mutation."""
+  """
+  The `BookingJob` to be created by this mutation.
+  """
   bookingJob: BookingJobInput!
 }
 
-"""The output of our create `BookingJob` mutation."""
+"""
+The output of our create `BookingJob` mutation.
+"""
 type CreateBookingJobPayload {
   """
   The exact same `clientMutationId` that was provided in the mutation input,
@@ -712,7 +928,9 @@ type CreateBookingJobPayload {
   """
   clientMutationId: String
 
-  """The `BookingJob` that was created by this mutation."""
+  """
+  The `BookingJob` that was created by this mutation.
+  """
   bookingJob: BookingJob
 
   """
@@ -720,20 +938,30 @@ type CreateBookingJobPayload {
   """
   query: Query
 
-  """Reads a single `Booking` that is related to this `BookingJob`."""
+  """
+  Reads a single `Booking` that is related to this `BookingJob`.
+  """
   booking: Booking
 
-  """Reads a single `Job` that is related to this `BookingJob`."""
+  """
+  Reads a single `Job` that is related to this `BookingJob`.
+  """
   job: Job
 
-  """An edge for our `BookingJob`. May be used by Relay 1."""
+  """
+  An edge for our `BookingJob`. May be used by Relay 1.
+  """
   bookingJobEdge(
-    """The method to use when ordering `BookingJob`."""
+    """
+    The method to use when ordering `BookingJob`.
+    """
     orderBy: [BookingJobsOrderBy!] = [PRIMARY_KEY_ASC]
   ): BookingJobsEdge
 }
 
-"""The output of our create `Booking` mutation."""
+"""
+The output of our create `Booking` mutation.
+"""
 type CreateBookingPayload {
   """
   The exact same `clientMutationId` that was provided in the mutation input,
@@ -741,7 +969,9 @@ type CreateBookingPayload {
   """
   clientMutationId: String
 
-  """The `Booking` that was created by this mutation."""
+  """
+  The `Booking` that was created by this mutation.
+  """
   booking: Booking
 
   """
@@ -749,20 +979,30 @@ type CreateBookingPayload {
   """
   query: Query
 
-  """Reads a single `Mechanic` that is related to this `Booking`."""
+  """
+  Reads a single `Mechanic` that is related to this `Booking`.
+  """
   mechanic: Mechanic
 
-  """Reads a single `TimeSlot` that is related to this `Booking`."""
+  """
+  Reads a single `TimeSlot` that is related to this `Booking`.
+  """
   timeSlot: TimeSlot
 
-  """An edge for our `Booking`. May be used by Relay 1."""
+  """
+  An edge for our `Booking`. May be used by Relay 1.
+  """
   bookingEdge(
-    """The method to use when ordering `Booking`."""
+    """
+    The method to use when ordering `Booking`.
+    """
     orderBy: [BookingsOrderBy!] = [PRIMARY_KEY_ASC]
   ): BookingsEdge
 }
 
-"""All input for the create `Calendar` mutation."""
+"""
+All input for the create `Calendar` mutation.
+"""
 input CreateCalendarInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
@@ -770,11 +1010,15 @@ input CreateCalendarInput {
   """
   clientMutationId: String
 
-  """The `Calendar` to be created by this mutation."""
+  """
+  The `Calendar` to be created by this mutation.
+  """
   calendar: CalendarInput!
 }
 
-"""The output of our create `Calendar` mutation."""
+"""
+The output of our create `Calendar` mutation.
+"""
 type CreateCalendarPayload {
   """
   The exact same `clientMutationId` that was provided in the mutation input,
@@ -782,7 +1026,9 @@ type CreateCalendarPayload {
   """
   clientMutationId: String
 
-  """The `Calendar` that was created by this mutation."""
+  """
+  The `Calendar` that was created by this mutation.
+  """
   calendar: Calendar
 
   """
@@ -790,14 +1036,20 @@ type CreateCalendarPayload {
   """
   query: Query
 
-  """An edge for our `Calendar`. May be used by Relay 1."""
+  """
+  An edge for our `Calendar`. May be used by Relay 1.
+  """
   calendarEdge(
-    """The method to use when ordering `Calendar`."""
+    """
+    The method to use when ordering `Calendar`.
+    """
     orderBy: [CalendarsOrderBy!] = [PRIMARY_KEY_ASC]
   ): CalendarsEdge
 }
 
-"""All input for the create `ContactWhenGeohashAvailable` mutation."""
+"""
+All input for the create `ContactWhenGeohashAvailable` mutation.
+"""
 input CreateContactWhenGeohashAvailableInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
@@ -805,11 +1057,15 @@ input CreateContactWhenGeohashAvailableInput {
   """
   clientMutationId: String
 
-  """The `ContactWhenGeohashAvailable` to be created by this mutation."""
+  """
+  The `ContactWhenGeohashAvailable` to be created by this mutation.
+  """
   contactWhenGeohashAvailable: ContactWhenGeohashAvailableInput!
 }
 
-"""The output of our create `ContactWhenGeohashAvailable` mutation."""
+"""
+The output of our create `ContactWhenGeohashAvailable` mutation.
+"""
 type CreateContactWhenGeohashAvailablePayload {
   """
   The exact same `clientMutationId` that was provided in the mutation input,
@@ -817,7 +1073,9 @@ type CreateContactWhenGeohashAvailablePayload {
   """
   clientMutationId: String
 
-  """The `ContactWhenGeohashAvailable` that was created by this mutation."""
+  """
+  The `ContactWhenGeohashAvailable` that was created by this mutation.
+  """
   contactWhenGeohashAvailable: ContactWhenGeohashAvailable
 
   """
@@ -825,14 +1083,20 @@ type CreateContactWhenGeohashAvailablePayload {
   """
   query: Query
 
-  """An edge for our `ContactWhenGeohashAvailable`. May be used by Relay 1."""
+  """
+  An edge for our `ContactWhenGeohashAvailable`. May be used by Relay 1.
+  """
   contactWhenGeohashAvailableEdge(
-    """The method to use when ordering `ContactWhenGeohashAvailable`."""
+    """
+    The method to use when ordering `ContactWhenGeohashAvailable`.
+    """
     orderBy: [ContactWhenGeohashAvailablesOrderBy!] = [PRIMARY_KEY_ASC]
   ): ContactWhenGeohashAvailablesEdge
 }
 
-"""All input for the create `FlywaySchemaHistory` mutation."""
+"""
+All input for the create `FlywaySchemaHistory` mutation.
+"""
 input CreateFlywaySchemaHistoryInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
@@ -840,11 +1104,15 @@ input CreateFlywaySchemaHistoryInput {
   """
   clientMutationId: String
 
-  """The `FlywaySchemaHistory` to be created by this mutation."""
+  """
+  The `FlywaySchemaHistory` to be created by this mutation.
+  """
   flywaySchemaHistory: FlywaySchemaHistoryInput!
 }
 
-"""The output of our create `FlywaySchemaHistory` mutation."""
+"""
+The output of our create `FlywaySchemaHistory` mutation.
+"""
 type CreateFlywaySchemaHistoryPayload {
   """
   The exact same `clientMutationId` that was provided in the mutation input,
@@ -852,7 +1120,9 @@ type CreateFlywaySchemaHistoryPayload {
   """
   clientMutationId: String
 
-  """The `FlywaySchemaHistory` that was created by this mutation."""
+  """
+  The `FlywaySchemaHistory` that was created by this mutation.
+  """
   flywaySchemaHistory: FlywaySchemaHistory
 
   """
@@ -860,14 +1130,20 @@ type CreateFlywaySchemaHistoryPayload {
   """
   query: Query
 
-  """An edge for our `FlywaySchemaHistory`. May be used by Relay 1."""
+  """
+  An edge for our `FlywaySchemaHistory`. May be used by Relay 1.
+  """
   flywaySchemaHistoryEdge(
-    """The method to use when ordering `FlywaySchemaHistory`."""
+    """
+    The method to use when ordering `FlywaySchemaHistory`.
+    """
     orderBy: [FlywaySchemaHistoriesOrderBy!] = [PRIMARY_KEY_ASC]
   ): FlywaySchemaHistoriesEdge
 }
 
-"""All input for the create `Job` mutation."""
+"""
+All input for the create `Job` mutation.
+"""
 input CreateJobInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
@@ -875,11 +1151,15 @@ input CreateJobInput {
   """
   clientMutationId: String
 
-  """The `Job` to be created by this mutation."""
+  """
+  The `Job` to be created by this mutation.
+  """
   job: JobInput!
 }
 
-"""The output of our create `Job` mutation."""
+"""
+The output of our create `Job` mutation.
+"""
 type CreateJobPayload {
   """
   The exact same `clientMutationId` that was provided in the mutation input,
@@ -887,7 +1167,9 @@ type CreateJobPayload {
   """
   clientMutationId: String
 
-  """The `Job` that was created by this mutation."""
+  """
+  The `Job` that was created by this mutation.
+  """
   job: Job
 
   """
@@ -895,14 +1177,20 @@ type CreateJobPayload {
   """
   query: Query
 
-  """An edge for our `Job`. May be used by Relay 1."""
+  """
+  An edge for our `Job`. May be used by Relay 1.
+  """
   jobEdge(
-    """The method to use when ordering `Job`."""
+    """
+    The method to use when ordering `Job`.
+    """
     orderBy: [JobsOrderBy!] = [PRIMARY_KEY_ASC]
   ): JobsEdge
 }
 
-"""All input for the create `LogClientError` mutation."""
+"""
+All input for the create `LogClientError` mutation.
+"""
 input CreateLogClientErrorInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
@@ -910,11 +1198,15 @@ input CreateLogClientErrorInput {
   """
   clientMutationId: String
 
-  """The `LogClientError` to be created by this mutation."""
+  """
+  The `LogClientError` to be created by this mutation.
+  """
   logClientError: LogClientErrorInput!
 }
 
-"""The output of our create `LogClientError` mutation."""
+"""
+The output of our create `LogClientError` mutation.
+"""
 type CreateLogClientErrorPayload {
   """
   The exact same `clientMutationId` that was provided in the mutation input,
@@ -922,7 +1214,9 @@ type CreateLogClientErrorPayload {
   """
   clientMutationId: String
 
-  """The `LogClientError` that was created by this mutation."""
+  """
+  The `LogClientError` that was created by this mutation.
+  """
   logClientError: LogClientError
 
   """
@@ -930,14 +1224,20 @@ type CreateLogClientErrorPayload {
   """
   query: Query
 
-  """An edge for our `LogClientError`. May be used by Relay 1."""
+  """
+  An edge for our `LogClientError`. May be used by Relay 1.
+  """
   logClientErrorEdge(
-    """The method to use when ordering `LogClientError`."""
+    """
+    The method to use when ordering `LogClientError`.
+    """
     orderBy: [LogClientErrorsOrderBy!] = [PRIMARY_KEY_ASC]
   ): LogClientErrorsEdge
 }
 
-"""All input for the create `Mechanic` mutation."""
+"""
+All input for the create `Mechanic` mutation.
+"""
 input CreateMechanicInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
@@ -945,11 +1245,15 @@ input CreateMechanicInput {
   """
   clientMutationId: String
 
-  """The `Mechanic` to be created by this mutation."""
+  """
+  The `Mechanic` to be created by this mutation.
+  """
   mechanic: MechanicInput!
 }
 
-"""All input for the create `MechanicJob` mutation."""
+"""
+All input for the create `MechanicJob` mutation.
+"""
 input CreateMechanicJobInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
@@ -957,11 +1261,15 @@ input CreateMechanicJobInput {
   """
   clientMutationId: String
 
-  """The `MechanicJob` to be created by this mutation."""
+  """
+  The `MechanicJob` to be created by this mutation.
+  """
   mechanicJob: MechanicJobInput!
 }
 
-"""The output of our create `MechanicJob` mutation."""
+"""
+The output of our create `MechanicJob` mutation.
+"""
 type CreateMechanicJobPayload {
   """
   The exact same `clientMutationId` that was provided in the mutation input,
@@ -969,7 +1277,9 @@ type CreateMechanicJobPayload {
   """
   clientMutationId: String
 
-  """The `MechanicJob` that was created by this mutation."""
+  """
+  The `MechanicJob` that was created by this mutation.
+  """
   mechanicJob: MechanicJob
 
   """
@@ -977,20 +1287,30 @@ type CreateMechanicJobPayload {
   """
   query: Query
 
-  """Reads a single `Mechanic` that is related to this `MechanicJob`."""
+  """
+  Reads a single `Mechanic` that is related to this `MechanicJob`.
+  """
   mechanic: Mechanic
 
-  """Reads a single `Job` that is related to this `MechanicJob`."""
+  """
+  Reads a single `Job` that is related to this `MechanicJob`.
+  """
   job: Job
 
-  """An edge for our `MechanicJob`. May be used by Relay 1."""
+  """
+  An edge for our `MechanicJob`. May be used by Relay 1.
+  """
   mechanicJobEdge(
-    """The method to use when ordering `MechanicJob`."""
+    """
+    The method to use when ordering `MechanicJob`.
+    """
     orderBy: [MechanicJobsOrderBy!] = [PRIMARY_KEY_ASC]
   ): MechanicJobsEdge
 }
 
-"""The output of our create `Mechanic` mutation."""
+"""
+The output of our create `Mechanic` mutation.
+"""
 type CreateMechanicPayload {
   """
   The exact same `clientMutationId` that was provided in the mutation input,
@@ -998,7 +1318,9 @@ type CreateMechanicPayload {
   """
   clientMutationId: String
 
-  """The `Mechanic` that was created by this mutation."""
+  """
+  The `Mechanic` that was created by this mutation.
+  """
   mechanic: Mechanic
 
   """
@@ -1006,14 +1328,20 @@ type CreateMechanicPayload {
   """
   query: Query
 
-  """An edge for our `Mechanic`. May be used by Relay 1."""
+  """
+  An edge for our `Mechanic`. May be used by Relay 1.
+  """
   mechanicEdge(
-    """The method to use when ordering `Mechanic`."""
+    """
+    The method to use when ordering `Mechanic`.
+    """
     orderBy: [MechanicsOrderBy!] = [PRIMARY_KEY_ASC]
   ): MechanicsEdge
 }
 
-"""All input for the create `TimeSlot` mutation."""
+"""
+All input for the create `TimeSlot` mutation.
+"""
 input CreateTimeSlotInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
@@ -1021,11 +1349,15 @@ input CreateTimeSlotInput {
   """
   clientMutationId: String
 
-  """The `TimeSlot` to be created by this mutation."""
+  """
+  The `TimeSlot` to be created by this mutation.
+  """
   timeSlot: TimeSlotInput!
 }
 
-"""The output of our create `TimeSlot` mutation."""
+"""
+The output of our create `TimeSlot` mutation.
+"""
 type CreateTimeSlotPayload {
   """
   The exact same `clientMutationId` that was provided in the mutation input,
@@ -1033,7 +1365,9 @@ type CreateTimeSlotPayload {
   """
   clientMutationId: String
 
-  """The `TimeSlot` that was created by this mutation."""
+  """
+  The `TimeSlot` that was created by this mutation.
+  """
   timeSlot: TimeSlot
 
   """
@@ -1041,14 +1375,20 @@ type CreateTimeSlotPayload {
   """
   query: Query
 
-  """An edge for our `TimeSlot`. May be used by Relay 1."""
+  """
+  An edge for our `TimeSlot`. May be used by Relay 1.
+  """
   timeSlotEdge(
-    """The method to use when ordering `TimeSlot`."""
+    """
+    The method to use when ordering `TimeSlot`.
+    """
     orderBy: [TimeSlotsOrderBy!] = [PRIMARY_KEY_ASC]
   ): TimeSlotsEdge
 }
 
-"""All input for the create `WorkingTime` mutation."""
+"""
+All input for the create `WorkingTime` mutation.
+"""
 input CreateWorkingTimeInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
@@ -1056,11 +1396,15 @@ input CreateWorkingTimeInput {
   """
   clientMutationId: String
 
-  """The `WorkingTime` to be created by this mutation."""
+  """
+  The `WorkingTime` to be created by this mutation.
+  """
   workingTime: WorkingTimeInput!
 }
 
-"""The output of our create `WorkingTime` mutation."""
+"""
+The output of our create `WorkingTime` mutation.
+"""
 type CreateWorkingTimePayload {
   """
   The exact same `clientMutationId` that was provided in the mutation input,
@@ -1068,7 +1412,9 @@ type CreateWorkingTimePayload {
   """
   clientMutationId: String
 
-  """The `WorkingTime` that was created by this mutation."""
+  """
+  The `WorkingTime` that was created by this mutation.
+  """
   workingTime: WorkingTime
 
   """
@@ -1076,23 +1422,35 @@ type CreateWorkingTimePayload {
   """
   query: Query
 
-  """Reads a single `Mechanic` that is related to this `WorkingTime`."""
+  """
+  Reads a single `Mechanic` that is related to this `WorkingTime`.
+  """
   mechanic: Mechanic
 
-  """Reads a single `TimeSlot` that is related to this `WorkingTime`."""
+  """
+  Reads a single `TimeSlot` that is related to this `WorkingTime`.
+  """
   timeSlot: TimeSlot
 
-  """An edge for our `WorkingTime`. May be used by Relay 1."""
+  """
+  An edge for our `WorkingTime`. May be used by Relay 1.
+  """
   workingTimeEdge(
-    """The method to use when ordering `WorkingTime`."""
+    """
+    The method to use when ordering `WorkingTime`.
+    """
     orderBy: [WorkingTimesOrderBy!] = [PRIMARY_KEY_ASC]
   ): WorkingTimesEdge
 }
 
-"""A location in a connection that can be used for resuming pagination."""
+"""
+A location in a connection that can be used for resuming pagination.
+"""
 scalar Cursor
 
-"""The day, does not include a time."""
+"""
+The day, does not include a time.
+"""
 scalar Date
 
 """
@@ -1104,10 +1462,14 @@ input DateFilter {
   """
   isNull: Boolean
 
-  """Equal to the specified value."""
+  """
+  Equal to the specified value.
+  """
   equalTo: Date
 
-  """Not equal to the specified value."""
+  """
+  Not equal to the specified value.
+  """
   notEqualTo: Date
 
   """
@@ -1115,25 +1477,39 @@ input DateFilter {
   """
   distinctFrom: Date
 
-  """Equal to the specified value, treating null like an ordinary value."""
+  """
+  Equal to the specified value, treating null like an ordinary value.
+  """
   notDistinctFrom: Date
 
-  """Included in the specified list."""
+  """
+  Included in the specified list.
+  """
   in: [Date!]
 
-  """Not included in the specified list."""
+  """
+  Not included in the specified list.
+  """
   notIn: [Date!]
 
-  """Less than the specified value."""
+  """
+  Less than the specified value.
+  """
   lessThan: Date
 
-  """Less than or equal to the specified value."""
+  """
+  Less than or equal to the specified value.
+  """
   lessThanOrEqualTo: Date
 
-  """Greater than the specified value."""
+  """
+  Greater than the specified value.
+  """
   greaterThan: Date
 
-  """Greater than or equal to the specified value."""
+  """
+  Greater than or equal to the specified value.
+  """
   greaterThanOrEqualTo: Date
 }
 
@@ -1152,10 +1528,14 @@ input DatetimeFilter {
   """
   isNull: Boolean
 
-  """Equal to the specified value."""
+  """
+  Equal to the specified value.
+  """
   equalTo: Datetime
 
-  """Not equal to the specified value."""
+  """
+  Not equal to the specified value.
+  """
   notEqualTo: Datetime
 
   """
@@ -1163,29 +1543,45 @@ input DatetimeFilter {
   """
   distinctFrom: Datetime
 
-  """Equal to the specified value, treating null like an ordinary value."""
+  """
+  Equal to the specified value, treating null like an ordinary value.
+  """
   notDistinctFrom: Datetime
 
-  """Included in the specified list."""
+  """
+  Included in the specified list.
+  """
   in: [Datetime!]
 
-  """Not included in the specified list."""
+  """
+  Not included in the specified list.
+  """
   notIn: [Datetime!]
 
-  """Less than the specified value."""
+  """
+  Less than the specified value.
+  """
   lessThan: Datetime
 
-  """Less than or equal to the specified value."""
+  """
+  Less than or equal to the specified value.
+  """
   lessThanOrEqualTo: Datetime
 
-  """Greater than the specified value."""
+  """
+  Greater than the specified value.
+  """
   greaterThan: Datetime
 
-  """Greater than or equal to the specified value."""
+  """
+  Greater than or equal to the specified value.
+  """
   greaterThanOrEqualTo: Datetime
 }
 
-"""All input for the `deleteBooking` mutation."""
+"""
+All input for the `deleteBooking` mutation.
+"""
 input DeleteBookingInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
@@ -1195,7 +1591,9 @@ input DeleteBookingInput {
   id: UUID!
 }
 
-"""All input for the `deleteBookingJob` mutation."""
+"""
+All input for the `deleteBookingJob` mutation.
+"""
 input DeleteBookingJobInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
@@ -1205,7 +1603,9 @@ input DeleteBookingJobInput {
   id: UUID!
 }
 
-"""The output of our delete `BookingJob` mutation."""
+"""
+The output of our delete `BookingJob` mutation.
+"""
 type DeleteBookingJobPayload {
   """
   The exact same `clientMutationId` that was provided in the mutation input,
@@ -1213,7 +1613,9 @@ type DeleteBookingJobPayload {
   """
   clientMutationId: String
 
-  """The `BookingJob` that was deleted by this mutation."""
+  """
+  The `BookingJob` that was deleted by this mutation.
+  """
   bookingJob: BookingJob
   deletedBookingJobNodeId: ID
 
@@ -1222,20 +1624,30 @@ type DeleteBookingJobPayload {
   """
   query: Query
 
-  """Reads a single `Booking` that is related to this `BookingJob`."""
+  """
+  Reads a single `Booking` that is related to this `BookingJob`.
+  """
   booking: Booking
 
-  """Reads a single `Job` that is related to this `BookingJob`."""
+  """
+  Reads a single `Job` that is related to this `BookingJob`.
+  """
   job: Job
 
-  """An edge for our `BookingJob`. May be used by Relay 1."""
+  """
+  An edge for our `BookingJob`. May be used by Relay 1.
+  """
   bookingJobEdge(
-    """The method to use when ordering `BookingJob`."""
+    """
+    The method to use when ordering `BookingJob`.
+    """
     orderBy: [BookingJobsOrderBy!] = [PRIMARY_KEY_ASC]
   ): BookingJobsEdge
 }
 
-"""The output of our delete `Booking` mutation."""
+"""
+The output of our delete `Booking` mutation.
+"""
 type DeleteBookingPayload {
   """
   The exact same `clientMutationId` that was provided in the mutation input,
@@ -1243,7 +1655,9 @@ type DeleteBookingPayload {
   """
   clientMutationId: String
 
-  """The `Booking` that was deleted by this mutation."""
+  """
+  The `Booking` that was deleted by this mutation.
+  """
   booking: Booking
   deletedBookingNodeId: ID
 
@@ -1252,20 +1666,30 @@ type DeleteBookingPayload {
   """
   query: Query
 
-  """Reads a single `Mechanic` that is related to this `Booking`."""
+  """
+  Reads a single `Mechanic` that is related to this `Booking`.
+  """
   mechanic: Mechanic
 
-  """Reads a single `TimeSlot` that is related to this `Booking`."""
+  """
+  Reads a single `TimeSlot` that is related to this `Booking`.
+  """
   timeSlot: TimeSlot
 
-  """An edge for our `Booking`. May be used by Relay 1."""
+  """
+  An edge for our `Booking`. May be used by Relay 1.
+  """
   bookingEdge(
-    """The method to use when ordering `Booking`."""
+    """
+    The method to use when ordering `Booking`.
+    """
     orderBy: [BookingsOrderBy!] = [PRIMARY_KEY_ASC]
   ): BookingsEdge
 }
 
-"""All input for the `deleteCalendar` mutation."""
+"""
+All input for the `deleteCalendar` mutation.
+"""
 input DeleteCalendarInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
@@ -1275,7 +1699,9 @@ input DeleteCalendarInput {
   dateDimId: Int!
 }
 
-"""The output of our delete `Calendar` mutation."""
+"""
+The output of our delete `Calendar` mutation.
+"""
 type DeleteCalendarPayload {
   """
   The exact same `clientMutationId` that was provided in the mutation input,
@@ -1283,7 +1709,9 @@ type DeleteCalendarPayload {
   """
   clientMutationId: String
 
-  """The `Calendar` that was deleted by this mutation."""
+  """
+  The `Calendar` that was deleted by this mutation.
+  """
   calendar: Calendar
   deletedCalendarNodeId: ID
 
@@ -1292,14 +1720,20 @@ type DeleteCalendarPayload {
   """
   query: Query
 
-  """An edge for our `Calendar`. May be used by Relay 1."""
+  """
+  An edge for our `Calendar`. May be used by Relay 1.
+  """
   calendarEdge(
-    """The method to use when ordering `Calendar`."""
+    """
+    The method to use when ordering `Calendar`.
+    """
     orderBy: [CalendarsOrderBy!] = [PRIMARY_KEY_ASC]
   ): CalendarsEdge
 }
 
-"""All input for the `deleteContactWhenGeohashAvailable` mutation."""
+"""
+All input for the `deleteContactWhenGeohashAvailable` mutation.
+"""
 input DeleteContactWhenGeohashAvailableInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
@@ -1309,7 +1743,9 @@ input DeleteContactWhenGeohashAvailableInput {
   id: UUID!
 }
 
-"""The output of our delete `ContactWhenGeohashAvailable` mutation."""
+"""
+The output of our delete `ContactWhenGeohashAvailable` mutation.
+"""
 type DeleteContactWhenGeohashAvailablePayload {
   """
   The exact same `clientMutationId` that was provided in the mutation input,
@@ -1317,7 +1753,9 @@ type DeleteContactWhenGeohashAvailablePayload {
   """
   clientMutationId: String
 
-  """The `ContactWhenGeohashAvailable` that was deleted by this mutation."""
+  """
+  The `ContactWhenGeohashAvailable` that was deleted by this mutation.
+  """
   contactWhenGeohashAvailable: ContactWhenGeohashAvailable
   deletedContactWhenGeohashAvailableNodeId: ID
 
@@ -1326,14 +1764,20 @@ type DeleteContactWhenGeohashAvailablePayload {
   """
   query: Query
 
-  """An edge for our `ContactWhenGeohashAvailable`. May be used by Relay 1."""
+  """
+  An edge for our `ContactWhenGeohashAvailable`. May be used by Relay 1.
+  """
   contactWhenGeohashAvailableEdge(
-    """The method to use when ordering `ContactWhenGeohashAvailable`."""
+    """
+    The method to use when ordering `ContactWhenGeohashAvailable`.
+    """
     orderBy: [ContactWhenGeohashAvailablesOrderBy!] = [PRIMARY_KEY_ASC]
   ): ContactWhenGeohashAvailablesEdge
 }
 
-"""All input for the `deleteFlywaySchemaHistory` mutation."""
+"""
+All input for the `deleteFlywaySchemaHistory` mutation.
+"""
 input DeleteFlywaySchemaHistoryInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
@@ -1343,7 +1787,9 @@ input DeleteFlywaySchemaHistoryInput {
   installedRank: Int!
 }
 
-"""The output of our delete `FlywaySchemaHistory` mutation."""
+"""
+The output of our delete `FlywaySchemaHistory` mutation.
+"""
 type DeleteFlywaySchemaHistoryPayload {
   """
   The exact same `clientMutationId` that was provided in the mutation input,
@@ -1351,7 +1797,9 @@ type DeleteFlywaySchemaHistoryPayload {
   """
   clientMutationId: String
 
-  """The `FlywaySchemaHistory` that was deleted by this mutation."""
+  """
+  The `FlywaySchemaHistory` that was deleted by this mutation.
+  """
   flywaySchemaHistory: FlywaySchemaHistory
   deletedFlywaySchemaHistoryNodeId: ID
 
@@ -1360,14 +1808,20 @@ type DeleteFlywaySchemaHistoryPayload {
   """
   query: Query
 
-  """An edge for our `FlywaySchemaHistory`. May be used by Relay 1."""
+  """
+  An edge for our `FlywaySchemaHistory`. May be used by Relay 1.
+  """
   flywaySchemaHistoryEdge(
-    """The method to use when ordering `FlywaySchemaHistory`."""
+    """
+    The method to use when ordering `FlywaySchemaHistory`.
+    """
     orderBy: [FlywaySchemaHistoriesOrderBy!] = [PRIMARY_KEY_ASC]
   ): FlywaySchemaHistoriesEdge
 }
 
-"""All input for the `deleteJob` mutation."""
+"""
+All input for the `deleteJob` mutation.
+"""
 input DeleteJobInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
@@ -1377,7 +1831,9 @@ input DeleteJobInput {
   id: UUID!
 }
 
-"""The output of our delete `Job` mutation."""
+"""
+The output of our delete `Job` mutation.
+"""
 type DeleteJobPayload {
   """
   The exact same `clientMutationId` that was provided in the mutation input,
@@ -1385,7 +1841,9 @@ type DeleteJobPayload {
   """
   clientMutationId: String
 
-  """The `Job` that was deleted by this mutation."""
+  """
+  The `Job` that was deleted by this mutation.
+  """
   job: Job
   deletedJobNodeId: ID
 
@@ -1394,14 +1852,20 @@ type DeleteJobPayload {
   """
   query: Query
 
-  """An edge for our `Job`. May be used by Relay 1."""
+  """
+  An edge for our `Job`. May be used by Relay 1.
+  """
   jobEdge(
-    """The method to use when ordering `Job`."""
+    """
+    The method to use when ordering `Job`.
+    """
     orderBy: [JobsOrderBy!] = [PRIMARY_KEY_ASC]
   ): JobsEdge
 }
 
-"""All input for the `deleteLogClientError` mutation."""
+"""
+All input for the `deleteLogClientError` mutation.
+"""
 input DeleteLogClientErrorInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
@@ -1411,7 +1875,9 @@ input DeleteLogClientErrorInput {
   id: Int!
 }
 
-"""The output of our delete `LogClientError` mutation."""
+"""
+The output of our delete `LogClientError` mutation.
+"""
 type DeleteLogClientErrorPayload {
   """
   The exact same `clientMutationId` that was provided in the mutation input,
@@ -1419,7 +1885,9 @@ type DeleteLogClientErrorPayload {
   """
   clientMutationId: String
 
-  """The `LogClientError` that was deleted by this mutation."""
+  """
+  The `LogClientError` that was deleted by this mutation.
+  """
   logClientError: LogClientError
   deletedLogClientErrorNodeId: ID
 
@@ -1428,14 +1896,20 @@ type DeleteLogClientErrorPayload {
   """
   query: Query
 
-  """An edge for our `LogClientError`. May be used by Relay 1."""
+  """
+  An edge for our `LogClientError`. May be used by Relay 1.
+  """
   logClientErrorEdge(
-    """The method to use when ordering `LogClientError`."""
+    """
+    The method to use when ordering `LogClientError`.
+    """
     orderBy: [LogClientErrorsOrderBy!] = [PRIMARY_KEY_ASC]
   ): LogClientErrorsEdge
 }
 
-"""All input for the `deleteMechanic` mutation."""
+"""
+All input for the `deleteMechanic` mutation.
+"""
 input DeleteMechanicInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
@@ -1445,7 +1919,9 @@ input DeleteMechanicInput {
   id: UUID!
 }
 
-"""All input for the `deleteMechanicJob` mutation."""
+"""
+All input for the `deleteMechanicJob` mutation.
+"""
 input DeleteMechanicJobInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
@@ -1455,7 +1931,9 @@ input DeleteMechanicJobInput {
   id: UUID!
 }
 
-"""The output of our delete `MechanicJob` mutation."""
+"""
+The output of our delete `MechanicJob` mutation.
+"""
 type DeleteMechanicJobPayload {
   """
   The exact same `clientMutationId` that was provided in the mutation input,
@@ -1463,7 +1941,9 @@ type DeleteMechanicJobPayload {
   """
   clientMutationId: String
 
-  """The `MechanicJob` that was deleted by this mutation."""
+  """
+  The `MechanicJob` that was deleted by this mutation.
+  """
   mechanicJob: MechanicJob
   deletedMechanicJobNodeId: ID
 
@@ -1472,20 +1952,30 @@ type DeleteMechanicJobPayload {
   """
   query: Query
 
-  """Reads a single `Mechanic` that is related to this `MechanicJob`."""
+  """
+  Reads a single `Mechanic` that is related to this `MechanicJob`.
+  """
   mechanic: Mechanic
 
-  """Reads a single `Job` that is related to this `MechanicJob`."""
+  """
+  Reads a single `Job` that is related to this `MechanicJob`.
+  """
   job: Job
 
-  """An edge for our `MechanicJob`. May be used by Relay 1."""
+  """
+  An edge for our `MechanicJob`. May be used by Relay 1.
+  """
   mechanicJobEdge(
-    """The method to use when ordering `MechanicJob`."""
+    """
+    The method to use when ordering `MechanicJob`.
+    """
     orderBy: [MechanicJobsOrderBy!] = [PRIMARY_KEY_ASC]
   ): MechanicJobsEdge
 }
 
-"""The output of our delete `Mechanic` mutation."""
+"""
+The output of our delete `Mechanic` mutation.
+"""
 type DeleteMechanicPayload {
   """
   The exact same `clientMutationId` that was provided in the mutation input,
@@ -1493,7 +1983,9 @@ type DeleteMechanicPayload {
   """
   clientMutationId: String
 
-  """The `Mechanic` that was deleted by this mutation."""
+  """
+  The `Mechanic` that was deleted by this mutation.
+  """
   mechanic: Mechanic
   deletedMechanicNodeId: ID
 
@@ -1502,14 +1994,20 @@ type DeleteMechanicPayload {
   """
   query: Query
 
-  """An edge for our `Mechanic`. May be used by Relay 1."""
+  """
+  An edge for our `Mechanic`. May be used by Relay 1.
+  """
   mechanicEdge(
-    """The method to use when ordering `Mechanic`."""
+    """
+    The method to use when ordering `Mechanic`.
+    """
     orderBy: [MechanicsOrderBy!] = [PRIMARY_KEY_ASC]
   ): MechanicsEdge
 }
 
-"""All input for the `deleteTimeSlot` mutation."""
+"""
+All input for the `deleteTimeSlot` mutation.
+"""
 input DeleteTimeSlotInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
@@ -1517,11 +2015,15 @@ input DeleteTimeSlotInput {
   """
   clientMutationId: String
 
-  """E.g. 2019-12-31__09"""
+  """
+  E.g. 2019-12-31__09
+  """
   id: String!
 }
 
-"""The output of our delete `TimeSlot` mutation."""
+"""
+The output of our delete `TimeSlot` mutation.
+"""
 type DeleteTimeSlotPayload {
   """
   The exact same `clientMutationId` that was provided in the mutation input,
@@ -1529,7 +2031,9 @@ type DeleteTimeSlotPayload {
   """
   clientMutationId: String
 
-  """The `TimeSlot` that was deleted by this mutation."""
+  """
+  The `TimeSlot` that was deleted by this mutation.
+  """
   timeSlot: TimeSlot
   deletedTimeSlotNodeId: ID
 
@@ -1538,14 +2042,20 @@ type DeleteTimeSlotPayload {
   """
   query: Query
 
-  """An edge for our `TimeSlot`. May be used by Relay 1."""
+  """
+  An edge for our `TimeSlot`. May be used by Relay 1.
+  """
   timeSlotEdge(
-    """The method to use when ordering `TimeSlot`."""
+    """
+    The method to use when ordering `TimeSlot`.
+    """
     orderBy: [TimeSlotsOrderBy!] = [PRIMARY_KEY_ASC]
   ): TimeSlotsEdge
 }
 
-"""All input for the `deleteWorkingTime` mutation."""
+"""
+All input for the `deleteWorkingTime` mutation.
+"""
 input DeleteWorkingTimeInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
@@ -1556,7 +2066,9 @@ input DeleteWorkingTimeInput {
   timeSlotId: String!
 }
 
-"""The output of our delete `WorkingTime` mutation."""
+"""
+The output of our delete `WorkingTime` mutation.
+"""
 type DeleteWorkingTimePayload {
   """
   The exact same `clientMutationId` that was provided in the mutation input,
@@ -1564,7 +2076,9 @@ type DeleteWorkingTimePayload {
   """
   clientMutationId: String
 
-  """The `WorkingTime` that was deleted by this mutation."""
+  """
+  The `WorkingTime` that was deleted by this mutation.
+  """
   workingTime: WorkingTime
   deletedWorkingTimeNodeId: ID
 
@@ -1573,22 +2087,34 @@ type DeleteWorkingTimePayload {
   """
   query: Query
 
-  """Reads a single `Mechanic` that is related to this `WorkingTime`."""
+  """
+  Reads a single `Mechanic` that is related to this `WorkingTime`.
+  """
   mechanic: Mechanic
 
-  """Reads a single `TimeSlot` that is related to this `WorkingTime`."""
+  """
+  Reads a single `TimeSlot` that is related to this `WorkingTime`.
+  """
   timeSlot: TimeSlot
 
-  """An edge for our `WorkingTime`. May be used by Relay 1."""
+  """
+  An edge for our `WorkingTime`. May be used by Relay 1.
+  """
   workingTimeEdge(
-    """The method to use when ordering `WorkingTime`."""
+    """
+    The method to use when ordering `WorkingTime`.
+    """
     orderBy: [WorkingTimesOrderBy!] = [PRIMARY_KEY_ASC]
   ): WorkingTimesEdge
 }
 
-"""A connection to a list of `FlywaySchemaHistory` values."""
+"""
+A connection to a list of `FlywaySchemaHistory` values.
+"""
 type FlywaySchemaHistoriesConnection {
-  """A list of `FlywaySchemaHistory` objects."""
+  """
+  A list of `FlywaySchemaHistory` objects.
+  """
   nodes: [FlywaySchemaHistory!]!
 
   """
@@ -1596,7 +2122,9 @@ type FlywaySchemaHistoriesConnection {
   """
   edges: [FlywaySchemaHistoriesEdge!]!
 
-  """Information to aid in pagination."""
+  """
+  Information to aid in pagination.
+  """
   pageInfo: PageInfo!
 
   """
@@ -1605,16 +2133,24 @@ type FlywaySchemaHistoriesConnection {
   totalCount: Int!
 }
 
-"""A `FlywaySchemaHistory` edge in the connection."""
+"""
+A `FlywaySchemaHistory` edge in the connection.
+"""
 type FlywaySchemaHistoriesEdge {
-  """A cursor for use in pagination."""
+  """
+  A cursor for use in pagination.
+  """
   cursor: Cursor
 
-  """The `FlywaySchemaHistory` at the end of the edge."""
+  """
+  The `FlywaySchemaHistory` at the end of the edge.
+  """
   node: FlywaySchemaHistory!
 }
 
-"""Methods to use when ordering `FlywaySchemaHistory`."""
+"""
+Methods to use when ordering `FlywaySchemaHistory`.
+"""
 enum FlywaySchemaHistoriesOrderBy {
   NATURAL
   INSTALLED_RANK_ASC
@@ -1643,10 +2179,14 @@ A condition to be used against `FlywaySchemaHistory` object types. All fields
 are tested for equality and combined with a logical ‘and.’
 """
 input FlywaySchemaHistoryCondition {
-  """Checks for equality with the object’s `installedRank` field."""
+  """
+  Checks for equality with the object’s `installedRank` field.
+  """
   installedRank: Int
 
-  """Checks for equality with the object’s `success` field."""
+  """
+  Checks for equality with the object’s `success` field.
+  """
   success: Boolean
 }
 
@@ -1654,23 +2194,35 @@ input FlywaySchemaHistoryCondition {
 A filter to be used against `FlywaySchemaHistory` object types. All fields are combined with a logical ‘and.’
 """
 input FlywaySchemaHistoryFilter {
-  """Filter by the object’s `installedRank` field."""
+  """
+  Filter by the object’s `installedRank` field.
+  """
   installedRank: IntFilter
 
-  """Filter by the object’s `success` field."""
+  """
+  Filter by the object’s `success` field.
+  """
   success: BooleanFilter
 
-  """Checks for all expressions in this list."""
+  """
+  Checks for all expressions in this list.
+  """
   and: [FlywaySchemaHistoryFilter!]
 
-  """Checks for any expressions in this list."""
+  """
+  Checks for any expressions in this list.
+  """
   or: [FlywaySchemaHistoryFilter!]
 
-  """Negates the expression."""
+  """
+  Negates the expression.
+  """
   not: FlywaySchemaHistoryFilter
 }
 
-"""An input for mutations affecting `FlywaySchemaHistory`"""
+"""
+An input for mutations affecting `FlywaySchemaHistory`
+"""
 input FlywaySchemaHistoryInput {
   installedRank: Int!
   version: String
@@ -1709,10 +2261,14 @@ input IntFilter {
   """
   isNull: Boolean
 
-  """Equal to the specified value."""
+  """
+  Equal to the specified value.
+  """
   equalTo: Int
 
-  """Not equal to the specified value."""
+  """
+  Not equal to the specified value.
+  """
   notEqualTo: Int
 
   """
@@ -1720,25 +2276,39 @@ input IntFilter {
   """
   distinctFrom: Int
 
-  """Equal to the specified value, treating null like an ordinary value."""
+  """
+  Equal to the specified value, treating null like an ordinary value.
+  """
   notDistinctFrom: Int
 
-  """Included in the specified list."""
+  """
+  Included in the specified list.
+  """
   in: [Int!]
 
-  """Not included in the specified list."""
+  """
+  Not included in the specified list.
+  """
   notIn: [Int!]
 
-  """Less than the specified value."""
+  """
+  Less than the specified value.
+  """
   lessThan: Int
 
-  """Less than or equal to the specified value."""
+  """
+  Less than or equal to the specified value.
+  """
   lessThanOrEqualTo: Int
 
-  """Greater than the specified value."""
+  """
+  Greater than the specified value.
+  """
   greaterThan: Int
 
-  """Greater than or equal to the specified value."""
+  """
+  Greater than or equal to the specified value.
+  """
   greaterThanOrEqualTo: Int
 }
 
@@ -1749,12 +2319,18 @@ type Job {
   createdAt: Datetime
   price: Float!
 
-  """Reads and enables pagination through a set of `MechanicJob`."""
+  """
+  Reads and enables pagination through a set of `MechanicJob`.
+  """
   mechanicJobs(
-    """Only read the first `n` values of the set."""
+    """
+    Only read the first `n` values of the set.
+    """
     first: Int
 
-    """Only read the last `n` values of the set."""
+    """
+    Only read the last `n` values of the set.
+    """
     last: Int
 
     """
@@ -1763,13 +2339,19 @@ type Job {
     """
     offset: Int
 
-    """Read all values in the set before (above) this cursor."""
+    """
+    Read all values in the set before (above) this cursor.
+    """
     before: Cursor
 
-    """Read all values in the set after (below) this cursor."""
+    """
+    Read all values in the set after (below) this cursor.
+    """
     after: Cursor
 
-    """The method to use when ordering `MechanicJob`."""
+    """
+    The method to use when ordering `MechanicJob`.
+    """
     orderBy: [MechanicJobsOrderBy!] = [PRIMARY_KEY_ASC]
 
     """
@@ -1783,12 +2365,18 @@ type Job {
     filter: MechanicJobFilter
   ): MechanicJobsConnection!
 
-  """Reads and enables pagination through a set of `BookingJob`."""
+  """
+  Reads and enables pagination through a set of `BookingJob`.
+  """
   bookingJobs(
-    """Only read the first `n` values of the set."""
+    """
+    Only read the first `n` values of the set.
+    """
     first: Int
 
-    """Only read the last `n` values of the set."""
+    """
+    Only read the last `n` values of the set.
+    """
     last: Int
 
     """
@@ -1797,13 +2385,19 @@ type Job {
     """
     offset: Int
 
-    """Read all values in the set before (above) this cursor."""
+    """
+    Read all values in the set before (above) this cursor.
+    """
     before: Cursor
 
-    """Read all values in the set after (below) this cursor."""
+    """
+    Read all values in the set after (below) this cursor.
+    """
     after: Cursor
 
-    """The method to use when ordering `BookingJob`."""
+    """
+    The method to use when ordering `BookingJob`.
+    """
     orderBy: [BookingJobsOrderBy!] = [PRIMARY_KEY_ASC]
 
     """
@@ -1822,7 +2416,9 @@ type Job {
 A condition to be used against `Job` object types. All fields are tested for equality and combined with a logical ‘and.’
 """
 input JobCondition {
-  """Checks for equality with the object’s `id` field."""
+  """
+  Checks for equality with the object’s `id` field.
+  """
   id: UUID
 }
 
@@ -1830,20 +2426,30 @@ input JobCondition {
 A filter to be used against `Job` object types. All fields are combined with a logical ‘and.’
 """
 input JobFilter {
-  """Filter by the object’s `id` field."""
+  """
+  Filter by the object’s `id` field.
+  """
   id: UUIDFilter
 
-  """Checks for all expressions in this list."""
+  """
+  Checks for all expressions in this list.
+  """
   and: [JobFilter!]
 
-  """Checks for any expressions in this list."""
+  """
+  Checks for any expressions in this list.
+  """
   or: [JobFilter!]
 
-  """Negates the expression."""
+  """
+  Negates the expression.
+  """
   not: JobFilter
 }
 
-"""An input for mutations affecting `Job`"""
+"""
+An input for mutations affecting `Job`
+"""
 input JobInput {
   id: UUID
   description: String!
@@ -1852,7 +2458,9 @@ input JobInput {
   price: Float
 }
 
-"""Represents an update to a `Job`. Fields that are set will be updated."""
+"""
+Represents an update to a `Job`. Fields that are set will be updated.
+"""
 input JobPatch {
   id: UUID
   description: String
@@ -1861,9 +2469,13 @@ input JobPatch {
   price: Float
 }
 
-"""A connection to a list of `Job` values."""
+"""
+A connection to a list of `Job` values.
+"""
 type JobsConnection {
-  """A list of `Job` objects."""
+  """
+  A list of `Job` objects.
+  """
   nodes: [Job!]!
 
   """
@@ -1871,23 +2483,35 @@ type JobsConnection {
   """
   edges: [JobsEdge!]!
 
-  """Information to aid in pagination."""
+  """
+  Information to aid in pagination.
+  """
   pageInfo: PageInfo!
 
-  """The count of *all* `Job` you could get from the connection."""
+  """
+  The count of *all* `Job` you could get from the connection.
+  """
   totalCount: Int!
 }
 
-"""A `Job` edge in the connection."""
+"""
+A `Job` edge in the connection.
+"""
 type JobsEdge {
-  """A cursor for use in pagination."""
+  """
+  A cursor for use in pagination.
+  """
   cursor: Cursor
 
-  """The `Job` at the end of the edge."""
+  """
+  The `Job` at the end of the edge.
+  """
   node: Job!
 }
 
-"""Methods to use when ordering `Job`."""
+"""
+Methods to use when ordering `Job`.
+"""
 enum JobsOrderBy {
   NATURAL
   ID_ASC
@@ -1913,7 +2537,9 @@ A condition to be used against `LogClientError` object types. All fields are
 tested for equality and combined with a logical ‘and.’
 """
 input LogClientErrorCondition {
-  """Checks for equality with the object’s `id` field."""
+  """
+  Checks for equality with the object’s `id` field.
+  """
   id: Int
 }
 
@@ -1921,20 +2547,30 @@ input LogClientErrorCondition {
 A filter to be used against `LogClientError` object types. All fields are combined with a logical ‘and.’
 """
 input LogClientErrorFilter {
-  """Filter by the object’s `id` field."""
+  """
+  Filter by the object’s `id` field.
+  """
   id: IntFilter
 
-  """Checks for all expressions in this list."""
+  """
+  Checks for all expressions in this list.
+  """
   and: [LogClientErrorFilter!]
 
-  """Checks for any expressions in this list."""
+  """
+  Checks for any expressions in this list.
+  """
   or: [LogClientErrorFilter!]
 
-  """Negates the expression."""
+  """
+  Negates the expression.
+  """
   not: LogClientErrorFilter
 }
 
-"""An input for mutations affecting `LogClientError`"""
+"""
+An input for mutations affecting `LogClientError`
+"""
 input LogClientErrorInput {
   id: Int
   ts: Datetime
@@ -1952,9 +2588,13 @@ input LogClientErrorPatch {
   error: JSON
 }
 
-"""A connection to a list of `LogClientError` values."""
+"""
+A connection to a list of `LogClientError` values.
+"""
 type LogClientErrorsConnection {
-  """A list of `LogClientError` objects."""
+  """
+  A list of `LogClientError` objects.
+  """
   nodes: [LogClientError!]!
 
   """
@@ -1962,23 +2602,35 @@ type LogClientErrorsConnection {
   """
   edges: [LogClientErrorsEdge!]!
 
-  """Information to aid in pagination."""
+  """
+  Information to aid in pagination.
+  """
   pageInfo: PageInfo!
 
-  """The count of *all* `LogClientError` you could get from the connection."""
+  """
+  The count of *all* `LogClientError` you could get from the connection.
+  """
   totalCount: Int!
 }
 
-"""A `LogClientError` edge in the connection."""
+"""
+A `LogClientError` edge in the connection.
+"""
 type LogClientErrorsEdge {
-  """A cursor for use in pagination."""
+  """
+  A cursor for use in pagination.
+  """
   cursor: Cursor
 
-  """The `LogClientError` at the end of the edge."""
+  """
+  The `LogClientError` at the end of the edge.
+  """
   node: LogClientError!
 }
 
-"""Methods to use when ordering `LogClientError`."""
+"""
+Methods to use when ordering `LogClientError`.
+"""
 enum LogClientErrorsOrderBy {
   NATURAL
   ID_ASC
@@ -1987,7 +2639,9 @@ enum LogClientErrorsOrderBy {
   PRIMARY_KEY_DESC
 }
 
-"""All input for the `makeBooking` mutation."""
+"""
+All input for the `makeBooking` mutation.
+"""
 input MakeBookingInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
@@ -2001,7 +2655,9 @@ input MakeBookingInput {
   latitude: Float!
 }
 
-"""The output of our `makeBooking` mutation."""
+"""
+The output of our `makeBooking` mutation.
+"""
 type MakeBookingPayload {
   """
   The exact same `clientMutationId` that was provided in the mutation input,
@@ -2015,15 +2671,23 @@ type MakeBookingPayload {
   """
   query: Query
 
-  """Reads a single `Mechanic` that is related to this `Booking`."""
+  """
+  Reads a single `Mechanic` that is related to this `Booking`.
+  """
   mechanic: Mechanic
 
-  """Reads a single `TimeSlot` that is related to this `Booking`."""
+  """
+  Reads a single `TimeSlot` that is related to this `Booking`.
+  """
   timeSlot: TimeSlot
 
-  """An edge for our `Booking`. May be used by Relay 1."""
+  """
+  An edge for our `Booking`. May be used by Relay 1.
+  """
   bookingEdge(
-    """The method to use when ordering `Booking`."""
+    """
+    The method to use when ordering `Booking`.
+    """
     orderBy: [BookingsOrderBy!] = [PRIMARY_KEY_ASC]
   ): BookingsEdge
 }
@@ -2031,6 +2695,7 @@ type MakeBookingPayload {
 type Mechanic {
   id: UUID!
   fullName: String!
+  nodeId: string
   rating: Float
   createdAt: Datetime
   geohashes: [String]!
@@ -2040,12 +2705,18 @@ type Mechanic {
   phone: String
   address: String
 
-  """Reads and enables pagination through a set of `MechanicJob`."""
+  """
+  Reads and enables pagination through a set of `MechanicJob`.
+  """
   mechanicJobs(
-    """Only read the first `n` values of the set."""
+    """
+    Only read the first `n` values of the set.
+    """
     first: Int
 
-    """Only read the last `n` values of the set."""
+    """
+    Only read the last `n` values of the set.
+    """
     last: Int
 
     """
@@ -2054,13 +2725,19 @@ type Mechanic {
     """
     offset: Int
 
-    """Read all values in the set before (above) this cursor."""
+    """
+    Read all values in the set before (above) this cursor.
+    """
     before: Cursor
 
-    """Read all values in the set after (below) this cursor."""
+    """
+    Read all values in the set after (below) this cursor.
+    """
     after: Cursor
 
-    """The method to use when ordering `MechanicJob`."""
+    """
+    The method to use when ordering `MechanicJob`.
+    """
     orderBy: [MechanicJobsOrderBy!] = [PRIMARY_KEY_ASC]
 
     """
@@ -2074,12 +2751,15 @@ type Mechanic {
     filter: MechanicJobFilter
   ): MechanicJobsConnection!
 
-  """Reads and enables pagination through a set of `WorkingTime`."""
-  workingTimes(
-    """Only read the first `n` values of the set."""
+  mechanicJobsByMechanicId(
+    """
+    Only read the first `n` values of the set.
+    """
     first: Int
 
-    """Only read the last `n` values of the set."""
+    """
+    Only read the last `n` values of the set.
+    """
     last: Int
 
     """
@@ -2088,13 +2768,65 @@ type Mechanic {
     """
     offset: Int
 
-    """Read all values in the set before (above) this cursor."""
+    """
+    Read all values in the set before (above) this cursor.
+    """
     before: Cursor
 
-    """Read all values in the set after (below) this cursor."""
+    """
+    Read all values in the set after (below) this cursor.
+    """
     after: Cursor
 
-    """The method to use when ordering `WorkingTime`."""
+    """
+    The method to use when ordering `MechanicJob`.
+    """
+    orderBy: [MechanicJobsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: MechanicJobCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: MechanicJobFilter
+  ): MechanicJobsConnection!
+
+  """
+  Reads and enables pagination through a set of `WorkingTime`.
+  """
+  workingTimes(
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    The method to use when ordering `WorkingTime`.
+    """
     orderBy: [WorkingTimesOrderBy!] = [PRIMARY_KEY_ASC]
 
     """
@@ -2108,12 +2840,18 @@ type Mechanic {
     filter: WorkingTimeFilter
   ): WorkingTimesConnection!
 
-  """Reads and enables pagination through a set of `Booking`."""
+  """
+  Reads and enables pagination through a set of `Booking`.
+  """
   bookings(
-    """Only read the first `n` values of the set."""
+    """
+    Only read the first `n` values of the set.
+    """
     first: Int
 
-    """Only read the last `n` values of the set."""
+    """
+    Only read the last `n` values of the set.
+    """
     last: Int
 
     """
@@ -2122,13 +2860,19 @@ type Mechanic {
     """
     offset: Int
 
-    """Read all values in the set before (above) this cursor."""
+    """
+    Read all values in the set before (above) this cursor.
+    """
     before: Cursor
 
-    """Read all values in the set after (below) this cursor."""
+    """
+    Read all values in the set after (below) this cursor.
+    """
     after: Cursor
 
-    """The method to use when ordering `Booking`."""
+    """
+    The method to use when ordering `Booking`.
+    """
     orderBy: [BookingsOrderBy!] = [PRIMARY_KEY_ASC]
 
     """
@@ -2146,10 +2890,14 @@ type Mechanic {
   Reads and enables pagination through a set of `VMechanicTimeSlotsNext90Day`.
   """
   vMechanicTimeSlotsNext90Days(
-    """Only read the first `n` values of the set."""
+    """
+    Only read the first `n` values of the set.
+    """
     first: Int
 
-    """Only read the last `n` values of the set."""
+    """
+    Only read the last `n` values of the set.
+    """
     last: Int
 
     """
@@ -2158,13 +2906,19 @@ type Mechanic {
     """
     offset: Int
 
-    """Read all values in the set before (above) this cursor."""
+    """
+    Read all values in the set before (above) this cursor.
+    """
     before: Cursor
 
-    """Read all values in the set after (below) this cursor."""
+    """
+    Read all values in the set after (below) this cursor.
+    """
     after: Cursor
 
-    """The method to use when ordering `VMechanicTimeSlotsNext90Day`."""
+    """
+    The method to use when ordering `VMechanicTimeSlotsNext90Day`.
+    """
     orderBy: [VMechanicTimeSlotsNext90DaysOrderBy!] = [PRIMARY_KEY_ASC]
   ): VMechanicTimeSlotsNext90DaysConnection!
 }
@@ -2174,7 +2928,9 @@ A condition to be used against `Mechanic` object types. All fields are tested
 for equality and combined with a logical ‘and.’
 """
 input MechanicCondition {
-  """Checks for equality with the object’s `id` field."""
+  """
+  Checks for equality with the object’s `id` field.
+  """
   id: UUID
 }
 
@@ -2182,20 +2938,30 @@ input MechanicCondition {
 A filter to be used against `Mechanic` object types. All fields are combined with a logical ‘and.’
 """
 input MechanicFilter {
-  """Filter by the object’s `id` field."""
+  """
+  Filter by the object’s `id` field.
+  """
   id: UUIDFilter
 
-  """Checks for all expressions in this list."""
+  """
+  Checks for all expressions in this list.
+  """
   and: [MechanicFilter!]
 
-  """Checks for any expressions in this list."""
+  """
+  Checks for any expressions in this list.
+  """
   or: [MechanicFilter!]
 
-  """Negates the expression."""
+  """
+  Negates the expression.
+  """
   not: MechanicFilter
 }
 
-"""An input for mutations affecting `Mechanic`"""
+"""
+An input for mutations affecting `Mechanic`
+"""
 input MechanicInput {
   id: UUID
   fullName: String!
@@ -2214,10 +2980,14 @@ type MechanicJob {
   mechanicId: UUID
   jobId: UUID
 
-  """Reads a single `Mechanic` that is related to this `MechanicJob`."""
+  """
+  Reads a single `Mechanic` that is related to this `MechanicJob`.
+  """
   mechanic: Mechanic
 
-  """Reads a single `Job` that is related to this `MechanicJob`."""
+  """
+  Reads a single `Job` that is related to this `MechanicJob`.
+  """
   job: Job
 }
 
@@ -2226,13 +2996,19 @@ A condition to be used against `MechanicJob` object types. All fields are tested
 for equality and combined with a logical ‘and.’
 """
 input MechanicJobCondition {
-  """Checks for equality with the object’s `id` field."""
+  """
+  Checks for equality with the object’s `id` field.
+  """
   id: UUID
 
-  """Checks for equality with the object’s `mechanicId` field."""
+  """
+  Checks for equality with the object’s `mechanicId` field.
+  """
   mechanicId: UUID
 
-  """Checks for equality with the object’s `jobId` field."""
+  """
+  Checks for equality with the object’s `jobId` field.
+  """
   jobId: UUID
 }
 
@@ -2240,26 +3016,40 @@ input MechanicJobCondition {
 A filter to be used against `MechanicJob` object types. All fields are combined with a logical ‘and.’
 """
 input MechanicJobFilter {
-  """Filter by the object’s `id` field."""
+  """
+  Filter by the object’s `id` field.
+  """
   id: UUIDFilter
 
-  """Filter by the object’s `mechanicId` field."""
+  """
+  Filter by the object’s `mechanicId` field.
+  """
   mechanicId: UUIDFilter
 
-  """Filter by the object’s `jobId` field."""
+  """
+  Filter by the object’s `jobId` field.
+  """
   jobId: UUIDFilter
 
-  """Checks for all expressions in this list."""
+  """
+  Checks for all expressions in this list.
+  """
   and: [MechanicJobFilter!]
 
-  """Checks for any expressions in this list."""
+  """
+  Checks for any expressions in this list.
+  """
   or: [MechanicJobFilter!]
 
-  """Negates the expression."""
+  """
+  Negates the expression.
+  """
   not: MechanicJobFilter
 }
 
-"""An input for mutations affecting `MechanicJob`"""
+"""
+An input for mutations affecting `MechanicJob`
+"""
 input MechanicJobInput {
   id: UUID
   mechanicId: UUID
@@ -2275,9 +3065,13 @@ input MechanicJobPatch {
   jobId: UUID
 }
 
-"""A connection to a list of `MechanicJob` values."""
+"""
+A connection to a list of `MechanicJob` values.
+"""
 type MechanicJobsConnection {
-  """A list of `MechanicJob` objects."""
+  """
+  A list of `MechanicJob` objects.
+  """
   nodes: [MechanicJob!]!
 
   """
@@ -2285,23 +3079,35 @@ type MechanicJobsConnection {
   """
   edges: [MechanicJobsEdge!]!
 
-  """Information to aid in pagination."""
+  """
+  Information to aid in pagination.
+  """
   pageInfo: PageInfo!
 
-  """The count of *all* `MechanicJob` you could get from the connection."""
+  """
+  The count of *all* `MechanicJob` you could get from the connection.
+  """
   totalCount: Int!
 }
 
-"""A `MechanicJob` edge in the connection."""
+"""
+A `MechanicJob` edge in the connection.
+"""
 type MechanicJobsEdge {
-  """A cursor for use in pagination."""
+  """
+  A cursor for use in pagination.
+  """
   cursor: Cursor
 
-  """The `MechanicJob` at the end of the edge."""
+  """
+  The `MechanicJob` at the end of the edge.
+  """
   node: MechanicJob!
 }
 
-"""Methods to use when ordering `MechanicJob`."""
+"""
+Methods to use when ordering `MechanicJob`.
+"""
 enum MechanicJobsOrderBy {
   NATURAL
   ID_ASC
@@ -2330,9 +3136,13 @@ input MechanicPatch {
   address: String
 }
 
-"""A connection to a list of `Mechanic` values."""
+"""
+A connection to a list of `Mechanic` values.
+"""
 type MechanicsConnection {
-  """A list of `Mechanic` objects."""
+  """
+  A list of `Mechanic` objects.
+  """
   nodes: [Mechanic!]!
 
   """
@@ -2340,23 +3150,35 @@ type MechanicsConnection {
   """
   edges: [MechanicsEdge!]!
 
-  """Information to aid in pagination."""
+  """
+  Information to aid in pagination.
+  """
   pageInfo: PageInfo!
 
-  """The count of *all* `Mechanic` you could get from the connection."""
+  """
+  The count of *all* `Mechanic` you could get from the connection.
+  """
   totalCount: Int!
 }
 
-"""A `Mechanic` edge in the connection."""
+"""
+A `Mechanic` edge in the connection.
+"""
 type MechanicsEdge {
-  """A cursor for use in pagination."""
+  """
+  A cursor for use in pagination.
+  """
   cursor: Cursor
 
-  """The `Mechanic` at the end of the edge."""
+  """
+  The `Mechanic` at the end of the edge.
+  """
   node: Mechanic!
 }
 
-"""Methods to use when ordering `Mechanic`."""
+"""
+Methods to use when ordering `Mechanic`.
+"""
 enum MechanicsOrderBy {
   NATURAL
   ID_ASC
@@ -2369,7 +3191,9 @@ enum MechanicsOrderBy {
 The root mutation type which contains root level fields which mutate data.
 """
 type Mutation {
-  """Creates a single `Booking`."""
+  """
+  Creates a single `Booking`.
+  """
   createBooking(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -2377,7 +3201,9 @@ type Mutation {
     input: CreateBookingInput!
   ): CreateBookingPayload
 
-  """Creates a single `BookingJob`."""
+  """
+  Creates a single `BookingJob`.
+  """
   createBookingJob(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -2385,7 +3211,9 @@ type Mutation {
     input: CreateBookingJobInput!
   ): CreateBookingJobPayload
 
-  """Creates a single `Calendar`."""
+  """
+  Creates a single `Calendar`.
+  """
   createCalendar(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -2393,7 +3221,9 @@ type Mutation {
     input: CreateCalendarInput!
   ): CreateCalendarPayload
 
-  """Creates a single `ContactWhenGeohashAvailable`."""
+  """
+  Creates a single `ContactWhenGeohashAvailable`.
+  """
   createContactWhenGeohashAvailable(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -2401,7 +3231,9 @@ type Mutation {
     input: CreateContactWhenGeohashAvailableInput!
   ): CreateContactWhenGeohashAvailablePayload
 
-  """Creates a single `FlywaySchemaHistory`."""
+  """
+  Creates a single `FlywaySchemaHistory`.
+  """
   createFlywaySchemaHistory(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -2409,7 +3241,9 @@ type Mutation {
     input: CreateFlywaySchemaHistoryInput!
   ): CreateFlywaySchemaHistoryPayload
 
-  """Creates a single `Job`."""
+  """
+  Creates a single `Job`.
+  """
   createJob(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -2417,7 +3251,9 @@ type Mutation {
     input: CreateJobInput!
   ): CreateJobPayload
 
-  """Creates a single `LogClientError`."""
+  """
+  Creates a single `LogClientError`.
+  """
   createLogClientError(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -2425,7 +3261,9 @@ type Mutation {
     input: CreateLogClientErrorInput!
   ): CreateLogClientErrorPayload
 
-  """Creates a single `Mechanic`."""
+  """
+  Creates a single `Mechanic`.
+  """
   createMechanic(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -2433,7 +3271,9 @@ type Mutation {
     input: CreateMechanicInput!
   ): CreateMechanicPayload
 
-  """Creates a single `MechanicJob`."""
+  """
+  Creates a single `MechanicJob`.
+  """
   createMechanicJob(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -2441,7 +3281,9 @@ type Mutation {
     input: CreateMechanicJobInput!
   ): CreateMechanicJobPayload
 
-  """Creates a single `TimeSlot`."""
+  """
+  Creates a single `TimeSlot`.
+  """
   createTimeSlot(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -2449,7 +3291,9 @@ type Mutation {
     input: CreateTimeSlotInput!
   ): CreateTimeSlotPayload
 
-  """Creates a single `WorkingTime`."""
+  """
+  Creates a single `WorkingTime`.
+  """
   createWorkingTime(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -2457,7 +3301,9 @@ type Mutation {
     input: CreateWorkingTimeInput!
   ): CreateWorkingTimePayload
 
-  """Updates a single `Booking` using a unique key and a patch."""
+  """
+  Updates a single `Booking` using a unique key and a patch.
+  """
   updateBooking(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -2465,7 +3311,9 @@ type Mutation {
     input: UpdateBookingInput!
   ): UpdateBookingPayload
 
-  """Updates a single `BookingJob` using a unique key and a patch."""
+  """
+  Updates a single `BookingJob` using a unique key and a patch.
+  """
   updateBookingJob(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -2473,7 +3321,9 @@ type Mutation {
     input: UpdateBookingJobInput!
   ): UpdateBookingJobPayload
 
-  """Updates a single `Calendar` using a unique key and a patch."""
+  """
+  Updates a single `Calendar` using a unique key and a patch.
+  """
   updateCalendar(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -2491,7 +3341,9 @@ type Mutation {
     input: UpdateContactWhenGeohashAvailableInput!
   ): UpdateContactWhenGeohashAvailablePayload
 
-  """Updates a single `FlywaySchemaHistory` using a unique key and a patch."""
+  """
+  Updates a single `FlywaySchemaHistory` using a unique key and a patch.
+  """
   updateFlywaySchemaHistory(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -2499,7 +3351,9 @@ type Mutation {
     input: UpdateFlywaySchemaHistoryInput!
   ): UpdateFlywaySchemaHistoryPayload
 
-  """Updates a single `Job` using a unique key and a patch."""
+  """
+  Updates a single `Job` using a unique key and a patch.
+  """
   updateJob(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -2507,7 +3361,9 @@ type Mutation {
     input: UpdateJobInput!
   ): UpdateJobPayload
 
-  """Updates a single `LogClientError` using a unique key and a patch."""
+  """
+  Updates a single `LogClientError` using a unique key and a patch.
+  """
   updateLogClientError(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -2515,7 +3371,9 @@ type Mutation {
     input: UpdateLogClientErrorInput!
   ): UpdateLogClientErrorPayload
 
-  """Updates a single `Mechanic` using a unique key and a patch."""
+  """
+  Updates a single `Mechanic` using a unique key and a patch.
+  """
   updateMechanic(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -2523,7 +3381,9 @@ type Mutation {
     input: UpdateMechanicInput!
   ): UpdateMechanicPayload
 
-  """Updates a single `MechanicJob` using a unique key and a patch."""
+  """
+  Updates a single `MechanicJob` using a unique key and a patch.
+  """
   updateMechanicJob(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -2531,7 +3391,9 @@ type Mutation {
     input: UpdateMechanicJobInput!
   ): UpdateMechanicJobPayload
 
-  """Updates a single `TimeSlot` using a unique key and a patch."""
+  """
+  Updates a single `TimeSlot` using a unique key and a patch.
+  """
   updateTimeSlot(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -2539,7 +3401,9 @@ type Mutation {
     input: UpdateTimeSlotInput!
   ): UpdateTimeSlotPayload
 
-  """Updates a single `WorkingTime` using a unique key and a patch."""
+  """
+  Updates a single `WorkingTime` using a unique key and a patch.
+  """
   updateWorkingTime(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -2547,7 +3411,9 @@ type Mutation {
     input: UpdateWorkingTimeInput!
   ): UpdateWorkingTimePayload
 
-  """Deletes a single `Booking` using a unique key."""
+  """
+  Deletes a single `Booking` using a unique key.
+  """
   deleteBooking(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -2555,7 +3421,9 @@ type Mutation {
     input: DeleteBookingInput!
   ): DeleteBookingPayload
 
-  """Deletes a single `BookingJob` using a unique key."""
+  """
+  Deletes a single `BookingJob` using a unique key.
+  """
   deleteBookingJob(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -2563,7 +3431,9 @@ type Mutation {
     input: DeleteBookingJobInput!
   ): DeleteBookingJobPayload
 
-  """Deletes a single `Calendar` using a unique key."""
+  """
+  Deletes a single `Calendar` using a unique key.
+  """
   deleteCalendar(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -2571,7 +3441,9 @@ type Mutation {
     input: DeleteCalendarInput!
   ): DeleteCalendarPayload
 
-  """Deletes a single `ContactWhenGeohashAvailable` using a unique key."""
+  """
+  Deletes a single `ContactWhenGeohashAvailable` using a unique key.
+  """
   deleteContactWhenGeohashAvailable(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -2579,7 +3451,9 @@ type Mutation {
     input: DeleteContactWhenGeohashAvailableInput!
   ): DeleteContactWhenGeohashAvailablePayload
 
-  """Deletes a single `FlywaySchemaHistory` using a unique key."""
+  """
+  Deletes a single `FlywaySchemaHistory` using a unique key.
+  """
   deleteFlywaySchemaHistory(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -2587,7 +3461,9 @@ type Mutation {
     input: DeleteFlywaySchemaHistoryInput!
   ): DeleteFlywaySchemaHistoryPayload
 
-  """Deletes a single `Job` using a unique key."""
+  """
+  Deletes a single `Job` using a unique key.
+  """
   deleteJob(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -2595,7 +3471,9 @@ type Mutation {
     input: DeleteJobInput!
   ): DeleteJobPayload
 
-  """Deletes a single `LogClientError` using a unique key."""
+  """
+  Deletes a single `LogClientError` using a unique key.
+  """
   deleteLogClientError(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -2603,7 +3481,9 @@ type Mutation {
     input: DeleteLogClientErrorInput!
   ): DeleteLogClientErrorPayload
 
-  """Deletes a single `Mechanic` using a unique key."""
+  """
+  Deletes a single `Mechanic` using a unique key.
+  """
   deleteMechanic(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -2611,7 +3491,9 @@ type Mutation {
     input: DeleteMechanicInput!
   ): DeleteMechanicPayload
 
-  """Deletes a single `MechanicJob` using a unique key."""
+  """
+  Deletes a single `MechanicJob` using a unique key.
+  """
   deleteMechanicJob(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -2619,7 +3501,9 @@ type Mutation {
     input: DeleteMechanicJobInput!
   ): DeleteMechanicJobPayload
 
-  """Deletes a single `TimeSlot` using a unique key."""
+  """
+  Deletes a single `TimeSlot` using a unique key.
+  """
   deleteTimeSlot(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -2627,7 +3511,9 @@ type Mutation {
     input: DeleteTimeSlotInput!
   ): DeleteTimeSlotPayload
 
-  """Deletes a single `WorkingTime` using a unique key."""
+  """
+  Deletes a single `WorkingTime` using a unique key.
+  """
   deleteWorkingTime(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -2642,22 +3528,34 @@ type Mutation {
   ): MakeBookingPayload
 }
 
-"""Information about pagination in a connection."""
+"""
+Information about pagination in a connection.
+"""
 type PageInfo {
-  """When paginating forwards, are there more items?"""
+  """
+  When paginating forwards, are there more items?
+  """
   hasNextPage: Boolean!
 
-  """When paginating backwards, are there more items?"""
+  """
+  When paginating backwards, are there more items?
+  """
   hasPreviousPage: Boolean!
 
-  """When paginating backwards, the cursor to continue."""
+  """
+  When paginating backwards, the cursor to continue.
+  """
   startCursor: Cursor
 
-  """When paginating forwards, the cursor to continue."""
+  """
+  When paginating forwards, the cursor to continue.
+  """
   endCursor: Cursor
 }
 
-"""The root query type which gives access points into the data universe."""
+"""
+The root query type which gives access points into the data universe.
+"""
 type Query {
   """
   Exposes the root query type nested one level down. This is helpful for Relay 1
@@ -2665,12 +3563,18 @@ type Query {
   """
   query: Query!
 
-  """Reads and enables pagination through a set of `Booking`."""
+  """
+  Reads and enables pagination through a set of `Booking`.
+  """
   bookings(
-    """Only read the first `n` values of the set."""
+    """
+    Only read the first `n` values of the set.
+    """
     first: Int
 
-    """Only read the last `n` values of the set."""
+    """
+    Only read the last `n` values of the set.
+    """
     last: Int
 
     """
@@ -2679,13 +3583,19 @@ type Query {
     """
     offset: Int
 
-    """Read all values in the set before (above) this cursor."""
+    """
+    Read all values in the set before (above) this cursor.
+    """
     before: Cursor
 
-    """Read all values in the set after (below) this cursor."""
+    """
+    Read all values in the set after (below) this cursor.
+    """
     after: Cursor
 
-    """The method to use when ordering `Booking`."""
+    """
+    The method to use when ordering `Booking`.
+    """
     orderBy: [BookingsOrderBy!] = [PRIMARY_KEY_ASC]
 
     """
@@ -2699,12 +3609,18 @@ type Query {
     filter: BookingFilter
   ): BookingsConnection
 
-  """Reads and enables pagination through a set of `BookingJob`."""
+  """
+  Reads and enables pagination through a set of `BookingJob`.
+  """
   bookingJobs(
-    """Only read the first `n` values of the set."""
+    """
+    Only read the first `n` values of the set.
+    """
     first: Int
 
-    """Only read the last `n` values of the set."""
+    """
+    Only read the last `n` values of the set.
+    """
     last: Int
 
     """
@@ -2713,13 +3629,19 @@ type Query {
     """
     offset: Int
 
-    """Read all values in the set before (above) this cursor."""
+    """
+    Read all values in the set before (above) this cursor.
+    """
     before: Cursor
 
-    """Read all values in the set after (below) this cursor."""
+    """
+    Read all values in the set after (below) this cursor.
+    """
     after: Cursor
 
-    """The method to use when ordering `BookingJob`."""
+    """
+    The method to use when ordering `BookingJob`.
+    """
     orderBy: [BookingJobsOrderBy!] = [PRIMARY_KEY_ASC]
 
     """
@@ -2733,12 +3655,18 @@ type Query {
     filter: BookingJobFilter
   ): BookingJobsConnection
 
-  """Reads and enables pagination through a set of `Calendar`."""
+  """
+  Reads and enables pagination through a set of `Calendar`.
+  """
   calendars(
-    """Only read the first `n` values of the set."""
+    """
+    Only read the first `n` values of the set.
+    """
     first: Int
 
-    """Only read the last `n` values of the set."""
+    """
+    Only read the last `n` values of the set.
+    """
     last: Int
 
     """
@@ -2747,13 +3675,19 @@ type Query {
     """
     offset: Int
 
-    """Read all values in the set before (above) this cursor."""
+    """
+    Read all values in the set before (above) this cursor.
+    """
     before: Cursor
 
-    """Read all values in the set after (below) this cursor."""
+    """
+    Read all values in the set after (below) this cursor.
+    """
     after: Cursor
 
-    """The method to use when ordering `Calendar`."""
+    """
+    The method to use when ordering `Calendar`.
+    """
     orderBy: [CalendarsOrderBy!] = [PRIMARY_KEY_ASC]
 
     """
@@ -2771,10 +3705,14 @@ type Query {
   Reads and enables pagination through a set of `ContactWhenGeohashAvailable`.
   """
   contactWhenGeohashAvailables(
-    """Only read the first `n` values of the set."""
+    """
+    Only read the first `n` values of the set.
+    """
     first: Int
 
-    """Only read the last `n` values of the set."""
+    """
+    Only read the last `n` values of the set.
+    """
     last: Int
 
     """
@@ -2783,13 +3721,19 @@ type Query {
     """
     offset: Int
 
-    """Read all values in the set before (above) this cursor."""
+    """
+    Read all values in the set before (above) this cursor.
+    """
     before: Cursor
 
-    """Read all values in the set after (below) this cursor."""
+    """
+    Read all values in the set after (below) this cursor.
+    """
     after: Cursor
 
-    """The method to use when ordering `ContactWhenGeohashAvailable`."""
+    """
+    The method to use when ordering `ContactWhenGeohashAvailable`.
+    """
     orderBy: [ContactWhenGeohashAvailablesOrderBy!] = [PRIMARY_KEY_ASC]
 
     """
@@ -2803,12 +3747,18 @@ type Query {
     filter: ContactWhenGeohashAvailableFilter
   ): ContactWhenGeohashAvailablesConnection
 
-  """Reads and enables pagination through a set of `FlywaySchemaHistory`."""
+  """
+  Reads and enables pagination through a set of `FlywaySchemaHistory`.
+  """
   flywaySchemaHistories(
-    """Only read the first `n` values of the set."""
+    """
+    Only read the first `n` values of the set.
+    """
     first: Int
 
-    """Only read the last `n` values of the set."""
+    """
+    Only read the last `n` values of the set.
+    """
     last: Int
 
     """
@@ -2817,13 +3767,19 @@ type Query {
     """
     offset: Int
 
-    """Read all values in the set before (above) this cursor."""
+    """
+    Read all values in the set before (above) this cursor.
+    """
     before: Cursor
 
-    """Read all values in the set after (below) this cursor."""
+    """
+    Read all values in the set after (below) this cursor.
+    """
     after: Cursor
 
-    """The method to use when ordering `FlywaySchemaHistory`."""
+    """
+    The method to use when ordering `FlywaySchemaHistory`.
+    """
     orderBy: [FlywaySchemaHistoriesOrderBy!] = [PRIMARY_KEY_ASC]
 
     """
@@ -2837,12 +3793,18 @@ type Query {
     filter: FlywaySchemaHistoryFilter
   ): FlywaySchemaHistoriesConnection
 
-  """Reads and enables pagination through a set of `Job`."""
+  """
+  Reads and enables pagination through a set of `Job`.
+  """
   jobs(
-    """Only read the first `n` values of the set."""
+    """
+    Only read the first `n` values of the set.
+    """
     first: Int
 
-    """Only read the last `n` values of the set."""
+    """
+    Only read the last `n` values of the set.
+    """
     last: Int
 
     """
@@ -2851,13 +3813,19 @@ type Query {
     """
     offset: Int
 
-    """Read all values in the set before (above) this cursor."""
+    """
+    Read all values in the set before (above) this cursor.
+    """
     before: Cursor
 
-    """Read all values in the set after (below) this cursor."""
+    """
+    Read all values in the set after (below) this cursor.
+    """
     after: Cursor
 
-    """The method to use when ordering `Job`."""
+    """
+    The method to use when ordering `Job`.
+    """
     orderBy: [JobsOrderBy!] = [PRIMARY_KEY_ASC]
 
     """
@@ -2871,12 +3839,18 @@ type Query {
     filter: JobFilter
   ): JobsConnection
 
-  """Reads and enables pagination through a set of `LogClientError`."""
-  logClientErrors(
-    """Only read the first `n` values of the set."""
+  """
+  Reads and enables pagination through a set of `AllJob`.
+  """
+  allJobs(
+    """
+    Only read the first `n` values of the set.
+    """
     first: Int
 
-    """Only read the last `n` values of the set."""
+    """
+    Only read the last `n` values of the set.
+    """
     last: Int
 
     """
@@ -2885,13 +3859,65 @@ type Query {
     """
     offset: Int
 
-    """Read all values in the set before (above) this cursor."""
+    """
+    Read all values in the set before (above) this cursor.
+    """
     before: Cursor
 
-    """Read all values in the set after (below) this cursor."""
+    """
+    Read all values in the set after (below) this cursor.
+    """
     after: Cursor
 
-    """The method to use when ordering `LogClientError`."""
+    """
+    The method to use when ordering `Job`.
+    """
+    orderBy: [JobsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: JobCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: JobFilter
+  ): JobsConnection
+
+  """
+  Reads and enables pagination through a set of `LogClientError`.
+  """
+  logClientErrors(
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    The method to use when ordering `LogClientError`.
+    """
     orderBy: [LogClientErrorsOrderBy!] = [PRIMARY_KEY_ASC]
 
     """
@@ -2905,12 +3931,18 @@ type Query {
     filter: LogClientErrorFilter
   ): LogClientErrorsConnection
 
-  """Reads and enables pagination through a set of `Mechanic`."""
+  """
+  Reads and enables pagination through a set of `Mechanic`.
+  """
   mechanics(
-    """Only read the first `n` values of the set."""
+    """
+    Only read the first `n` values of the set.
+    """
     first: Int
 
-    """Only read the last `n` values of the set."""
+    """
+    Only read the last `n` values of the set.
+    """
     last: Int
 
     """
@@ -2919,13 +3951,19 @@ type Query {
     """
     offset: Int
 
-    """Read all values in the set before (above) this cursor."""
+    """
+    Read all values in the set before (above) this cursor.
+    """
     before: Cursor
 
-    """Read all values in the set after (below) this cursor."""
+    """
+    Read all values in the set after (below) this cursor.
+    """
     after: Cursor
 
-    """The method to use when ordering `Mechanic`."""
+    """
+    The method to use when ordering `Mechanic`.
+    """
     orderBy: [MechanicsOrderBy!] = [PRIMARY_KEY_ASC]
 
     """
@@ -2939,12 +3977,18 @@ type Query {
     filter: MechanicFilter
   ): MechanicsConnection
 
-  """Reads and enables pagination through a set of `MechanicJob`."""
+  """
+  Reads and enables pagination through a set of `MechanicJob`.
+  """
   mechanicJobs(
-    """Only read the first `n` values of the set."""
+    """
+    Only read the first `n` values of the set.
+    """
     first: Int
 
-    """Only read the last `n` values of the set."""
+    """
+    Only read the last `n` values of the set.
+    """
     last: Int
 
     """
@@ -2953,13 +3997,19 @@ type Query {
     """
     offset: Int
 
-    """Read all values in the set before (above) this cursor."""
+    """
+    Read all values in the set before (above) this cursor.
+    """
     before: Cursor
 
-    """Read all values in the set after (below) this cursor."""
+    """
+    Read all values in the set after (below) this cursor.
+    """
     after: Cursor
 
-    """The method to use when ordering `MechanicJob`."""
+    """
+    The method to use when ordering `MechanicJob`.
+    """
     orderBy: [MechanicJobsOrderBy!] = [PRIMARY_KEY_ASC]
 
     """
@@ -2973,12 +4023,18 @@ type Query {
     filter: MechanicJobFilter
   ): MechanicJobsConnection
 
-  """Reads and enables pagination through a set of `TimeSlot`."""
+  """
+  Reads and enables pagination through a set of `TimeSlot`.
+  """
   timeSlots(
-    """Only read the first `n` values of the set."""
+    """
+    Only read the first `n` values of the set.
+    """
     first: Int
 
-    """Only read the last `n` values of the set."""
+    """
+    Only read the last `n` values of the set.
+    """
     last: Int
 
     """
@@ -2987,13 +4043,19 @@ type Query {
     """
     offset: Int
 
-    """Read all values in the set before (above) this cursor."""
+    """
+    Read all values in the set before (above) this cursor.
+    """
     before: Cursor
 
-    """Read all values in the set after (below) this cursor."""
+    """
+    Read all values in the set after (below) this cursor.
+    """
     after: Cursor
 
-    """The method to use when ordering `TimeSlot`."""
+    """
+    The method to use when ordering `TimeSlot`.
+    """
     orderBy: [TimeSlotsOrderBy!] = [PRIMARY_KEY_ASC]
 
     """
@@ -3011,10 +4073,14 @@ type Query {
   Reads and enables pagination through a set of `VMechanicTimeSlotsNext90Day`.
   """
   vMechanicTimeSlotsNext90Days(
-    """Only read the first `n` values of the set."""
+    """
+    Only read the first `n` values of the set.
+    """
     first: Int
 
-    """Only read the last `n` values of the set."""
+    """
+    Only read the last `n` values of the set.
+    """
     last: Int
 
     """
@@ -3023,22 +4089,34 @@ type Query {
     """
     offset: Int
 
-    """Read all values in the set before (above) this cursor."""
+    """
+    Read all values in the set before (above) this cursor.
+    """
     before: Cursor
 
-    """Read all values in the set after (below) this cursor."""
+    """
+    Read all values in the set after (below) this cursor.
+    """
     after: Cursor
 
-    """The method to use when ordering `VMechanicTimeSlotsNext90Day`."""
+    """
+    The method to use when ordering `VMechanicTimeSlotsNext90Day`.
+    """
     orderBy: [VMechanicTimeSlotsNext90DaysOrderBy!] = [PRIMARY_KEY_ASC]
   ): VMechanicTimeSlotsNext90DaysConnection
 
-  """Reads and enables pagination through a set of `WorkingTime`."""
+  """
+  Reads and enables pagination through a set of `WorkingTime`.
+  """
   workingTimes(
-    """Only read the first `n` values of the set."""
+    """
+    Only read the first `n` values of the set.
+    """
     first: Int
 
-    """Only read the last `n` values of the set."""
+    """
+    Only read the last `n` values of the set.
+    """
     last: Int
 
     """
@@ -3047,13 +4125,19 @@ type Query {
     """
     offset: Int
 
-    """Read all values in the set before (above) this cursor."""
+    """
+    Read all values in the set before (above) this cursor.
+    """
     before: Cursor
 
-    """Read all values in the set after (below) this cursor."""
+    """
+    Read all values in the set after (below) this cursor.
+    """
     after: Cursor
 
-    """The method to use when ordering `WorkingTime`."""
+    """
+    The method to use when ordering `WorkingTime`.
+    """
     orderBy: [WorkingTimesOrderBy!] = [PRIMARY_KEY_ASC]
 
     """
@@ -3076,20 +4160,29 @@ type Query {
   mechanic(id: UUID!): Mechanic
   mechanicJob(id: UUID!): MechanicJob
   timeSlot(id: String!): TimeSlot
-  vMechanicTimeSlotsNext90Day(mechanicId: UUID!, timeSlotId: String!): VMechanicTimeSlotsNext90Day
+  vMechanicTimeSlotsNext90Day(
+    mechanicId: UUID!
+    timeSlotId: String!
+  ): VMechanicTimeSlotsNext90Day
   workingTime(mechanicId: UUID!, timeSlotId: String!): WorkingTime
 
-  """Reads and enables pagination through a set of `AvailableMechanic`."""
+  """
+  Reads and enables pagination through a set of `AvailableMechanic`.
+  """
   getAvailableMechanics(
     fromTime: Datetime
     toTime: Datetime
     geohash: String
     jobIds: [UUID]
 
-    """Only read the first `n` values of the set."""
+    """
+    Only read the first `n` values of the set.
+    """
     first: Int
 
-    """Only read the last `n` values of the set."""
+    """
+    Only read the last `n` values of the set.
+    """
     last: Int
 
     """
@@ -3098,10 +4191,14 @@ type Query {
     """
     offset: Int
 
-    """Read all values in the set before (above) this cursor."""
+    """
+    Read all values in the set before (above) this cursor.
+    """
     before: Cursor
 
-    """Read all values in the set after (below) this cursor."""
+    """
+    Read all values in the set after (below) this cursor.
+    """
     after: Cursor
   ): AvailableMechanicsConnection!
   getTimeLeft(mechanicId: UUID, timeSlotId: String): Int
@@ -3118,10 +4215,14 @@ input StringFilter {
   """
   isNull: Boolean
 
-  """Equal to the specified value."""
+  """
+  Equal to the specified value.
+  """
   equalTo: String
 
-  """Not equal to the specified value."""
+  """
+  Not equal to the specified value.
+  """
   notEqualTo: String
 
   """
@@ -3129,61 +4230,99 @@ input StringFilter {
   """
   distinctFrom: String
 
-  """Equal to the specified value, treating null like an ordinary value."""
+  """
+  Equal to the specified value, treating null like an ordinary value.
+  """
   notDistinctFrom: String
 
-  """Included in the specified list."""
+  """
+  Included in the specified list.
+  """
   in: [String!]
 
-  """Not included in the specified list."""
+  """
+  Not included in the specified list.
+  """
   notIn: [String!]
 
-  """Less than the specified value."""
+  """
+  Less than the specified value.
+  """
   lessThan: String
 
-  """Less than or equal to the specified value."""
+  """
+  Less than or equal to the specified value.
+  """
   lessThanOrEqualTo: String
 
-  """Greater than the specified value."""
+  """
+  Greater than the specified value.
+  """
   greaterThan: String
 
-  """Greater than or equal to the specified value."""
+  """
+  Greater than or equal to the specified value.
+  """
   greaterThanOrEqualTo: String
 
-  """Contains the specified string (case-sensitive)."""
+  """
+  Contains the specified string (case-sensitive).
+  """
   includes: String
 
-  """Does not contain the specified string (case-sensitive)."""
+  """
+  Does not contain the specified string (case-sensitive).
+  """
   notIncludes: String
 
-  """Contains the specified string (case-insensitive)."""
+  """
+  Contains the specified string (case-insensitive).
+  """
   includesInsensitive: String
 
-  """Does not contain the specified string (case-insensitive)."""
+  """
+  Does not contain the specified string (case-insensitive).
+  """
   notIncludesInsensitive: String
 
-  """Starts with the specified string (case-sensitive)."""
+  """
+  Starts with the specified string (case-sensitive).
+  """
   startsWith: String
 
-  """Does not start with the specified string (case-sensitive)."""
+  """
+  Does not start with the specified string (case-sensitive).
+  """
   notStartsWith: String
 
-  """Starts with the specified string (case-insensitive)."""
+  """
+  Starts with the specified string (case-insensitive).
+  """
   startsWithInsensitive: String
 
-  """Does not start with the specified string (case-insensitive)."""
+  """
+  Does not start with the specified string (case-insensitive).
+  """
   notStartsWithInsensitive: String
 
-  """Ends with the specified string (case-sensitive)."""
+  """
+  Ends with the specified string (case-sensitive).
+  """
   endsWith: String
 
-  """Does not end with the specified string (case-sensitive)."""
+  """
+  Does not end with the specified string (case-sensitive).
+  """
   notEndsWith: String
 
-  """Ends with the specified string (case-insensitive)."""
+  """
+  Ends with the specified string (case-insensitive).
+  """
   endsWithInsensitive: String
 
-  """Does not end with the specified string (case-insensitive)."""
+  """
+  Does not end with the specified string (case-insensitive).
+  """
   notEndsWithInsensitive: String
 
   """
@@ -3224,16 +4363,24 @@ input StringFilter {
 }
 
 type TimeSlot {
-  """E.g. 2019-12-31__09"""
+  """
+  E.g. 2019-12-31__09
+  """
   id: String!
   startTime: Datetime!
 
-  """Reads and enables pagination through a set of `WorkingTime`."""
+  """
+  Reads and enables pagination through a set of `WorkingTime`.
+  """
   workingTimes(
-    """Only read the first `n` values of the set."""
+    """
+    Only read the first `n` values of the set.
+    """
     first: Int
 
-    """Only read the last `n` values of the set."""
+    """
+    Only read the last `n` values of the set.
+    """
     last: Int
 
     """
@@ -3242,13 +4389,19 @@ type TimeSlot {
     """
     offset: Int
 
-    """Read all values in the set before (above) this cursor."""
+    """
+    Read all values in the set before (above) this cursor.
+    """
     before: Cursor
 
-    """Read all values in the set after (below) this cursor."""
+    """
+    Read all values in the set after (below) this cursor.
+    """
     after: Cursor
 
-    """The method to use when ordering `WorkingTime`."""
+    """
+    The method to use when ordering `WorkingTime`.
+    """
     orderBy: [WorkingTimesOrderBy!] = [PRIMARY_KEY_ASC]
 
     """
@@ -3262,12 +4415,18 @@ type TimeSlot {
     filter: WorkingTimeFilter
   ): WorkingTimesConnection!
 
-  """Reads and enables pagination through a set of `Booking`."""
+  """
+  Reads and enables pagination through a set of `Booking`.
+  """
   bookings(
-    """Only read the first `n` values of the set."""
+    """
+    Only read the first `n` values of the set.
+    """
     first: Int
 
-    """Only read the last `n` values of the set."""
+    """
+    Only read the last `n` values of the set.
+    """
     last: Int
 
     """
@@ -3276,13 +4435,19 @@ type TimeSlot {
     """
     offset: Int
 
-    """Read all values in the set before (above) this cursor."""
+    """
+    Read all values in the set before (above) this cursor.
+    """
     before: Cursor
 
-    """Read all values in the set after (below) this cursor."""
+    """
+    Read all values in the set after (below) this cursor.
+    """
     after: Cursor
 
-    """The method to use when ordering `Booking`."""
+    """
+    The method to use when ordering `Booking`.
+    """
     orderBy: [BookingsOrderBy!] = [PRIMARY_KEY_ASC]
 
     """
@@ -3300,10 +4465,14 @@ type TimeSlot {
   Reads and enables pagination through a set of `VMechanicTimeSlotsNext90Day`.
   """
   vMechanicTimeSlotsNext90Days(
-    """Only read the first `n` values of the set."""
+    """
+    Only read the first `n` values of the set.
+    """
     first: Int
 
-    """Only read the last `n` values of the set."""
+    """
+    Only read the last `n` values of the set.
+    """
     last: Int
 
     """
@@ -3312,13 +4481,19 @@ type TimeSlot {
     """
     offset: Int
 
-    """Read all values in the set before (above) this cursor."""
+    """
+    Read all values in the set before (above) this cursor.
+    """
     before: Cursor
 
-    """Read all values in the set after (below) this cursor."""
+    """
+    Read all values in the set after (below) this cursor.
+    """
     after: Cursor
 
-    """The method to use when ordering `VMechanicTimeSlotsNext90Day`."""
+    """
+    The method to use when ordering `VMechanicTimeSlotsNext90Day`.
+    """
     orderBy: [VMechanicTimeSlotsNext90DaysOrderBy!] = [PRIMARY_KEY_ASC]
   ): VMechanicTimeSlotsNext90DaysConnection!
 }
@@ -3328,10 +4503,14 @@ A condition to be used against `TimeSlot` object types. All fields are tested
 for equality and combined with a logical ‘and.’
 """
 input TimeSlotCondition {
-  """Checks for equality with the object’s `id` field."""
+  """
+  Checks for equality with the object’s `id` field.
+  """
   id: String
 
-  """Checks for equality with the object’s `startTime` field."""
+  """
+  Checks for equality with the object’s `startTime` field.
+  """
   startTime: Datetime
 }
 
@@ -3339,25 +4518,39 @@ input TimeSlotCondition {
 A filter to be used against `TimeSlot` object types. All fields are combined with a logical ‘and.’
 """
 input TimeSlotFilter {
-  """Filter by the object’s `id` field."""
+  """
+  Filter by the object’s `id` field.
+  """
   id: StringFilter
 
-  """Filter by the object’s `startTime` field."""
+  """
+  Filter by the object’s `startTime` field.
+  """
   startTime: DatetimeFilter
 
-  """Checks for all expressions in this list."""
+  """
+  Checks for all expressions in this list.
+  """
   and: [TimeSlotFilter!]
 
-  """Checks for any expressions in this list."""
+  """
+  Checks for any expressions in this list.
+  """
   or: [TimeSlotFilter!]
 
-  """Negates the expression."""
+  """
+  Negates the expression.
+  """
   not: TimeSlotFilter
 }
 
-"""An input for mutations affecting `TimeSlot`"""
+"""
+An input for mutations affecting `TimeSlot`
+"""
 input TimeSlotInput {
-  """E.g. 2019-12-31__09"""
+  """
+  E.g. 2019-12-31__09
+  """
   id: String!
   startTime: Datetime!
 }
@@ -3366,14 +4559,20 @@ input TimeSlotInput {
 Represents an update to a `TimeSlot`. Fields that are set will be updated.
 """
 input TimeSlotPatch {
-  """E.g. 2019-12-31__09"""
+  """
+  E.g. 2019-12-31__09
+  """
   id: String
   startTime: Datetime
 }
 
-"""A connection to a list of `TimeSlot` values."""
+"""
+A connection to a list of `TimeSlot` values.
+"""
 type TimeSlotsConnection {
-  """A list of `TimeSlot` objects."""
+  """
+  A list of `TimeSlot` objects.
+  """
   nodes: [TimeSlot!]!
 
   """
@@ -3381,23 +4580,35 @@ type TimeSlotsConnection {
   """
   edges: [TimeSlotsEdge!]!
 
-  """Information to aid in pagination."""
+  """
+  Information to aid in pagination.
+  """
   pageInfo: PageInfo!
 
-  """The count of *all* `TimeSlot` you could get from the connection."""
+  """
+  The count of *all* `TimeSlot` you could get from the connection.
+  """
   totalCount: Int!
 }
 
-"""A `TimeSlot` edge in the connection."""
+"""
+A `TimeSlot` edge in the connection.
+"""
 type TimeSlotsEdge {
-  """A cursor for use in pagination."""
+  """
+  A cursor for use in pagination.
+  """
   cursor: Cursor
 
-  """The `TimeSlot` at the end of the edge."""
+  """
+  The `TimeSlot` at the end of the edge.
+  """
   node: TimeSlot!
 }
 
-"""Methods to use when ordering `TimeSlot`."""
+"""
+Methods to use when ordering `TimeSlot`.
+"""
 enum TimeSlotsOrderBy {
   NATURAL
   ID_ASC
@@ -3408,7 +4619,9 @@ enum TimeSlotsOrderBy {
   PRIMARY_KEY_DESC
 }
 
-"""All input for the `updateBooking` mutation."""
+"""
+All input for the `updateBooking` mutation.
+"""
 input UpdateBookingInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
@@ -3423,7 +4636,9 @@ input UpdateBookingInput {
   id: UUID!
 }
 
-"""All input for the `updateBookingJob` mutation."""
+"""
+All input for the `updateBookingJob` mutation.
+"""
 input UpdateBookingJobInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
@@ -3438,7 +4653,9 @@ input UpdateBookingJobInput {
   id: UUID!
 }
 
-"""The output of our update `BookingJob` mutation."""
+"""
+The output of our update `BookingJob` mutation.
+"""
 type UpdateBookingJobPayload {
   """
   The exact same `clientMutationId` that was provided in the mutation input,
@@ -3446,7 +4663,9 @@ type UpdateBookingJobPayload {
   """
   clientMutationId: String
 
-  """The `BookingJob` that was updated by this mutation."""
+  """
+  The `BookingJob` that was updated by this mutation.
+  """
   bookingJob: BookingJob
 
   """
@@ -3454,20 +4673,30 @@ type UpdateBookingJobPayload {
   """
   query: Query
 
-  """Reads a single `Booking` that is related to this `BookingJob`."""
+  """
+  Reads a single `Booking` that is related to this `BookingJob`.
+  """
   booking: Booking
 
-  """Reads a single `Job` that is related to this `BookingJob`."""
+  """
+  Reads a single `Job` that is related to this `BookingJob`.
+  """
   job: Job
 
-  """An edge for our `BookingJob`. May be used by Relay 1."""
+  """
+  An edge for our `BookingJob`. May be used by Relay 1.
+  """
   bookingJobEdge(
-    """The method to use when ordering `BookingJob`."""
+    """
+    The method to use when ordering `BookingJob`.
+    """
     orderBy: [BookingJobsOrderBy!] = [PRIMARY_KEY_ASC]
   ): BookingJobsEdge
 }
 
-"""The output of our update `Booking` mutation."""
+"""
+The output of our update `Booking` mutation.
+"""
 type UpdateBookingPayload {
   """
   The exact same `clientMutationId` that was provided in the mutation input,
@@ -3475,7 +4704,9 @@ type UpdateBookingPayload {
   """
   clientMutationId: String
 
-  """The `Booking` that was updated by this mutation."""
+  """
+  The `Booking` that was updated by this mutation.
+  """
   booking: Booking
 
   """
@@ -3483,20 +4714,30 @@ type UpdateBookingPayload {
   """
   query: Query
 
-  """Reads a single `Mechanic` that is related to this `Booking`."""
+  """
+  Reads a single `Mechanic` that is related to this `Booking`.
+  """
   mechanic: Mechanic
 
-  """Reads a single `TimeSlot` that is related to this `Booking`."""
+  """
+  Reads a single `TimeSlot` that is related to this `Booking`.
+  """
   timeSlot: TimeSlot
 
-  """An edge for our `Booking`. May be used by Relay 1."""
+  """
+  An edge for our `Booking`. May be used by Relay 1.
+  """
   bookingEdge(
-    """The method to use when ordering `Booking`."""
+    """
+    The method to use when ordering `Booking`.
+    """
     orderBy: [BookingsOrderBy!] = [PRIMARY_KEY_ASC]
   ): BookingsEdge
 }
 
-"""All input for the `updateCalendar` mutation."""
+"""
+All input for the `updateCalendar` mutation.
+"""
 input UpdateCalendarInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
@@ -3511,7 +4752,9 @@ input UpdateCalendarInput {
   dateDimId: Int!
 }
 
-"""The output of our update `Calendar` mutation."""
+"""
+The output of our update `Calendar` mutation.
+"""
 type UpdateCalendarPayload {
   """
   The exact same `clientMutationId` that was provided in the mutation input,
@@ -3519,7 +4762,9 @@ type UpdateCalendarPayload {
   """
   clientMutationId: String
 
-  """The `Calendar` that was updated by this mutation."""
+  """
+  The `Calendar` that was updated by this mutation.
+  """
   calendar: Calendar
 
   """
@@ -3527,14 +4772,20 @@ type UpdateCalendarPayload {
   """
   query: Query
 
-  """An edge for our `Calendar`. May be used by Relay 1."""
+  """
+  An edge for our `Calendar`. May be used by Relay 1.
+  """
   calendarEdge(
-    """The method to use when ordering `Calendar`."""
+    """
+    The method to use when ordering `Calendar`.
+    """
     orderBy: [CalendarsOrderBy!] = [PRIMARY_KEY_ASC]
   ): CalendarsEdge
 }
 
-"""All input for the `updateContactWhenGeohashAvailable` mutation."""
+"""
+All input for the `updateContactWhenGeohashAvailable` mutation.
+"""
 input UpdateContactWhenGeohashAvailableInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
@@ -3549,7 +4800,9 @@ input UpdateContactWhenGeohashAvailableInput {
   id: UUID!
 }
 
-"""The output of our update `ContactWhenGeohashAvailable` mutation."""
+"""
+The output of our update `ContactWhenGeohashAvailable` mutation.
+"""
 type UpdateContactWhenGeohashAvailablePayload {
   """
   The exact same `clientMutationId` that was provided in the mutation input,
@@ -3557,7 +4810,9 @@ type UpdateContactWhenGeohashAvailablePayload {
   """
   clientMutationId: String
 
-  """The `ContactWhenGeohashAvailable` that was updated by this mutation."""
+  """
+  The `ContactWhenGeohashAvailable` that was updated by this mutation.
+  """
   contactWhenGeohashAvailable: ContactWhenGeohashAvailable
 
   """
@@ -3565,14 +4820,20 @@ type UpdateContactWhenGeohashAvailablePayload {
   """
   query: Query
 
-  """An edge for our `ContactWhenGeohashAvailable`. May be used by Relay 1."""
+  """
+  An edge for our `ContactWhenGeohashAvailable`. May be used by Relay 1.
+  """
   contactWhenGeohashAvailableEdge(
-    """The method to use when ordering `ContactWhenGeohashAvailable`."""
+    """
+    The method to use when ordering `ContactWhenGeohashAvailable`.
+    """
     orderBy: [ContactWhenGeohashAvailablesOrderBy!] = [PRIMARY_KEY_ASC]
   ): ContactWhenGeohashAvailablesEdge
 }
 
-"""All input for the `updateFlywaySchemaHistory` mutation."""
+"""
+All input for the `updateFlywaySchemaHistory` mutation.
+"""
 input UpdateFlywaySchemaHistoryInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
@@ -3587,7 +4848,9 @@ input UpdateFlywaySchemaHistoryInput {
   installedRank: Int!
 }
 
-"""The output of our update `FlywaySchemaHistory` mutation."""
+"""
+The output of our update `FlywaySchemaHistory` mutation.
+"""
 type UpdateFlywaySchemaHistoryPayload {
   """
   The exact same `clientMutationId` that was provided in the mutation input,
@@ -3595,7 +4858,9 @@ type UpdateFlywaySchemaHistoryPayload {
   """
   clientMutationId: String
 
-  """The `FlywaySchemaHistory` that was updated by this mutation."""
+  """
+  The `FlywaySchemaHistory` that was updated by this mutation.
+  """
   flywaySchemaHistory: FlywaySchemaHistory
 
   """
@@ -3603,14 +4868,20 @@ type UpdateFlywaySchemaHistoryPayload {
   """
   query: Query
 
-  """An edge for our `FlywaySchemaHistory`. May be used by Relay 1."""
+  """
+  An edge for our `FlywaySchemaHistory`. May be used by Relay 1.
+  """
   flywaySchemaHistoryEdge(
-    """The method to use when ordering `FlywaySchemaHistory`."""
+    """
+    The method to use when ordering `FlywaySchemaHistory`.
+    """
     orderBy: [FlywaySchemaHistoriesOrderBy!] = [PRIMARY_KEY_ASC]
   ): FlywaySchemaHistoriesEdge
 }
 
-"""All input for the `updateJob` mutation."""
+"""
+All input for the `updateJob` mutation.
+"""
 input UpdateJobInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
@@ -3625,7 +4896,9 @@ input UpdateJobInput {
   id: UUID!
 }
 
-"""The output of our update `Job` mutation."""
+"""
+The output of our update `Job` mutation.
+"""
 type UpdateJobPayload {
   """
   The exact same `clientMutationId` that was provided in the mutation input,
@@ -3633,7 +4906,9 @@ type UpdateJobPayload {
   """
   clientMutationId: String
 
-  """The `Job` that was updated by this mutation."""
+  """
+  The `Job` that was updated by this mutation.
+  """
   job: Job
 
   """
@@ -3641,14 +4916,20 @@ type UpdateJobPayload {
   """
   query: Query
 
-  """An edge for our `Job`. May be used by Relay 1."""
+  """
+  An edge for our `Job`. May be used by Relay 1.
+  """
   jobEdge(
-    """The method to use when ordering `Job`."""
+    """
+    The method to use when ordering `Job`.
+    """
     orderBy: [JobsOrderBy!] = [PRIMARY_KEY_ASC]
   ): JobsEdge
 }
 
-"""All input for the `updateLogClientError` mutation."""
+"""
+All input for the `updateLogClientError` mutation.
+"""
 input UpdateLogClientErrorInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
@@ -3663,7 +4944,9 @@ input UpdateLogClientErrorInput {
   id: Int!
 }
 
-"""The output of our update `LogClientError` mutation."""
+"""
+The output of our update `LogClientError` mutation.
+"""
 type UpdateLogClientErrorPayload {
   """
   The exact same `clientMutationId` that was provided in the mutation input,
@@ -3671,7 +4954,9 @@ type UpdateLogClientErrorPayload {
   """
   clientMutationId: String
 
-  """The `LogClientError` that was updated by this mutation."""
+  """
+  The `LogClientError` that was updated by this mutation.
+  """
   logClientError: LogClientError
 
   """
@@ -3679,14 +4964,20 @@ type UpdateLogClientErrorPayload {
   """
   query: Query
 
-  """An edge for our `LogClientError`. May be used by Relay 1."""
+  """
+  An edge for our `LogClientError`. May be used by Relay 1.
+  """
   logClientErrorEdge(
-    """The method to use when ordering `LogClientError`."""
+    """
+    The method to use when ordering `LogClientError`.
+    """
     orderBy: [LogClientErrorsOrderBy!] = [PRIMARY_KEY_ASC]
   ): LogClientErrorsEdge
 }
 
-"""All input for the `updateMechanic` mutation."""
+"""
+All input for the `updateMechanic` mutation.
+"""
 input UpdateMechanicInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
@@ -3701,7 +4992,9 @@ input UpdateMechanicInput {
   id: UUID!
 }
 
-"""All input for the `updateMechanicJob` mutation."""
+"""
+All input for the `updateMechanicJob` mutation.
+"""
 input UpdateMechanicJobInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
@@ -3716,7 +5009,9 @@ input UpdateMechanicJobInput {
   id: UUID!
 }
 
-"""The output of our update `MechanicJob` mutation."""
+"""
+The output of our update `MechanicJob` mutation.
+"""
 type UpdateMechanicJobPayload {
   """
   The exact same `clientMutationId` that was provided in the mutation input,
@@ -3724,7 +5019,9 @@ type UpdateMechanicJobPayload {
   """
   clientMutationId: String
 
-  """The `MechanicJob` that was updated by this mutation."""
+  """
+  The `MechanicJob` that was updated by this mutation.
+  """
   mechanicJob: MechanicJob
 
   """
@@ -3732,20 +5029,30 @@ type UpdateMechanicJobPayload {
   """
   query: Query
 
-  """Reads a single `Mechanic` that is related to this `MechanicJob`."""
+  """
+  Reads a single `Mechanic` that is related to this `MechanicJob`.
+  """
   mechanic: Mechanic
 
-  """Reads a single `Job` that is related to this `MechanicJob`."""
+  """
+  Reads a single `Job` that is related to this `MechanicJob`.
+  """
   job: Job
 
-  """An edge for our `MechanicJob`. May be used by Relay 1."""
+  """
+  An edge for our `MechanicJob`. May be used by Relay 1.
+  """
   mechanicJobEdge(
-    """The method to use when ordering `MechanicJob`."""
+    """
+    The method to use when ordering `MechanicJob`.
+    """
     orderBy: [MechanicJobsOrderBy!] = [PRIMARY_KEY_ASC]
   ): MechanicJobsEdge
 }
 
-"""The output of our update `Mechanic` mutation."""
+"""
+The output of our update `Mechanic` mutation.
+"""
 type UpdateMechanicPayload {
   """
   The exact same `clientMutationId` that was provided in the mutation input,
@@ -3753,7 +5060,9 @@ type UpdateMechanicPayload {
   """
   clientMutationId: String
 
-  """The `Mechanic` that was updated by this mutation."""
+  """
+  The `Mechanic` that was updated by this mutation.
+  """
   mechanic: Mechanic
 
   """
@@ -3761,14 +5070,20 @@ type UpdateMechanicPayload {
   """
   query: Query
 
-  """An edge for our `Mechanic`. May be used by Relay 1."""
+  """
+  An edge for our `Mechanic`. May be used by Relay 1.
+  """
   mechanicEdge(
-    """The method to use when ordering `Mechanic`."""
+    """
+    The method to use when ordering `Mechanic`.
+    """
     orderBy: [MechanicsOrderBy!] = [PRIMARY_KEY_ASC]
   ): MechanicsEdge
 }
 
-"""All input for the `updateTimeSlot` mutation."""
+"""
+All input for the `updateTimeSlot` mutation.
+"""
 input UpdateTimeSlotInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
@@ -3781,11 +5096,15 @@ input UpdateTimeSlotInput {
   """
   patch: TimeSlotPatch!
 
-  """E.g. 2019-12-31__09"""
+  """
+  E.g. 2019-12-31__09
+  """
   id: String!
 }
 
-"""The output of our update `TimeSlot` mutation."""
+"""
+The output of our update `TimeSlot` mutation.
+"""
 type UpdateTimeSlotPayload {
   """
   The exact same `clientMutationId` that was provided in the mutation input,
@@ -3793,7 +5112,9 @@ type UpdateTimeSlotPayload {
   """
   clientMutationId: String
 
-  """The `TimeSlot` that was updated by this mutation."""
+  """
+  The `TimeSlot` that was updated by this mutation.
+  """
   timeSlot: TimeSlot
 
   """
@@ -3801,14 +5122,20 @@ type UpdateTimeSlotPayload {
   """
   query: Query
 
-  """An edge for our `TimeSlot`. May be used by Relay 1."""
+  """
+  An edge for our `TimeSlot`. May be used by Relay 1.
+  """
   timeSlotEdge(
-    """The method to use when ordering `TimeSlot`."""
+    """
+    The method to use when ordering `TimeSlot`.
+    """
     orderBy: [TimeSlotsOrderBy!] = [PRIMARY_KEY_ASC]
   ): TimeSlotsEdge
 }
 
-"""All input for the `updateWorkingTime` mutation."""
+"""
+All input for the `updateWorkingTime` mutation.
+"""
 input UpdateWorkingTimeInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
@@ -3824,7 +5151,9 @@ input UpdateWorkingTimeInput {
   timeSlotId: String!
 }
 
-"""The output of our update `WorkingTime` mutation."""
+"""
+The output of our update `WorkingTime` mutation.
+"""
 type UpdateWorkingTimePayload {
   """
   The exact same `clientMutationId` that was provided in the mutation input,
@@ -3832,7 +5161,9 @@ type UpdateWorkingTimePayload {
   """
   clientMutationId: String
 
-  """The `WorkingTime` that was updated by this mutation."""
+  """
+  The `WorkingTime` that was updated by this mutation.
+  """
   workingTime: WorkingTime
 
   """
@@ -3840,15 +5171,23 @@ type UpdateWorkingTimePayload {
   """
   query: Query
 
-  """Reads a single `Mechanic` that is related to this `WorkingTime`."""
+  """
+  Reads a single `Mechanic` that is related to this `WorkingTime`.
+  """
   mechanic: Mechanic
 
-  """Reads a single `TimeSlot` that is related to this `WorkingTime`."""
+  """
+  Reads a single `TimeSlot` that is related to this `WorkingTime`.
+  """
   timeSlot: TimeSlot
 
-  """An edge for our `WorkingTime`. May be used by Relay 1."""
+  """
+  An edge for our `WorkingTime`. May be used by Relay 1.
+  """
   workingTimeEdge(
-    """The method to use when ordering `WorkingTime`."""
+    """
+    The method to use when ordering `WorkingTime`.
+    """
     orderBy: [WorkingTimesOrderBy!] = [PRIMARY_KEY_ASC]
   ): WorkingTimesEdge
 }
@@ -3867,10 +5206,14 @@ input UUIDFilter {
   """
   isNull: Boolean
 
-  """Equal to the specified value."""
+  """
+  Equal to the specified value.
+  """
   equalTo: UUID
 
-  """Not equal to the specified value."""
+  """
+  Not equal to the specified value.
+  """
   notEqualTo: UUID
 
   """
@@ -3878,25 +5221,39 @@ input UUIDFilter {
   """
   distinctFrom: UUID
 
-  """Equal to the specified value, treating null like an ordinary value."""
+  """
+  Equal to the specified value, treating null like an ordinary value.
+  """
   notDistinctFrom: UUID
 
-  """Included in the specified list."""
+  """
+  Included in the specified list.
+  """
   in: [UUID!]
 
-  """Not included in the specified list."""
+  """
+  Not included in the specified list.
+  """
   notIn: [UUID!]
 
-  """Less than the specified value."""
+  """
+  Less than the specified value.
+  """
   lessThan: UUID
 
-  """Less than or equal to the specified value."""
+  """
+  Less than or equal to the specified value.
+  """
   lessThanOrEqualTo: UUID
 
-  """Greater than the specified value."""
+  """
+  Greater than the specified value.
+  """
   greaterThan: UUID
 
-  """Greater than or equal to the specified value."""
+  """
+  Greater than or equal to the specified value.
+  """
   greaterThanOrEqualTo: UUID
 }
 
@@ -3926,9 +5283,13 @@ type VMechanicTimeSlotsNext90Day {
   workingTime: WorkingTime
 }
 
-"""A connection to a list of `VMechanicTimeSlotsNext90Day` values."""
+"""
+A connection to a list of `VMechanicTimeSlotsNext90Day` values.
+"""
 type VMechanicTimeSlotsNext90DaysConnection {
-  """A list of `VMechanicTimeSlotsNext90Day` objects."""
+  """
+  A list of `VMechanicTimeSlotsNext90Day` objects.
+  """
   nodes: [VMechanicTimeSlotsNext90Day!]!
 
   """
@@ -3936,7 +5297,9 @@ type VMechanicTimeSlotsNext90DaysConnection {
   """
   edges: [VMechanicTimeSlotsNext90DaysEdge!]!
 
-  """Information to aid in pagination."""
+  """
+  Information to aid in pagination.
+  """
   pageInfo: PageInfo!
 
   """
@@ -3945,16 +5308,24 @@ type VMechanicTimeSlotsNext90DaysConnection {
   totalCount: Int!
 }
 
-"""A `VMechanicTimeSlotsNext90Day` edge in the connection."""
+"""
+A `VMechanicTimeSlotsNext90Day` edge in the connection.
+"""
 type VMechanicTimeSlotsNext90DaysEdge {
-  """A cursor for use in pagination."""
+  """
+  A cursor for use in pagination.
+  """
   cursor: Cursor
 
-  """The `VMechanicTimeSlotsNext90Day` at the end of the edge."""
+  """
+  The `VMechanicTimeSlotsNext90Day` at the end of the edge.
+  """
   node: VMechanicTimeSlotsNext90Day!
 }
 
-"""Methods to use when ordering `VMechanicTimeSlotsNext90Day`."""
+"""
+Methods to use when ordering `VMechanicTimeSlotsNext90Day`.
+"""
 enum VMechanicTimeSlotsNext90DaysOrderBy {
   NATURAL
   PRIMARY_KEY_ASC
@@ -3967,20 +5338,28 @@ type WorkingTime {
   timeSlotId: String!
   minutes: Int
 
-  """Reads a single `Mechanic` that is related to this `WorkingTime`."""
+  """
+  Reads a single `Mechanic` that is related to this `WorkingTime`.
+  """
   mechanic: Mechanic
 
-  """Reads a single `TimeSlot` that is related to this `WorkingTime`."""
+  """
+  Reads a single `TimeSlot` that is related to this `WorkingTime`.
+  """
   timeSlot: TimeSlot
 
   """
   Reads and enables pagination through a set of `VMechanicTimeSlotsNext90Day`.
   """
   vMechanicTimeSlotsNext90Days(
-    """Only read the first `n` values of the set."""
+    """
+    Only read the first `n` values of the set.
+    """
     first: Int
 
-    """Only read the last `n` values of the set."""
+    """
+    Only read the last `n` values of the set.
+    """
     last: Int
 
     """
@@ -3989,13 +5368,19 @@ type WorkingTime {
     """
     offset: Int
 
-    """Read all values in the set before (above) this cursor."""
+    """
+    Read all values in the set before (above) this cursor.
+    """
     before: Cursor
 
-    """Read all values in the set after (below) this cursor."""
+    """
+    Read all values in the set after (below) this cursor.
+    """
     after: Cursor
 
-    """The method to use when ordering `VMechanicTimeSlotsNext90Day`."""
+    """
+    The method to use when ordering `VMechanicTimeSlotsNext90Day`.
+    """
     orderBy: [VMechanicTimeSlotsNext90DaysOrderBy!] = [PRIMARY_KEY_ASC]
   ): VMechanicTimeSlotsNext90DaysConnection!
 }
@@ -4005,10 +5390,14 @@ A condition to be used against `WorkingTime` object types. All fields are tested
 for equality and combined with a logical ‘and.’
 """
 input WorkingTimeCondition {
-  """Checks for equality with the object’s `mechanicId` field."""
+  """
+  Checks for equality with the object’s `mechanicId` field.
+  """
   mechanicId: UUID
 
-  """Checks for equality with the object’s `timeSlotId` field."""
+  """
+  Checks for equality with the object’s `timeSlotId` field.
+  """
   timeSlotId: String
 }
 
@@ -4016,23 +5405,35 @@ input WorkingTimeCondition {
 A filter to be used against `WorkingTime` object types. All fields are combined with a logical ‘and.’
 """
 input WorkingTimeFilter {
-  """Filter by the object’s `mechanicId` field."""
+  """
+  Filter by the object’s `mechanicId` field.
+  """
   mechanicId: UUIDFilter
 
-  """Filter by the object’s `timeSlotId` field."""
+  """
+  Filter by the object’s `timeSlotId` field.
+  """
   timeSlotId: StringFilter
 
-  """Checks for all expressions in this list."""
+  """
+  Checks for all expressions in this list.
+  """
   and: [WorkingTimeFilter!]
 
-  """Checks for any expressions in this list."""
+  """
+  Checks for any expressions in this list.
+  """
   or: [WorkingTimeFilter!]
 
-  """Negates the expression."""
+  """
+  Negates the expression.
+  """
   not: WorkingTimeFilter
 }
 
-"""An input for mutations affecting `WorkingTime`"""
+"""
+An input for mutations affecting `WorkingTime`
+"""
 input WorkingTimeInput {
   id: UUID
   mechanicId: UUID!
@@ -4050,9 +5451,13 @@ input WorkingTimePatch {
   minutes: Int
 }
 
-"""A connection to a list of `WorkingTime` values."""
+"""
+A connection to a list of `WorkingTime` values.
+"""
 type WorkingTimesConnection {
-  """A list of `WorkingTime` objects."""
+  """
+  A list of `WorkingTime` objects.
+  """
   nodes: [WorkingTime!]!
 
   """
@@ -4060,23 +5465,35 @@ type WorkingTimesConnection {
   """
   edges: [WorkingTimesEdge!]!
 
-  """Information to aid in pagination."""
+  """
+  Information to aid in pagination.
+  """
   pageInfo: PageInfo!
 
-  """The count of *all* `WorkingTime` you could get from the connection."""
+  """
+  The count of *all* `WorkingTime` you could get from the connection.
+  """
   totalCount: Int!
 }
 
-"""A `WorkingTime` edge in the connection."""
+"""
+A `WorkingTime` edge in the connection.
+"""
 type WorkingTimesEdge {
-  """A cursor for use in pagination."""
+  """
+  A cursor for use in pagination.
+  """
   cursor: Cursor
 
-  """The `WorkingTime` at the end of the edge."""
+  """
+  The `WorkingTime` at the end of the edge.
+  """
   node: WorkingTime!
 }
 
-"""Methods to use when ordering `WorkingTime`."""
+"""
+Methods to use when ordering `WorkingTime`.
+"""
 enum WorkingTimesOrderBy {
   NATURAL
   MECHANIC_ID_ASC

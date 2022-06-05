@@ -9,6 +9,7 @@
 export interface AllMechanics_mechanics_nodes {
   id: any;
   fullName: string;
+  nodeId: string;
 }
 
 export interface AllMechanics_mechanics {

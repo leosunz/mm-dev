@@ -30,6 +30,7 @@ export interface Mechanic_mechanic_mechanicJobs {
 
 export interface Mechanic_mechanic {
   id: any;
+  nodeId?: string;
   geohashes: (string | null)[];
   fullName: string;
   email: string | null;
@@ -40,6 +41,7 @@ export interface Mechanic_mechanic {
    * Reads and enables pagination through a set of `MechanicJob`.
    */
   mechanicJobs: Mechanic_mechanic_mechanicJobs;
+  mechanicJobsByMechanicId?: Mechanic_mechanic_mechanicJobs;
 }
 
 export interface Mechanic {

@@ -60,6 +60,11 @@ declare namespace GQL {
     jobs: IJobsConnection | null;
 
     /**
+     * Reads and enables pagination through a set of `Job`.
+     */
+    allJobs: IJobsConnection | null;
+
+    /**
      * Reads and enables pagination through a set of `LogClientError`.
      */
     logClientErrors: ILogClientErrorsConnection | null;
@@ -326,6 +331,49 @@ declare namespace GQL {
   }
 
   interface IJobsOnQueryArguments {
+    /**
+     * Only read the first `n` values of the set.
+     */
+    first?: number | null;
+
+    /**
+     * Only read the last `n` values of the set.
+     */
+    last?: number | null;
+
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor based pagination. May not be used with `last`.
+     */
+    offset?: number | null;
+
+    /**
+     * Read all values in the set before (above) this cursor.
+     */
+    before?: any | null;
+
+    /**
+     * Read all values in the set after (below) this cursor.
+     */
+    after?: any | null;
+
+    /**
+     * The method to use when ordering `Job`.
+     * @default ["PRIMARY_KEY_ASC"]
+     */
+    orderBy?: Array<JobsOrderBy> | null;
+
+    /**
+     * A condition to be used in determining which values should be returned by the collection.
+     */
+    condition?: IJobCondition | null;
+
+    /**
+     * A filter to be used in determining which values should be returned by the collection.
+     */
+    filter?: IJobFilter | null;
+  }
+
+  interface IAllJobsOnQueryArguments {
     /**
      * Only read the first `n` values of the set.
      */

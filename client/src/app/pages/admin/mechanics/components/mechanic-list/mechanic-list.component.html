@@ -10,7 +10,7 @@
   <mat-list-item *ngFor="let mechanic of mechanics">
     <a
       [routerLink]="PATHS.adminMechanicDetails.routerLink"
-      [queryParams]="{ mechId: mechanic.id }"
+      [queryParams]="{ mechId: mechanic.nodeId }"
       mat-button
       routerLinkActive
       #rla="routerLinkActive"

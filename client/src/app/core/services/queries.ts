@@ -1,8 +1,8 @@
 import gql from 'graphql-tag';
 
 export const MECHANIC = gql`
-  query Mechanic($mechanicId: UUID!) {
-    mechanic(id: $mechanicId) {
+  query Mechanic($mechanicId: ID!) {
+    mechanic(nodeId: $mechanicId) {
       id
       geohashes
       fullName
@@ -10,15 +10,10 @@ export const MECHANIC = gql`
       address
       phone
       travelTimeMinutes
-      mechanicJobs {
+      mechanicJobsByMechanicId {
         nodes {
           id
           jobId
-          job {
-            description
-            id
-            minutesToComplete
-          }
         }
       }
     }
@@ -26,10 +21,10 @@ export const MECHANIC = gql`
 `;
 
 export const MECHANIC_TIME_SLOTS_NEXT90_DAYS = gql`
-  query MechanicTimeSlotsNext90Days($id: UUID!) {
-    mechanic(id: $id) {
+  query MechanicTimeSlotsNext90Days($id: ID!) {
+    mechanic(nodeId: $id) {
       id
-      timeSlots: vMechanicTimeSlotsNext90Days {
+      timeSlots: vMechanicTimeSlotsNext90DaysByMechanicId {
         totalCount
         nodes {
           id
@@ -74,6 +69,7 @@ export const ALL_MECHANICS = gql`
       nodes {
         id
         fullName
+        nodeId
       }
     }
   }
@@ -99,7 +95,7 @@ export const ALL_TIME_SLOTS_BETWEEN = gql`
 
 export const ALL_JOBS = gql`
   query AllJobs {
-    jobs {
+    allJobs {
       nodes {
         description
         id

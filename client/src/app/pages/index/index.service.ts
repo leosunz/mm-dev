@@ -24,7 +24,7 @@ export class IndexService {
   selectedJobs = new BehaviorSubject<Job[]>(null);
   allJobs = this.dbService
     .allJobs()
-    .pipe(map(result => result.data.jobs.nodes));
+    .pipe(map(result => result.data.allJobs.nodes));
 
   selectedTimeSlotMechanic = new BehaviorSubject<TimeSlotMechanic>(null);
   selectableMechanics = new BehaviorSubject<TimeSlot>(null);

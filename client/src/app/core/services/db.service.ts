@@ -47,9 +47,10 @@ import IQuery = GQL.IQuery;
 export class DbService {
   constructor(private apollo: Apollo) {}
 
-  allJobs(): Observable<ApolloQueryResult<Pick<IQuery, 'jobs'>>> {
+  allJobs(): Observable<ApolloQueryResult<Pick<IQuery, 'allJobs'>>> {
     const query = ALL_JOBS;
-    return this.apollo.watchQuery<Pick<IQuery, 'jobs'>>({ query }).valueChanges;
+    return this.apollo.watchQuery<Pick<IQuery, 'allJobs'>>({ query })
+      .valueChanges;
   }
 
   getAllTimeSlotsBetween(variables: AllTimeSlotsBetweenVariables) {
@@ -73,6 +74,7 @@ export class DbService {
             const m: Partial<Mechanic> = {
               fullName: mq.fullName,
               id: mq.id,
+              nodeId: mq.nodeId,
             };
             console.log('m', m);
             return m;

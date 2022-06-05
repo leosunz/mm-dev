@@ -31,7 +31,7 @@ export class AdminBookTimeComponent implements OnInit {
   page = 0;
   allJobs$ = this.dbService
     .allJobs()
-    .pipe(map(result => result.data.jobs.nodes));
+    .pipe(map(result => result.data.allJobs.nodes));
 
   location = new BehaviorSubject<LocationExtended>(null);
   address: string;

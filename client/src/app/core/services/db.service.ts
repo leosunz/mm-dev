@@ -38,7 +38,7 @@ import {
   SET_GEOHASHES,
   UPDATE_WORKING_TIME,
 } from './mutations';
-import { SetGeohashesVariables } from './types/setGeohashes';
+import { SetGeohashesVariables } from './types/SetGeohashes';
 import IQuery = GQL.IQuery;
 
 @Injectable({

@@ -63,7 +63,7 @@ export class DbService {
   }
 
   allMechanics(): Observable<Partial<Mechanic>[]> {
-    console.log('inside::::');
+    console.log('allMechanics::::');
     return this.apollo
       .watchQuery<AllMechanics>({
         query: ALL_MECHANICS,

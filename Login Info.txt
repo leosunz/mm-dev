@@ -1,4 +1,4 @@
-[AWS Login]
+[AWS IAM Login]
 Account ID: 252211226590
 username: andri.dev
 password: Mymechanic25@

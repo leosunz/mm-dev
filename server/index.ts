@@ -63,7 +63,7 @@ if (process.env.NODE_ENV === "production") {
 const { exec } = require("child_process");
 exec(
   "postgraphile  \
-  --connection postgres://whilpvecvuavfb:28e6b0f3ca8aa57d36ac79fdaa68bf5a3ad6c3c582212fc46d5c081a1c36b36a@localhost/d3um81ot2lldbi?sslmode=require --schema app_public --watch --cors",
+  --connection postgres://whilpvecvuavfb:28e6b0f3ca8aa57d36ac79fdaa68bf5a3ad6c3c582212fc46d5c081a1c36b36a@ec2-52-212-228-71.eu-west-1.compute.amazonaws.com/d3um81ot2lldbi?sslmode=require --schema app_public --watch --cors",
   (err, stdout, stderr) => {
     if (err) {
       // node couldn't execute the command

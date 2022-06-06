@@ -1,8 +1,8 @@
 import bodyParser = require("body-parser");
 const express = require("express");
-// const { postgraphile } = require("postgraphile");
+const { postgraphile } = require("postgraphile");
 // const { NodePlugin } = require("graphile-build");
-// const ConnectionFilterPlugin = require("postgraphile-plugin-connection-filter");
+const ConnectionFilterPlugin = require("postgraphile-plugin-connection-filter");
 const enforce = require("express-sslify");
 
 // import * as postgraphile_tags from "./postgraphile-tags";
@@ -13,45 +13,45 @@ if (process.env.NODE_ENV === "production") {
   app.use(enforce.HTTPS({ trustProtoHeader: true }));
 }
 
-// const config = {
+const config = {
 // Reads from pm2.config.js ENVs - or /script/env_dev.sh
-// user: process.env.SQL_USER,
-// password: process.env.SQL_PASSWORD,
-// database: process.env.SQL_DATABASE,
-// host: process.env.SQL_HOST,
-// port: +process.env.SQL_PORT,
-// firebaseProject: process.env.FIREBASE_PROJECT,
-// };
-// console.log("Running as user: " + config.user);
-// console.log("Running as pwd: " + config.password.substring(0, 4) + "*****");
-// console.log("Running on db: " + config.database);
-// console.log("Running on db: " + config.database);
+  user: process.env.SQL_USER,
+  password: process.env.SQL_PASSWORD,
+  database: process.env.SQL_DATABASE,
+  host: process.env.SQL_HOST,
+  port: +process.env.SQL_PORT,
+  firebaseProject: process.env.FIREBASE_PROJECT,
+};
+console.log("Running as user: " + config.user);
+console.log("Running as pwd: " + config.password.substring(0, 4) + "*****");
+console.log("Running on db: " + config.database);
+console.log("Running on db: " + config.database);
 
-// const opts = {
-//   subscriptions: true,
-//   watchPg: true,
-//   dynamicJson: true,
-//   setofFunctionsContainNulls: false,
-//   ignoreRBAC: false,
-//   ignoreIndexes: false,
-//   showErrorStack: true,
+const opts = {
+  subscriptions: true,
+  watchPg: true,
+  dynamicJson: true,
+  setofFunctionsContainNulls: false,
+  ignoreRBAC: false,
+  ignoreIndexes: false,
+  showErrorStack: true,
 
-//   extendedErrors: ["hint", "detail", "errcode"],
-//   // skipPlugins: [NodePlugin],
-//   skipPlugins: [],
-//   appendPlugins: [
-//     require("@graphile-contrib/pg-simplify-inflector"),
-//     ConnectionFilterPlugin,
-//     postgraphile_tags,
-//   ],
-//   exportJsonSchemaPath: "schema.json",
-//   exportGqlSchemaPath: "schema.graphql",
-//   graphiql: true,
-//   enhanceGraphiql: true,
-//   enableQueryBatching: true,
-// };
-// console.log(opts);
-// app.use(postgraphile(config, "app_public", opts));
+  extendedErrors: ["hint", "detail", "errcode"],
+  // skipPlugins: [NodePlugin],
+  skipPlugins: [],
+  appendPlugins: [
+    require("@graphile-contrib/pg-simplify-inflector"),
+    ConnectionFilterPlugin,
+    // postgraphile_tags,
+  ],
+  exportJsonSchemaPath: "schema.json",
+  exportGqlSchemaPath: "schema.graphql",
+  graphiql: true,
+  enhanceGraphiql: true,
+  enableQueryBatching: true,
+};
+console.log(opts);
+app.use(postgraphile(config, "app_public", opts));
 // app.use(
 //   postgraphile(config, "app_public", {
 // appendPlugins: [ConnectionFilterPlugin],
@@ -60,21 +60,22 @@ if (process.env.NODE_ENV === "production") {
 //     enhanceGraphiql: true,
 //   })
 // );
-const { exec } = require("child_process");
-exec(
-  "postgraphile  \
-  --connection postgres://whilpvecvuavfb:28e6b0f3ca8aa57d36ac79fdaa68bf5a3ad6c3c582212fc46d5c081a1c36b36a@ec2-52-212-228-71.eu-west-1.compute.amazonaws.com/d3um81ot2lldbi?sslmode=require --schema app_public --watch --cors",
-  (err, stdout, stderr) => {
-    if (err) {
-      // node couldn't execute the command
-      return;
-    }
 
-    // the *entire* stdout and stderr (buffered)
-    console.log(`stdout: ${stdout}`);
-    console.log(`stderr: ${stderr}`);
-  }
-);
+// const { exec } = require("child_process");
+// exec(
+//   "postgraphile  \
+//   --connection postgres://postgres:aBPosaBzg1tr#23%5@ec2-52-212-228-71.eu-central-1.rds.amazonaws.com/mm-pre-v1?ssl=true --schema app_public --watch --cors",
+//   (err, stdout, stderr) => {
+//     if (err) {
+//       // node couldn't execute the command
+//       return;
+//     }
+
+//     // the *entire* stdout and stderr (buffered)
+//     console.log(`stdout: ${stdout}`);
+//     console.log(`stderr: ${stderr}`);
+//   }
+// );
 app.use(express.static(__dirname + "/client"));
 app.use("/*", express.static(__dirname + "/client"));
 

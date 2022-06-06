@@ -1,12 +1,12 @@
 module.exports = {
   flywayArgs: {
     // url: 'jdbc:postgresql://starlingvalue.cpopt0azy0yu.us-east-2.rds.amazonaws.com/mm_pre',
-    // url: 'jdbc:postgresql://mm-pre.ckgz3swfgcbm.eu-central-1.rds.amazonaws.com/mm-pre',
-    url: 'jdbc:postgresql://ec2-52-212-228-71.eu-west-1.compute.amazonaws.com:5432/d3um81ot2lldbi?sslmode=require',
+    url: 'jdbc:postgresql://mm-pre-v1.cea22jn08dga.eu-central-1.rds.amazonaws.com/mm-pre-v1',
+    // url: 'jdbc:postgresql://ec2-52-212-228-71.eu-west-1.compute.amazonaws.com:5432/d3um81ot2lldbi?sslmode=require',
     schemas: 'app_public',
     locations: 'filesystem:mm-sql-migrations/',
-    user: 'whilpvecvuavfb',
-    password: '28e6b0f3ca8aa57d36ac79fdaa68bf5a3ad6c3c582212fc46d5c081a1c36b36a',
+    user: 'postgres',
+    password: 'aBPosaBzg1tr#23%5',
   },
   // Use to configure environment variables used by flyway
   env: {

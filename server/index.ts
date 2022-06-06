@@ -13,45 +13,45 @@ if (process.env.NODE_ENV === "production") {
   app.use(enforce.HTTPS({ trustProtoHeader: true }));
 }
 
-const config = {
-// Reads from pm2.config.js ENVs - or /script/env_dev.sh
-  user: process.env.SQL_USER,
-  password: process.env.SQL_PASSWORD,
-  database: process.env.SQL_DATABASE,
-  host: process.env.SQL_HOST,
-  port: +process.env.SQL_PORT,
-  firebaseProject: process.env.FIREBASE_PROJECT,
-};
-console.log("Running as user: " + config.user);
-console.log("Running as pwd: " + config.password.substring(0, 4) + "*****");
-console.log("Running on db: " + config.database);
-console.log("Running on db: " + config.database);
+// const config = {
+// // Reads from pm2.config.js ENVs - or /script/env_dev.sh
+//   user: process.env.SQL_USER,
+//   password: process.env.SQL_PASSWORD,
+//   database: process.env.SQL_DATABASE,
+//   host: process.env.SQL_HOST,
+//   port: +process.env.SQL_PORT,
+//   firebaseProject: process.env.FIREBASE_PROJECT,
+// };
+// console.log("Running as user: " + config.user);
+// console.log("Running as pwd: " + config.password.substring(0, 4) + "*****");
+// console.log("Running on db: " + config.database);
+// console.log("Running on db: " + config.database);
 
-const opts = {
-  subscriptions: true,
-  watchPg: true,
-  dynamicJson: true,
-  setofFunctionsContainNulls: false,
-  ignoreRBAC: false,
-  ignoreIndexes: false,
-  showErrorStack: true,
+// const opts = {
+//   subscriptions: true,
+//   watchPg: true,
+//   dynamicJson: true,
+//   setofFunctionsContainNulls: false,
+//   ignoreRBAC: false,
+//   ignoreIndexes: false,
+//   showErrorStack: true,
 
-  extendedErrors: ["hint", "detail", "errcode"],
-  // skipPlugins: [NodePlugin],
-  skipPlugins: [],
-  appendPlugins: [
-    require("@graphile-contrib/pg-simplify-inflector"),
-    ConnectionFilterPlugin,
-    // postgraphile_tags,
-  ],
-  exportJsonSchemaPath: "schema.json",
-  exportGqlSchemaPath: "schema.graphql",
-  graphiql: true,
-  enhanceGraphiql: true,
-  enableQueryBatching: true,
-};
-console.log(opts);
-app.use(postgraphile(config, "app_public", opts));
+//   extendedErrors: ["hint", "detail", "errcode"],
+//   // skipPlugins: [NodePlugin],
+//   skipPlugins: [],
+//   appendPlugins: [
+//     require("@graphile-contrib/pg-simplify-inflector"),
+//     ConnectionFilterPlugin,
+//     // postgraphile_tags,
+//   ],
+//   exportJsonSchemaPath: "schema.json",
+//   exportGqlSchemaPath: "schema.graphql",
+//   graphiql: true,
+//   enhanceGraphiql: true,
+//   enableQueryBatching: true,
+// };
+// console.log(opts);
+// app.use(postgraphile(config, "app_public", opts));
 // app.use(
 //   postgraphile(config, "app_public", {
 // appendPlugins: [ConnectionFilterPlugin],
@@ -61,21 +61,21 @@ app.use(postgraphile(config, "app_public", opts));
 //   })
 // );
 
-// const { exec } = require("child_process");
-// exec(
-//   "postgraphile  \
-//   --connection postgres://postgres:aBPosaBzg1tr#23%5@ec2-52-212-228-71.eu-central-1.rds.amazonaws.com/mm-pre-v1?ssl=true --schema app_public --watch --cors",
-//   (err, stdout, stderr) => {
-//     if (err) {
-//       // node couldn't execute the command
-//       return;
-//     }
+const { exec } = require("child_process");
+exec(
+  "postgraphile  \
+  --connection postgres://postgres:aBPosaBzg1tr#23%5@mm-pre.cea22jn08dga.eu-central-1.rds.amazonaws.com/mmpredb?ssl=true --schema app_public --watch --cors",
+  (err, stdout, stderr) => {
+    if (err) {
+      // node couldn't execute the command
+      return;
+    }
 
-//     // the *entire* stdout and stderr (buffered)
-//     console.log(`stdout: ${stdout}`);
-//     console.log(`stderr: ${stderr}`);
-//   }
-// );
+    // the *entire* stdout and stderr (buffered)
+    console.log(`stdout: ${stdout}`);
+    console.log(`stderr: ${stderr}`);
+  }
+);
 app.use(express.static(__dirname + "/client"));
 app.use("/*", express.static(__dirname + "/client"));
 

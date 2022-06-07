@@ -14,7 +14,7 @@
     "dev:flyway": "flyway -c conf/local-flyway.conf.js migrate",
     "dev:flyway:repair": "flyway -c conf/local-flyway.conf.js repair",
     "pre:start": "node ./server/dist/pre/index.js",
-    "build": "npm install postgraphile --global && npm run flyway:migrate && npm run build:2",
+    "build": "npm run flyway:migrate && npm run build:2",
     "build:2": "(cd client && ng build --configuration=\"production\" --output-path ../server/dist/pre/client) && (cd server && tsc --outDir ../server/dist/pre)",
     "flyway:migrate": "flyway  -c conf/flyway-pre.conf.js migrate",
     "test": "echo \"Error: no test specified\" && exit 1",

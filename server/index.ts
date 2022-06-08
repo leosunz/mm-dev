@@ -5,8 +5,6 @@ const { postgraphile } = require("postgraphile");
 const ConnectionFilterPlugin = require("postgraphile-plugin-connection-filter");
 const enforce = require("express-sslify");
 
-require('dotenv').config();
-
 // import * as postgraphile_tags from "./postgraphile-tags";
 const app = express();
 app.use(bodyParser.json());
@@ -62,7 +60,12 @@ if (process.env.NODE_ENV === "production") {
 //     enhanceGraphiql: true,
 //   })
 // );
-const db_url = process.env.DB_URL;
+
+const db_url = 
+  process.env.NODE_ENV === "production" ? 
+    "postgres://postgres:aaksBakwy23@mm-pre.cea22jn08dga.eu-central-1.rds.amazonaws.com/mmpredb" : 
+    "postgres://postgres:postgres@localhost/mmpredb";
+    
 console.log('DB_URL => ', db_url);
 const { exec } = require("child_process");
 exec(

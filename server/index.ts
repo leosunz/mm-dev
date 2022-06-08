@@ -5,6 +5,8 @@ const { postgraphile } = require("postgraphile");
 const ConnectionFilterPlugin = require("postgraphile-plugin-connection-filter");
 const enforce = require("express-sslify");
 
+require('dotenv').config();
+
 // import * as postgraphile_tags from "./postgraphile-tags";
 const app = express();
 app.use(bodyParser.json());

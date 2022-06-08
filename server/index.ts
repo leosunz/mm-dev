@@ -12,7 +12,7 @@ const app = express();
 app.use(bodyParser.json());
 
 if (process.env.NODE_ENV === "production") {
-  // app.use(enforce.HTTPS({ trustProtoHeader: true }));
+  app.use(enforce.HTTPS({ trustProtoHeader: true }));
 }
 
 const db_url = 

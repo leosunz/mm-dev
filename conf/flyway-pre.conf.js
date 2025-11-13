@@ -5,7 +5,7 @@ module.exports = {
     schemas: 'app_public',
     locations: 'filesystem:mm-sql-migrations/',
     user: 'postgres',
-    password: 'aaksBakwy23',
+    password: '',
   },
   // Use to configure environment variables used by flyway
   env: {
